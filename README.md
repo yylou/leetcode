@@ -12,7 +12,7 @@
 **`Runtime`** 8ms (*99.73%*) &nbsp;\|&nbsp;
 **`Mem Usage`** 13.6 MB (*37.70%*)
 
-* [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) ---
+[104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) ---
 **`Runtime`** 24ms (*95.24%*) &nbsp;\|&nbsp;
 **`Mem Usage`** 15.9 MB (*92.41%*)
 
