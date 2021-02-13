@@ -1,6 +1,6 @@
 # leetcode-problem-solving
 
-| Problem | **`Runtime`** | **`Mem Usage`** |
+| **`Problem`** | **`Runtime`** | **`Mem Usage`** |
 | :------------- | :------------- | :-----|
 | [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | 36ms (*95.77%*) | 13.7 MB (*73.48%*) |
 | [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/) | 40ms (*93.69%*) | 13.2 MB (*90.79%*) |
