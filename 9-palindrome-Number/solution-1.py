@@ -5,9 +5,10 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
-        ##  edge case handling: [1-9]
+        ##  edge case handling: [1-9], 10/100/1000/...
         if x < 0 : return False
         if x < 10 : return True
+        if x != 0 and x % 10 == 0 : return False
 
         str_num = str( x )
         length = len( str_num )
