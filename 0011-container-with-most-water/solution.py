@@ -11,8 +11,8 @@ class Solution(object):
         front, back = 0, length -1
         ret_value = 0
 
-        ##  start from the right-most and left-most since 'WIDTH' is more important than 'HEIGHT DIFFERENCE'
-        ##  move the pointer with the smaller height
+        ##  searching for the HEIGHTest elements costs, instead, WIDTH is also an equally important metric.
+        ##  Therefore, using two pointers starting from the right-most and left-most respectively (WIDEST)
         while front < back :
             if height[front] < height[back] :
                 area = ( back-front ) * height[front]
