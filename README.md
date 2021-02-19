@@ -10,8 +10,10 @@
 | [15. 3Sum](https://leetcode.com/problems/3sum/) | 528 ms (*96.39%*) | 16.9 MB (*38.27%*) | Medium |
 | [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | 12 ms (*98.94%*) | 13.3 MB (*72.36%*) | Medium |
 | [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | 8 ms (*99.73%*) | 13.6 MB (*37.70%*) | Easy |
+| [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/) | 76 ms (*95.44%*) | 17.1 MB (*94.93%*) | Medium |
 | [72. Edit Distance](https://leetcode.com/problems/edit-distance/) | 88 ms (*98.31%*) | 16.6 MB (*84.05%*) | Hard |
 | [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) | 28 ms (*99.63%*) | 13.3 MB (*97.40%*) | Medium |
 | [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | 24 ms (*95.24%*) | 15.9 MB (*92.41%*) | Easy |
 | [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | 112 ms (*99.40%*) | 29.6 MB (*93.89%*) | Medium |
+| [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/) | 28 ms (*97.78%*) | 14.4 MB (*47.96%*) | Easy |
 
