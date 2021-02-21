@@ -19,5 +19,6 @@
 | [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | 16 ms (*98.94%*) | 15.4 MB (*80.06%*) | Easy |
 | [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | 112 ms (*99.40%*) | 29.6 MB (*93.89%*) | Medium |
 | [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/) | 28 ms (*97.78%*) | 14.4 MB (*47.96%*) | Easy |
+| [344. Reverse String](https://leetcode.com/problems/reverse-string/) | 152 ms (*98.00%*) | 21.2 MB (*57.89%*) | Easy |
 | [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | 72 ms (*98.73%*) | 14.1 MB (*96.90%*) | Medium |
 | [567. Permutation in String](https://leetcode.com/problems/permutation-in-string/) | 36 ms (*99.82%*) | 13.7 MB (*85.19%*) | Medium |
