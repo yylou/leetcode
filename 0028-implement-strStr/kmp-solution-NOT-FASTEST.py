@@ -16,7 +16,7 @@ class Solution(object):
                     jumpCounter += 1
                     moveCounter += 1
                 else :
-                    ## JUMP to the previous equal substring index
+                    ## JUMP --> to the index of previously same substring
                     if jumpCounter != 0 :
                         jumpCounter = lps[jumpCounter-1]
 
@@ -47,7 +47,7 @@ class Solution(object):
                 jumpCounter += 1
                 moveCounter += 1
             else :
-                ## JUMP to the previous equal substring index, instead of starting from the begining
+                ## JUMP --> to the index of the previously same substring, instead of starting from the begining
                 if jumpCounter != 0 :
                     jumpCounter = arrayLPS[jumpCounter-1]
 
