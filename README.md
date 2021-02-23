@@ -26,3 +26,4 @@
 | [344. Reverse String](https://leetcode.com/problems/reverse-string/) | 152 ms (*98.00%*) | 21.2 MB (*57.89%*) | Easy |
 | [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | 72 ms (*98.73%*) | 14.1 MB (*96.90%*) | Medium |
 | [567. Permutation in String](https://leetcode.com/problems/permutation-in-string/) | 36 ms (*99.82%*) | 13.7 MB (*85.19%*) | Medium |
+| [589. N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/) | 32 ms (*98.74%*) | 16.4 MB (*75.58%*) | Easy |
