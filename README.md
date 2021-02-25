@@ -6,6 +6,7 @@
 | [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | 36 ms (*95.77%*) | 13.7 MB (*73.48%*) | Medium |
 | [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | 68 ms (*88.56%*) | 13.6 MB (*79.10%*) | Hard |
 | [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/) | 16 ms (*88.67%*) | 13.3 MB (*90.96%*) | Easy |
+| [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | | | |
 | [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/) | 40ms (*93.69%*) | 13.2 MB (*90.79%*) | Easy |
 | [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | 116 ms (*99.87%*) | 15.4 MB (*43.03%*) | Medium |
 | [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | 36 ms (*96.92%*) | 13.5 MB (*40.26%*) | Easy |
