@@ -49,3 +49,9 @@ class Solution(object):
         recursive(root, retVal)
 
         return retVal
+    
+        ##  ==================================================================================  ##
+
+        ##  (3) recursive solution
+        return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
+    
