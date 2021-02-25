@@ -6,11 +6,12 @@
 | [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | 36 ms (*95.77%*) | 13.7 MB (*73.48%*) | Medium |
 | [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | 68 ms (*88.56%*) | 13.6 MB (*79.10%*) | Hard |
 | [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/) | 16 ms (*88.67%*) | 13.3 MB (*90.96%*) | Easy |
-| [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | | | |
+| [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | | | Medium |
 | [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/) | 40ms (*93.69%*) | 13.2 MB (*90.79%*) | Easy |
 | [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | 116 ms (*99.87%*) | 15.4 MB (*43.03%*) | Medium |
 | [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | 36 ms (*96.92%*) | 13.5 MB (*40.26%*) | Easy |
 | [15. 3Sum](https://leetcode.com/problems/3sum/) | 528 ms (*96.39%*) | 16.9 MB (*38.27%*) | Medium |
+| [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | | | Medium |
 | [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | 12 ms (*98.94%*) | 13.3 MB (*72.36%*) | Medium |
 | [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | 8 ms (*99.73%*) | 13.6 MB (*37.70%*) | Easy |
 | [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | 16 ms (*94.49%*) | 13.6 MB (*90.25%*) | Medium |
