@@ -1,4 +1,3 @@
-##  two pointers solution with reduced calculation
 class Solution(object):
     def maxArea(self, height):
         """
@@ -10,6 +9,8 @@ class Solution(object):
 
         front, back = 0, length -1
         ret_value = 0
+
+        ##  Solution: Two pointers with reduced calculation
 
         ##  searching for the HEIGHTest elements costs, instead, WIDTH is also an equally important metric.
         ##  Therefore, using two pointers starting from the right-most and left-most respectively (WIDEST)
