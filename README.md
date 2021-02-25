@@ -14,6 +14,7 @@
 | [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | | | Medium |
 | [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | 12 ms (*98.94%*) | 13.3 MB (*72.36%*) | Medium |
 | [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | 8 ms (*99.73%*) | 13.6 MB (*37.70%*) | Easy |
+| [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | | | Easy |
 | [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | 16 ms (*94.49%*) | 13.6 MB (*90.25%*) | Medium |
 | [28. Implement strStr()](https://leetcode.com/problems/implement-strstr/) | 12 ms (*97.47%*) | 13.5 MB (*99.75%*) | Easy |
 | [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/) | 76 ms (*95.44%*) | 17.1 MB (*94.93%*) | Medium |
