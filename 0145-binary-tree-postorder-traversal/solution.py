@@ -72,3 +72,9 @@ class Solution(object):
         recursive(root, retVal)
 
         return retVal
+
+        ##  ==================================================================================  ##
+
+        ##  (3) recursive solution
+        return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
+        
