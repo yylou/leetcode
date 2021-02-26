@@ -60,6 +60,7 @@ class Solution(object):
         for index, value in enumerate(inorder):
             hashTable[value] = index
 
+        ##  ROOT = FIRST element in preorder
         root = TreeNode(preorder[0])
         recursive(root.val, root, 0, lengthP, 0, lengthI)
 
