@@ -22,11 +22,11 @@
 | [72. Edit Distance](https://leetcode.com/problems/edit-distance/) | 88 ms (*98.31%*) | 16.6 MB (*84.05%*) | Hard |
 | [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) | 28 ms (*99.63%*) | 13.3 MB (*97.40%*) | Medium |
 | [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | 12 ms (*95.43%*) | 13.3 MB (*79.67%*) | Medium |
-| [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) | | | Medium |
+| [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) | 8 ms (*99.81%*) | 13.8 MB (*70.08%*) | Medium |
 | [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | 24 ms (*95.24%*) | 15.9 MB (*92.41%*) | Easy |
-| [105. Construct Binary Tree from Preorder and Inorder](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | | | Medium |
-| [106. Construct Binary Tree from Inorder and Postorder](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | | | Medium |
-| [107. Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal/) | | | Medium |
+| [105. Construct Binary Tree from Preorder and Inorder](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 36 ms (*99.21%*) | 18.8 MB (*69.33%*) | Medium |
+| [106. Construct Binary Tree from Inorder and Postorder](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | 32 ms (*99.67%*) | 19 MB (*60.46%*) | Medium |
+| [107. Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal/) | 12 ms (*99.30%*) | 13.7 MB (*72.64%*) | Medium |
 | [144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.93%*) | 13.3 MB (*95.41%*) | Medium |
 | [145. Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.91%*) | 13.3 MB (*96.64%*) | Medium |
 | [189. Rotate Array](https://leetcode.com/problems/rotate-array/) | 36 ms (*99.48%*) | 13.8 MB (*86.25%*) | Medium |
@@ -34,7 +34,7 @@
 | [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | 112 ms (*99.40%*) | 29.6 MB (*93.89%*) | Medium |
 | [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/) | 28 ms (*97.78%*) | 14.4 MB (*47.96%*) | Easy |
 | [344. Reverse String](https://leetcode.com/problems/reverse-string/) | 152 ms (*98.00%*) | 21.2 MB (*57.89%*) | Easy |
-| [429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) | | | Medium |
+| [429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) | 32 ms (*98.53%*) | 16.3 MB (*96.69%*) | Medium |
 | [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | 72 ms (*98.73%*) | 14.1 MB (*96.90%*) | Medium |
 | [567. Permutation in String](https://leetcode.com/problems/permutation-in-string/) | 36 ms (*99.82%*) | 13.7 MB (*85.19%*) | Medium |
 | [589. N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/) | 32 ms (*98.74%*) | 16.4 MB (*75.58%*) | Easy |
