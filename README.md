@@ -12,6 +12,7 @@
 | [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/) | 40ms (*93.69%*) | 13.2 MB (*90.79%*) | Easy |
 | [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | 116 ms (*99.87%*) | 15.4 MB (*43.03%*) | Medium |
 | [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/) | 24 ms (*98.65%*) | 13.4 MB (*71.88%*) | Medium |
+| [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | 24 ms (*98.78%*) | 13.4 MB (*87.19%*) | Easy |
 | [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | 36 ms (*96.92%*) | 13.5 MB (*40.26%*) | Easy |
 | [15. 3Sum](https://leetcode.com/problems/3sum/) | 528 ms (*96.39%*) | 16.9 MB (*38.27%*) | Medium |
 | [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | 12 ms (*95.75%*) | 13.3 MB (*92.81%*) | Medium |
