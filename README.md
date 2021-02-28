@@ -6,6 +6,7 @@
 | [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | 52 ms (*94.00%*) | 13.6 MB (*45.02%*) | Medium |
 | [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | 36 ms (*95.77%*) | 13.7 MB (*73.48%*) | Medium |
 | [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | 68 ms (*88.56%*) | 13.6 MB (*79.10%*) | Hard |
+| [6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/) | 36 ms (*97.43%*) | 13.5 MB (*96.37%*) | Medium |
 | [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/) | 16 ms (*88.67%*) | 13.3 MB (*90.96%*) | Easy |
 | [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | 20 ms (*84.74%*) | 13.4 MB (*96.79*) | Medium |
 | [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/) | 40ms (*93.69%*) | 13.2 MB (*90.79%*) | Easy |
