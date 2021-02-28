@@ -8,7 +8,7 @@
 | [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | 68 ms (*88.56%*) | 13.6 MB (*79.10%*) | Hard |
 | [6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/) | 36 ms (*97.43%*) | 13.5 MB (*96.37%*) | Medium |
 | [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/) | 16 ms (*88.67%*) | 13.3 MB (*90.96%*) | Easy |
-| [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | 20 ms (*84.74%*) | 13.4 MB (*96.79*) | Medium |
+| [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | 20 ms (*84.74%*) | 13.4 MB (*96.79%*) | Medium |
 | [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/) | 40ms (*93.69%*) | 13.2 MB (*90.79%*) | Easy |
 | [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | 116 ms (*99.87%*) | 15.4 MB (*43.03%*) | Medium |
 | [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/) | 24 ms (*98.65%*) | 13.4 MB (*71.88%*) | Medium |
