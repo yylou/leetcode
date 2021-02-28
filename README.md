@@ -3,6 +3,7 @@
 | **`Problem`** | **`Runtime`** | **`Mem Usage`** | **`Level`** |
 | :------------- | :------------- | :----- | :----- |
 | [1. Two Sum](https://leetcode.com/problems/two-sum/) | 28 ms (*93.73%*) | 13.4 MB (*79.11%*) | Easy |
+| [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | 52 ms (*94.00%*) | 13.6 MB (*45.02%*) | Medium |
 | [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | 36 ms (*95.77%*) | 13.7 MB (*73.48%*) | Medium |
 | [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | 68 ms (*88.56%*) | 13.6 MB (*79.10%*) | Hard |
 | [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/) | 16 ms (*88.67%*) | 13.3 MB (*90.96%*) | Easy |
