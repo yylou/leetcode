@@ -21,6 +21,7 @@
 | [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | 16 ms (*98.84%*) | 13.4 MB (*87.61%*) | Easy |
 | [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | 16 ms (*94.49%*) | 13.6 MB (*90.25%*) | Medium |
 | [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) | 56 ms (*98.22%*) | 15.2 MB (*73.19%*) | Easy |
+| [27. Remove Element](https://leetcode.com/problems/remove-element/) | 16 ms (*91.94%*) | 13.3 MB (*91.21%*) | Easy |
 | [28. Implement strStr()](https://leetcode.com/problems/implement-strstr/) | 12 ms (*97.47%*) | 13.5 MB (*99.75%*) | Easy |
 | [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/) | 76 ms (*95.44%*) | 17.1 MB (*94.93%*) | Medium |
 | [72. Edit Distance](https://leetcode.com/problems/edit-distance/) | 88 ms (*98.31%*) | 16.6 MB (*84.05%*) | Hard |
