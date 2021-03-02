@@ -36,6 +36,7 @@
 | [107. Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/) | 12 ms (*99.30%*) | 13.7 MB (*72.64%*) | Medium |
 | [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) | | | Easy |
 | [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/) | | | Easy |
+| [136. Single Number](https://leetcode.com/problems/single-number/) | | | Easy |
 | [144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.93%*) | 13.3 MB (*95.41%*) | Medium |
 | [145. Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.91%*) | 13.3 MB (*96.64%*) | Medium |
 | [189. Rotate Array](https://leetcode.com/problems/rotate-array/) | 36 ms (*99.48%*) | 13.8 MB (*86.25%*) | Medium |
