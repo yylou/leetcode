@@ -25,7 +25,7 @@
 | [28. Implement strStr()](https://leetcode.com/problems/implement-strstr/) | 12 ms (*97.47%*) | 13.5 MB (*99.75%*) | Easy |
 | [29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers/) | 12 ms (*98.81%*) | 13.2 MB (*94.15%*) | Medium |
 | [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/) | 76 ms (*95.44%*) | 17.1 MB (*94.93%*) | Medium |
-| [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/) |  |  | Medium |
+| [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/) | 60 ms (*94.48%*) | 15.6 MB (*97.58%*) | Medium |
 | [66. Plus One](https://leetcode.com/problems/plus-one/) | 16 ms (*91.51%*) | 13.3 MB (*93.81%*) | Easy |
 | [72. Edit Distance](https://leetcode.com/problems/edit-distance/) | 88 ms (*98.31%*) | 16.6 MB (*84.05%*) | Hard |
 | [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) | 28 ms (*99.63%*) | 13.3 MB (*97.40%*) | Medium |
