@@ -41,7 +41,7 @@
 | [144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.93%*) | 13.3 MB (*95.41%*) | Medium |
 | [145. Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.91%*) | 13.3 MB (*96.64%*) | Medium |
 | [189. Rotate Array](https://leetcode.com/problems/rotate-array/) | 36 ms (*99.48%*) | 13.8 MB (*86.25%*) | Medium |
-| [205. Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) |  |  | Easy |
+| [205. Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) | 16 ms (*100%*) | 14.6 MB (*72.09%*) | Easy |
 | [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | 16 ms (*98.94%*) | 15.4 MB (*80.06%*) | Easy |
 | [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | 112 ms (*99.40%*) | 29.6 MB (*93.89%*) | Medium |
 | [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/) | 28 ms (*97.78%*) | 14.4 MB (*47.96%*) | Easy |
