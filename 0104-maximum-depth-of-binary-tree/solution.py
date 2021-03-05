@@ -14,10 +14,12 @@ class Solution(object):
 
         max_depth = 0
 
-        ##  edge case handling
+        ##  (edge case) root node is nullm root has no left and right children node
         if root == None : return 0
         elif root.left == None and root.right == None : return 1
 
+        ##  (Solution 1) Iteratively visit in BFS manner
+        
         ##  put node for visiting into a list
         record = [root]
 
@@ -34,3 +36,9 @@ class Solution(object):
             max_depth += 1
 
         return max_depth
+
+        # ============================================================================== #
+        
+        ##  (Solution 2) Recursively visit in DFS manner and compare the MAX depth (one-liners)
+        return max( self.maxDepth( root.left ) + 1, self.maxDepth( root.right ) + 1 )
+    
