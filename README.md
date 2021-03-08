@@ -46,6 +46,7 @@
 | [205. Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) | 16 ms (*100%*) | 14.6 MB (*72.09%*) | Easy |
 | [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | 16 ms (*98.94%*) | 15.4 MB (*80.06%*) | Easy |
 | [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | 112 ms (*99.40%*) | 29.6 MB (*93.89%*) | Medium |
+| [237. Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/) | 24 ms (*93.31%*) | 13.6 MB (*97.21%*) | Easy |
 | [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/) | 28 ms (*97.78%*) | 14.4 MB (*47.96%*) | Easy |
 | [344. Reverse String](https://leetcode.com/problems/reverse-string/) | 152 ms (*98.00%*) | 21.2 MB (*57.89%*) | Easy |
 | [429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) | 32 ms (*98.53%*) | 16.3 MB (*96.69%*) | Medium |
