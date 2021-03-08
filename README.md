@@ -27,6 +27,7 @@
 | [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | 16 ms (*99.65%*) | 13.7 MB (*43.77%*) | Medium |
 | [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/) | 76 ms (*95.44%*) | 17.1 MB (*94.93%*) | Medium |
 | [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/) | 60 ms (*94.48%*) | 15.6 MB (*97.58%*) | Medium |
+| [57. Merge Intervals](https://leetcode.com/problems/insert-interval/) | 48 ms (*99.79%*) | 16.9 MB (*52.15%*) | Medium |
 | [66. Plus One](https://leetcode.com/problems/plus-one/) | 16 ms (*91.51%*) | 13.3 MB (*93.81%*) | Easy |
 | [72. Edit Distance](https://leetcode.com/problems/edit-distance/) | 88 ms (*98.31%*) | 16.6 MB (*84.05%*) | Hard |
 | [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) | 28 ms (*99.63%*) | 13.3 MB (*97.40%*) | Medium |
