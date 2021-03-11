@@ -44,6 +44,7 @@
 | [136. Single Number](https://leetcode.com/problems/single-number/) | 92 ms (*99.65%*) | 16 MB (*41.70%*) | Easy |
 | [144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.93%*) | 13.3 MB (*95.41%*) | Medium |
 | [145. Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.91%*) | 13.3 MB (*96.64%*) | Medium |
+| [146. LRU Cache](https://leetcode.com/problems/lru-cache/) | | | Medium |
 | [189. Rotate Array](https://leetcode.com/problems/rotate-array/) | 36 ms (*99.48%*) | 13.8 MB (*86.25%*) | Medium |
 | [205. Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) | 16 ms (*100%*) | 14.6 MB (*72.09%*) | Easy |
 | [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | 16 ms (*98.94%*) | 15.4 MB (*80.06%*) | Easy |
