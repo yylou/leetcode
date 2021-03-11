@@ -20,6 +20,7 @@
 | [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | 8 ms (*99.73%*) | 13.6 MB (*37.70%*) | Easy |
 | [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | 16 ms (*98.84%*) | 13.4 MB (*87.61%*) | Easy |
 | [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | 16 ms (*94.49%*) | 13.6 MB (*90.25%*) | Medium |
+| [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | 76 ms (*98.81%*) | 22.3 MB (*39.22%*) | Hard |
 | [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) | 56 ms (*98.22%*) | 15.2 MB (*73.19%*) | Easy |
 | [27. Remove Element](https://leetcode.com/problems/remove-element/) | 16 ms (*91.94%*) | 13.3 MB (*91.21%*) | Easy |
 | [28. Implement strStr()](https://leetcode.com/problems/implement-strstr/) | 12 ms (*97.47%*) | 13.5 MB (*99.75%*) | Easy |
