@@ -25,7 +25,7 @@ class Solution(object):
                 record += s[j + i]
 
                 ##  INNER elements
-                if i != 0 and i != numRows - 1 and j + cycle -i < length :
+                if i != 0 and i != numRows - 1 and j + cycle - i < length :
                     record += s[j + cycle - i]
 
                 j += cycle
