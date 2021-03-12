@@ -22,9 +22,10 @@ class Solution(object):
         for i in range( numRows ) :
             j = 0
             while j+i < length :
+                ##  EDGE elements
                 record += s[j + i]
 
-                ##  INNER elements
+                ##  INNER elements (not first/last row)
                 if i != 0 and i != numRows - 1 and j + cycle - i < length :
                     record += s[j + cycle - i]
 
