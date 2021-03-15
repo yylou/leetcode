@@ -34,7 +34,7 @@
 | [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/) | 60 ms (*94.48%*) | 15.6 MB (*97.58%*) | Medium |
 | [57. Insert Interval](https://leetcode.com/problems/insert-interval/) | 48 ms (*99.79%*) | 16.9 MB (*52.15%*) | Medium |
 | [66. Plus One](https://leetcode.com/problems/plus-one/) | 16 ms (*91.51%*) | 13.3 MB (*93.81%*) | Easy |
-| [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/) | | | Easy |
+| [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/) | 16 ms (*92.93%*) | 13.3 MB (*89.82%*) | Easy |
 | [72. Edit Distance](https://leetcode.com/problems/edit-distance/) | 88 ms (*98.31%*) | 16.6 MB (*84.05%*) | Hard |
 | [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | 92 ms (*81.02%*) | 13.9 MB (*97.52%*) | Hard |
 | [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) | 28 ms (*99.63%*) | 13.3 MB (*97.40%*) | Medium |
