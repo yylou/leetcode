@@ -57,7 +57,7 @@
 | [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | 112 ms (*99.40%*) | 29.6 MB (*93.89%*) | Medium |
 | [237. Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/) | 24 ms (*93.31%*) | 13.6 MB (*97.21%*) | Easy |
 | [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/) | 28 ms (*97.78%*) | 14.4 MB (*47.96%*) | Easy |
-| [268. Missing Number](https://leetcode.com/problems/missing-number/) | | | Easy |
+| [268. Missing Number](https://leetcode.com/problems/missing-number/) | 100 ms (*93.21%*) | 14.6 MB (*91.22%*) | Easy |
 | [283. Move Zeroes](https://leetcode.com/problems/move-zeroes/) | 28 ms (*97.26%*) | 14.3 MB (*74.18%*) | Easy |
 | [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | | | Medium |
 | [322. Coin Change](https://leetcode.com/problems/coin-change/) | 132 ms (*99.61%*) | 13.5 MB (*96.99%*) | Medium |
