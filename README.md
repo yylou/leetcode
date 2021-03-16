@@ -48,7 +48,7 @@
 | [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) | 12 ms (*95.69%*) | 13.2 MB (*89.87%*) | Easy |
 | [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/) | 12 ms (*96.83%*) | 13.3 MB (*69.56%*) | Easy |
 | [136. Single Number](https://leetcode.com/problems/single-number/) | 92 ms (*99.65%*) | 16 MB (*41.70%*) | Easy |
-| [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/ | | | Medium |
+| [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | | | Medium |
 | [144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.93%*) | 13.3 MB (*95.41%*) | Medium |
 | [145. Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.91%*) | 13.3 MB (*96.64%*) | Medium |
 | [146. LRU Cache](https://leetcode.com/problems/lru-cache/) | 172 ms (*99.94%*) | 23.8 MB (*55.08%*) | Medium |
