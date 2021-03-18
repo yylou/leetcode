@@ -35,6 +35,7 @@
 | [48. Rotate Image](https://leetcode.com/problems/rotate-image/) | 12 ms (*99.56%*) | 13.2 MB (*95.21%*) | Medium |
 | [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/) | 76 ms (*95.44%*) | 17.1 MB (*94.93%*) | Medium |
 | [50. Pow(x, n)](https://leetcode.com/problems/powx-n/) | | | Medium |
+| [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | | | Easy |
 | [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/) | 60 ms (*94.48%*) | 15.6 MB (*97.58%*) | Medium |
 | [57. Insert Interval](https://leetcode.com/problems/insert-interval/) | 48 ms (*99.79%*) | 16.9 MB (*52.15%*) | Medium |
 | [66. Plus One](https://leetcode.com/problems/plus-one/) | 16 ms (*91.51%*) | 13.3 MB (*93.81%*) | Easy |
