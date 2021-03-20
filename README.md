@@ -31,7 +31,7 @@
 | [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | 52 ms (*100%*) | 13.4 MB (*74.16%*) | Medium |
 | [39. Combination Sum](https://leetcode.com/problems/combination-sum/) | | | Medium |
 | [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive/) | 16 ms (*95.77%*) | 13.4 MB (*88.19%*) | Hard |
-| [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | | | Hard |
+| [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | 32 ms (*95.67%*) | 14 MB (*90.79%*) | Hard |
 | [46. Permutations](https://leetcode.com/problems/permutations/) | 16 ms (*99.92%*) | 13.6 MB (*42.30%*) | Medium |
 | [48. Rotate Image](https://leetcode.com/problems/rotate-image/) | 12 ms (*99.56%*) | 13.2 MB (*95.21%*) | Medium |
 | [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/) | 76 ms (*95.44%*) | 17.1 MB (*94.93%*) | Medium |
