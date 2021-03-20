@@ -35,7 +35,7 @@
 | [46. Permutations](https://leetcode.com/problems/permutations/) | 16 ms (*99.92%*) | 13.6 MB (*42.30%*) | Medium |
 | [48. Rotate Image](https://leetcode.com/problems/rotate-image/) | 12 ms (*99.56%*) | 13.2 MB (*95.21%*) | Medium |
 | [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/) | 76 ms (*95.44%*) | 17.1 MB (*94.93%*) | Medium |
-| [50. Pow(x, n)](https://leetcode.com/problems/powx-n/) | | | Medium |
+| [50. Pow(x, n)](https://leetcode.com/problems/powx-n/) | 8 ms (*99.17%*) | 13.4 MB (*45.01%*) | Medium |
 | [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | 40 ms (*97.39%*) | 14.1 MB (*71.67%*) | Easy |
 | [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) | | | Medium |
 | [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/) | 60 ms (*94.48%*) | 15.6 MB (*97.58%*) | Medium |
