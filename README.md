@@ -43,6 +43,7 @@
 | [57. Insert Interval](https://leetcode.com/problems/insert-interval/) | 48 ms (*99.79%*) | 16.9 MB (*52.15%*) | Medium |
 | [66. Plus One](https://leetcode.com/problems/plus-one/) | 16 ms (*91.51%*) | 13.3 MB (*93.81%*) | Easy |
 | [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/) | 16 ms (*92.93%*) | 13.3 MB (*89.82%*) | Easy |
+| [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | | | Easy |
 | [72. Edit Distance](https://leetcode.com/problems/edit-distance/) | 88 ms (*98.31%*) | 16.6 MB (*84.05%*) | Hard |
 | [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | 92 ms (*81.02%*) | 13.9 MB (*97.52%*) | Hard |
 | [78. Subsets](https://leetcode.com/problems/subsets/) | | | Medium |
