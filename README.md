@@ -75,7 +75,7 @@
 | [344. Reverse String](https://leetcode.com/problems/reverse-string/) | 152 ms (*98.00%*) | 21.2 MB (*57.89%*) | Easy |
 | [429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) | 32 ms (*98.53%*) | 16.3 MB (*96.69%*) | Medium |
 | [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | 72 ms (*98.73%*) | 14.1 MB (*96.90%*) | Medium |
-| [448. Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) | | | Easy |
+| [448. Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) | 272 ms (*99.93%*) | 24.7 MB (*8.55%*) | Easy |
 | [461. Hamming Distance](https://leetcode.com/problems/hamming-distance/) | 12 ms (*94.82%*) | 13.3 MB (*89.86%*) | Easy |
 | [509. Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) | 12 ms (*96.11%*) | 13.3 MB (*90.24%*) | Easy |
 | [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | | | Medium |
