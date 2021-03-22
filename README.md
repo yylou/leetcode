@@ -58,7 +58,7 @@
 | [107. Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/) | 12 ms (*99.30%*) | 13.7 MB (*72.64%*) | Medium |
 | [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) | 12 ms (*95.69%*) | 13.2 MB (*89.87%*) | Easy |
 | [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/) | 12 ms (*96.83%*) | 13.3 MB (*69.56%*) | Easy |
-| [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | | | Easy |
+| [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | 32 ms (*91.46%*) | 14.1 MB (*75.36%*) | Easy |
 | [136. Single Number](https://leetcode.com/problems/single-number/) | 92 ms (*99.65%*) | 16 MB (*41.70%*) | Easy |
 | [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | 32 ms (*97.19%*) | 16.9 MB (*99.58%*) | Easy |
 | [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | 32 ms (*97.35%*) | 19.5 MB (*95.99%*) | Medium |
