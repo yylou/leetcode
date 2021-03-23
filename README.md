@@ -92,7 +92,7 @@
 | [589. N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/) | 32 ms (*98.74%*) | 16.4 MB (*75.58%*) | Easy |
 | [590. N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/) | 32 ms (*98.77%*) | 16.3 MB (*94.57%*) | Easy |
 | [657. Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin/) | 12 ms (*100%*) | 13.4 MB (*93.76%*) | Easy |
-| [680. Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/) | | | Easy |
+| [680. Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/) | 84 ms (*92.25%*) | 14.5 MB (*40.47%*) | Easy |
 | [716. Max Stack](https://leetcode.com/problems/max-stack/) | 132 ms (*97.31%*) | 15.8 MB (*49.33%*) | Easy |
 | [771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/) | 8 ms (*99.65%*) | 13.3 MB (*89.81%*) | Easy |
 | [796. Rotate String](https://leetcode.com/problems/rotate-string/) | 12 ms (*94.64%*) | 13.5 MB (*63.17%*) | Easy |
