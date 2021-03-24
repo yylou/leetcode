@@ -53,6 +53,7 @@
 | [78. Subsets](https://leetcode.com/problems/subsets/) | 12 ms (*99.22%*) | 13.6 MB (*77.68%*) | Medium |
 | [79. Word Search](https://leetcode.com/problems/word-search/) | | | Medium |
 | [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) | 28 ms (*99.63%*) | 13.3 MB (*97.40%*) | Medium |
+| [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | | | Easy |
 | [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | 12 ms (*95.43%*) | 13.3 MB (*79.67%*) | Medium |
 | [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) | | | Easy |
 | [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) | 8 ms (*99.81%*) | 13.8 MB (*70.08%*) | Medium |
