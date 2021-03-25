@@ -10,11 +10,11 @@ class Solution(object):
         reference: https://www.geeksforgeeks.org/in-place-merge-sort/
         """
 
-        ##  (edge case) nums2 is empty
+        #:  (edge case) nums2 is empty
         if not nums2: return
 
 
-        ##  Solution (1) place from the end of 'nums1'
+        #:  Solution (1) place from the end of 'nums1'
         lastElement = m+n-1
         while m > 0 and n > 0:
             if nums1[m-1] > nums2[n-1]:
@@ -36,7 +36,7 @@ class Solution(object):
 
 
         """
-        ##  Solution (2) two pointers to modify in-place and shift (without copy)
+        #:  Solution (2) two pointers to modify in-place and shift (without copy)
         p1, p2 = 0, 0
         while p1 < m and p2 < n:
             if nums1[p1] <= nums2[p2]:
@@ -55,7 +55,7 @@ class Solution(object):
                 p2 += 1
                 m += 1
 
-        ##  for the remaining elements in nums2
+        #:  for the remaining elements in nums2
         if p2 != n:
             while p2 < n:
                 nums1[m] = nums2[p2]
@@ -68,7 +68,7 @@ class Solution(object):
 
 
         """
-        ##  Solution (3) using python built-in sorting function
+        #:  Solution (3) using python built-in sorting function
         for i in xrange( m, len(nums1) ): nums1[i] = nums2[i-m]
         nums1.sort()
         """
