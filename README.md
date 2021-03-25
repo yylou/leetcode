@@ -55,7 +55,7 @@
 | [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) | 28 ms (*99.63%*) | 13.3 MB (*97.40%*) | Medium |
 | [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | 16 ms (*98.22%*) | 13.3 MB (*94.73%*) | Easy |
 | [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | 12 ms (*95.43%*) | 13.3 MB (*79.67%*) | Medium |
-| [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) | | | Easy |
+| [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) | 16 ms (*95.40%*) | 13.6 MB (*82.93%*) | Easy |
 | [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) | 8 ms (*99.81%*) | 13.8 MB (*70.08%*) | Medium |
 | [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | 24 ms (*95.24%*) | 15.9 MB (*92.41%*) | Easy |
 | [105. Construct Binary Tree from Preorder and Inorder](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 36 ms (*99.21%*) | 18.8 MB (*69.33%*) | Medium |
