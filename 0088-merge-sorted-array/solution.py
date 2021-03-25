@@ -43,7 +43,7 @@ class Solution(object):
                 p1 += 1
 
             elif nums1[p1] > nums2[p2]:
-                ##  shift element
+                #:  shift element
                 tmpP = m
                 while tmpP > p1:
                     nums1[tmpP] = nums1[tmpP-1]
