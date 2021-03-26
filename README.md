@@ -105,6 +105,7 @@
 | [771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/) | 8 ms (*99.65%*) | 13.3 MB (*89.81%*) | Easy |
 | [796. Rotate String](https://leetcode.com/problems/rotate-string/) | 12 ms (*94.64%*) | 13.5 MB (*63.17%*) | Easy |
 | [945. Minimum Increment to Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/) | 244 ms (*96.43%*) | 18 MB (*71.43%*) | Medium |
+| [1191. Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | | | Easy |
 | [1346. Check If N and Its Double Exist](https://leetcode.com/problems/check-if-n-and-its-double-exist/) | 32 ms (*95.34%*) | 13.3 MB (*89.97%*) | Easy |
 | [1408. String Matching in an Array](https://leetcode.com/problems/string-matching-in-an-array/) | 16 ms (*99.24%*) | 13.5 MB (*79.01%*) | Easy |
 | [1710. Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck/) | 120 ms (*94.94%*) | 13.7 MB (*97.83%*) | Easy |
