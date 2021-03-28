@@ -81,7 +81,7 @@
 | [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | 16 ms (*98.94%*) | 15.4 MB (*80.06%*) | Easy |
 | [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | 112 ms (*99.40%*) | 29.6 MB (*93.89%*) | Medium |
 | [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) | | | Medium |
-| [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | | | Easy |
+| [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | 84 ms (*99.49%*) | 19.9 MB (*24.49%*) | Easy |
 | [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) | 976 ms (*5.05%*) | 67.2 MB (*5.05%*) | Easy |
 | [237. Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/) | 24 ms (*93.31%*) | 13.6 MB (*97.21%*) | Easy |
 | [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | 1784 ms (*33.09%*) | 29.9 MB (*99.72%*) | Hard |
