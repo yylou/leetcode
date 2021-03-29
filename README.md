@@ -77,8 +77,7 @@
 | [189. Rotate Array](https://leetcode.com/problems/rotate-array/) | 36 ms (*99.48%*) | 13.8 MB (*86.25%*) | Medium |
 | [190. Reverse Bits](https://leetcode.com/problems/reverse-bits/) | 12 ms (*97.33%*) | 13.3 MB (*88.48%*) | Easy |
 | [204. Count Primes](https://leetcode.com/problems/count-primes/) | 104 ms (*99.89%*) | 36.7 MB (*76.06%*) | Easy |
-| [205. Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) | 16 ms (*
-%*) | 14.6 MB (*72.09%*) | Easy |
+| [205. Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) | 16 ms (*100%*) | 14.6 MB (*72.09%*) | Easy |
 | [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | 16 ms (*98.94%*) | 15.4 MB (*80.06%*) | Easy |
 | [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | 112 ms (*99.40%*) | 29.6 MB (*93.89%*) | Medium |
 | [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) | | | Medium |
