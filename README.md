@@ -90,6 +90,7 @@
 | [283. Move Zeroes](https://leetcode.com/problems/move-zeroes/) | 28 ms (*97.26%*) | 14.3 MB (*74.18%*) | Easy |
 | [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | 44 ms (*92.54%*) | 15 MB (*97.74%*) | Medium |
 | [322. Coin Change](https://leetcode.com/problems/coin-change/) | 132 ms (*99.61%*) | 13.5 MB (*96.99%*) | Medium |
+| [338. Counting Bits](https://leetcode.com/problems/counting-bits/) | | | Medium |
 | [344. Reverse String](https://leetcode.com/problems/reverse-string/) | 152 ms (*98.00%*) | 21.2 MB (*57.89%*) | Easy |
 | [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/) | 24 ms (*94.12%*) | 14.3 MB (*41.27%*) | Easy |
 | [429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) | 32 ms (*98.53%*) | 16.3 MB (*96.69%*) | Medium |
