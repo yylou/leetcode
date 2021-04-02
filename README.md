@@ -99,7 +99,7 @@
 | [448. Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) | 272 ms (*99.93%*) | 24.7 MB (*8.55%*) | Easy |
 | [461. Hamming Distance](https://leetcode.com/problems/hamming-distance/) | 12 ms (*94.82%*) | 13.3 MB (*89.86%*) | Easy |
 | [509. Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) | 12 ms (*96.11%*) | 13.3 MB (*90.24%*) | Easy |
-| [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | | | Medium |
+| [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | 140 ms (*99.78%*) | 13.7 MB (*90.22%*) | Medium |
 | [560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | 188 ms (*99.93%*) | 15.8 MB (*98.31%*) | Medium |
 | [567. Permutation in String](https://leetcode.com/problems/permutation-in-string/) | 36 ms (*99.82%*) | 13.7 MB (*85.19%*) | Medium |
 | [589. N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/) | 32 ms (*98.74%*) | 16.4 MB (*75.58%*) | Easy |
