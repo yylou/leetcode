@@ -38,7 +38,7 @@
 | [50. Pow(x, n)](https://leetcode.com/problems/powx-n/) | 8 ms (*99.17%*) | 13.4 MB (*45.01%*) | Medium |
 | [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | 40 ms (*97.39%*) | 14.1 MB (*71.67%*) | Easy |
 | [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) | 4 ms (*100%*) | 13.4 MB (*46.85%*) | Medium |
-| [55. Jump Game](https://leetcode.com/problems/jump-game/) | | | Medium |
+| [55. Jump Game](https://leetcode.com/problems/jump-game/) | 56 ms (*99.01%*) | 15.3 MB (*77.94%*) | Medium |
 | [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/) | 60 ms (*94.48%*) | 15.6 MB (*97.58%*) | Medium |
 | [57. Insert Interval](https://leetcode.com/problems/insert-interval/) | 48 ms (*99.79%*) | 16.9 MB (*52.15%*) | Medium |
 | [62. Unique Paths](https://leetcode.com/problems/unique-paths/) | | | Medium |
