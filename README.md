@@ -74,6 +74,7 @@
 | [151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | 8 ms (*99.84%*) | 13.9 MB (*43.36%*) | Medium |
 | [155. Min Stack](https://leetcode.com/problems/min-stack/) | 40 ms (*99.55%*) | 17.6 MB (*41.78%*) | Easy |
 | [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) | 200 ms (*49.81%*) | 43.2 MB (*94.05%*) | Easy |
+| [169. Majority Element](https://leetcode.com/problems/majority-element/) | | | Easy |
 | [189. Rotate Array](https://leetcode.com/problems/rotate-array/) | 36 ms (*99.48%*) | 13.8 MB (*86.25%*) | Medium |
 | [190. Reverse Bits](https://leetcode.com/problems/reverse-bits/) | 12 ms (*97.33%*) | 13.3 MB (*88.48%*) | Easy |
 | [200. Number of Islands](https://leetcode.com/problems/number-of-islands/) | 96 ms (*99.60%*) | 21.5 MB (*42.70%*) | Medium |
