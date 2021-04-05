@@ -47,7 +47,7 @@
 | [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/) | 16 ms (*92.93%*) | 13.3 MB (*89.82%*) | Easy |
 | [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | 12 ms (*95.06%*) | 13.3 MB (*90.62%*) | Easy |
 | [72. Edit Distance](https://leetcode.com/problems/edit-distance/) | 88 ms (*98.31%*) | 16.6 MB (*84.05%*) | Hard |
-| [73. Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | | | Medium |
+| [73. Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | 104 ms (*91.49%*) | 14 MB (*94.78%*) | Medium |
 | [75. Sort Colors](https://leetcode.com/problems/sort-colors/) | | | Medium |
 | [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | 92 ms (*81.02%*) | 13.9 MB (*97.52%*) | Hard |
 | [78. Subsets](https://leetcode.com/problems/subsets/) | 12 ms (*99.22%*) | 13.6 MB (*77.68%*) | Medium |
