@@ -41,7 +41,7 @@
 | [55. Jump Game](https://leetcode.com/problems/jump-game/) | 56 ms (*99.01%*) | 15.3 MB (*77.94%*) | Medium |
 | [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/) | 60 ms (*94.48%*) | 15.6 MB (*97.58%*) | Medium |
 | [57. Insert Interval](https://leetcode.com/problems/insert-interval/) | 48 ms (*99.79%*) | 16.9 MB (*52.15%*) | Medium |
-| [62. Unique Paths](https://leetcode.com/problems/unique-paths/) | | | Medium |
+| [62. Unique Paths](https://leetcode.com/problems/unique-paths/) | 12 ms (*95.96%*) | 13.3 MB (*92.76%*) | Medium |
 | [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) | 64 ms (*99.74%*) | 15 MB (*31.04%*) | Medium |
 | [66. Plus One](https://leetcode.com/problems/plus-one/) | 16 ms (*91.51%*) | 13.3 MB (*93.81%*) | Easy |
 | [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/) | 16 ms (*92.93%*) | 13.3 MB (*89.82%*) | Easy |
