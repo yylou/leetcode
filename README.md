@@ -90,7 +90,7 @@
 | [237. Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/) | 24 ms (*93.31%*) | 13.6 MB (*97.21%*) | Easy |
 | [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | 1784 ms (*33.09%*) | 29.9 MB (*99.72%*) | Hard |
 | [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/) | 28 ms (*97.78%*) | 14.4 MB (*47.96%*) | Easy |
-| [258. Add Digits](https://leetcode.com/problems/valid-anagram/) | | | Easy |
+| [258. Add Digits](https://leetcode.com/problems/valid-anagram/) | 12 ms (*98.15%*) | 13.4 MB (*64.20%*) | Easy |
 | [268. Missing Number](https://leetcode.com/problems/missing-number/) | 100 ms (*93.21%*) | 14.6 MB (*91.22%*) | Easy |
 | [283. Move Zeroes](https://leetcode.com/problems/move-zeroes/) | 28 ms (*97.26%*) | 14.3 MB (*74.18%*) | Easy |
 | [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | 44 ms (*92.54%*) | 15 MB (*97.74%*) | Medium |
