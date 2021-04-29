@@ -75,7 +75,7 @@
 | [144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.93%*) | 13.3 MB (*95.41%*) | Medium |
 | [145. Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | 4 ms (*99.91%*) | 13.3 MB (*96.64%*) | Medium |
 | [146. LRU Cache](https://leetcode.com/problems/lru-cache/) | 172 ms (*99.94%*) | 23.8 MB (*55.08%*) | Medium |
-| [148. Sort List](https://leetcode.com/problems/sort-list/) | | | Medium |
+| [148. Sort List](https://leetcode.com/problems/sort-list/) | 172 ms (*98.38%*) | 45.6 MB (*95.85%*) | Medium |
 | [151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | 8 ms (*99.84%*) | 13.9 MB (*43.36%*) | Medium |
 | [155. Min Stack](https://leetcode.com/problems/min-stack/) | 40 ms (*99.55%*) | 17.6 MB (*41.78%*) | Easy |
 | [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) | 200 ms (*49.81%*) | 43.2 MB (*94.05%*) | Easy |
