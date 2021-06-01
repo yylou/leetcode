@@ -1,36 +1,47 @@
-##  Definition for singly-linked list.
-# class ListNode(object):
+# Definition for singly-linked list.
+# class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
 
-class Solution(object):
-    def addTwoNumbers(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         cur   = ListNode()
         ret   = cur
         carry = 0
-
-        while l1 != None or l2 != None :
-            ##  Loop through l1 and l2
-            if l1 != None : num1 = l1.val
-            else : num1 = 0
-            if l2 != None : num2 = l2.val
-            else : num2 = 0
-
-            ##  Calculation
-            total = num1 + num2 + carry
-            carry = total / 10
-            cur.next = ListNode( total % 10 )
-            cur = cur.next
-
-            if l1 != None : l1 = l1.next
-            if l2 != None : l2 = l2.next
-
-        if carry != 0 : cur.next = ListNode( carry )
+        
+        while l1 or l2:
+            if l1: num1 = l1.val
+            else: num1 = 0
+                
+            if l2: num2 = l2.val
+            else: num2 = 0
+            
+            tmp      = num1 + num2 + carry
+            carry    = tmp // 10
+            cur.next = ListNode( tmp % 10 )
+            cur      = cur.next
+            
+            if l1: l1 = l1.next
+            if l2: l2 = l2.next
+        
+        #:  check carry to see whether creating extra node is needed
+        if carry != 0: cur.next = ListNode( carry )
+            
         return ret.next
+    
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**  
+     * @time  : O()
+     * @space : O()
+     */
+    
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        
+    }
+}
+==================================================================================================
+'''
