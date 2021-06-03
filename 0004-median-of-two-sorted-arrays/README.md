@@ -4,7 +4,7 @@
 # Performance
 ![result](./result.png)
 
-# Python Solution
+# Python
 ```Python
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
@@ -48,7 +48,7 @@ class Solution:
             elif leftB > rightA: l = indexA + 1
 ```
 
-# Java Solution
+# Java
 ```Java
 class Solution {
     /**  
