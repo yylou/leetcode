@@ -41,8 +41,6 @@ class Solution {
         int ans = 0, slowP = 0, fastP = 0;
         
         int length = s.length();
-        
-        //  (edge case)
         if( length == 0 ){ return 0; }
         
         while( fastP < length ){
