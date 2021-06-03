@@ -1,6 +1,10 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         hashTable = dict()
+
+        # ==================================================
+        #  Array + Hash Table                              =
+        # ==================================================
         
         for i in range( len(nums) ):
             remain = target - nums[i]
@@ -10,6 +14,8 @@ class Solution:
             
             #:  Since there is only one exact solution, it has no problem to overwrite the record
             hashTable[nums[i]] = i
+
+            
             
 '''
 Java Solution
