@@ -10,6 +10,10 @@ class Solution:
         ret   = cur
         carry = 0
         
+        # ==================================================
+        #  Linked List + Math                              =
+        # ==================================================
+        
         while l1 or l2:
             if l1: num1 = l1.val
             else: num1 = 0
@@ -29,6 +33,8 @@ class Solution:
         if carry != 0: cur.next = ListNode( carry )
             
         return ret.next
+    
+    
     
 '''
 Java Solution
