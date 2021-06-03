@@ -4,7 +4,7 @@
 # Performance
 ![result](./result.png)
 
-# Python Solution
+# Python
 ```Python
 # Definition for singly-linked list.
 # class ListNode:
@@ -45,7 +45,7 @@ class Solution:
         return ret.next
 ```
     
-# Java Solution (ongoing)
+# Java (ongoing)
 ```Java
 class Solution {
     /**  
