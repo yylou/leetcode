@@ -4,7 +4,7 @@
 # Performance
 ![result](./result.png)
 
-# Python Solution
+# Python
 ```Python
 class Solution:
     def reverse(self, x: int) -> int:
@@ -32,7 +32,7 @@ class Solution:
 ```
 
 
-# Java Solution
+# Java
 ```Java
 class Solution {
     public int reverse(int x) {
