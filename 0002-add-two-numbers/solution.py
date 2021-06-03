@@ -13,6 +13,8 @@ class Solution:
         # ==================================================
         #  Linked List + Math                              =
         # ==================================================
+        # time  : O(max(n, m))
+        # space : O(1)
         
         while l1 or l2:
             if l1: num1 = l1.val
@@ -41,8 +43,8 @@ Java Solution
 ==================================================================================================
 class Solution {
     /**  
-     * @time  : O()
-     * @space : O()
+     * @time  : O(max(n, m))
+     * @space : O(1)
      */
     
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
