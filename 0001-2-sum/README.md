@@ -1,5 +1,7 @@
+# Performance
 ![result](./result.png)
 
+# Python Solution
 ```Python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -19,8 +21,7 @@ class Solution:
             hashTable[nums[i]] = i
 ```
             
-            
-
+# Java Solution
 ```Java
 class Solution {
     /**  
