@@ -1,23 +1,51 @@
-class Solution(object):
-    def reverse(self, x):
-        """
-        :type x: int
-        :rtype: int
-        """
-        strX = list( str( abs(x) ) )
-
-        ##  two pointers solution: convert integer to list of string, and SWAP element
-        left, right = 0, len(strX)-1
-        while right > left :
-            strX[left], strX[right] = strX[right], strX[left]
-
-            left  += 1
-            right -= 1
-
-        ##  NEGATIVE or POSITIVE
-        if x < 0 : retVal = int( ''.join(strX) ) * -1
-        else : retVal = int( ''.join(strX)  )
-
-        ##  range checking
-        if retVal >= 2**31-1 or retVal <= -2**31: return 0
-        else : return retVal
+class Solution:
+    def reverse(self, x: int) -> int:
+        #:  (edge case)
+        if x == 0: return x
+        
+        # ==================================================
+        #  Math                                            =
+        # ==================================================
+        # time  : O(log(n))
+        # space : O(1)
+        
+        ans  = 0
+        sign = 1 if x > 0 else -1
+        x    = abs(x)
+        
+        while x:
+            pop = x % 10
+            x //= 10
+            
+            ans = ans*10 + pop
+            if ans >= 2**31-1: return 0
+            
+        return sign * ans
+    
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(log(n))
+     * @space : O(1)
+     */
+    public int reverse(int x) {
+        if( x == 0 ) return x;
+        
+        int ans = 0;
+        
+        while( x != 0 ){
+            int pop = x % 10;
+            x /= 10;
+            
+            if (ans > Integer.MAX_VALUE/10 || (ans == Integer.MAX_VALUE / 10 && pop > 7)) return 0;
+            if (ans < Integer.MIN_VALUE/10 || (ans == Integer.MIN_VALUE / 10 && pop < -8)) return 0;
+            ans = ans*10 + pop;
+        }
+        
+        return ans;
+    }
+}
+==================================================================================================
+'''
