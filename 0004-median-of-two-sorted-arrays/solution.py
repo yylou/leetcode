@@ -1,48 +1,53 @@
-##  non-merge solution: using two pointers that start at the 1st element of both two lists
-class Solution(object):
-    def findMedianSortedArrays(self, nums1, nums2):
-        """
-        :type nums1: List[int]
-        :type nums2: List[int]
-        :rtype: float
-        """
-
-        len1 = len( nums1 )
-        len2 = len( nums2 )
-        length = len1 + len2
-
-        ##  edge case handling
-        if   length == 1 and len1 == 0 and len2 != 0 : return nums2[0]
-        elif length == 1 and len1 != 0 and len2 == 0 : return nums1[0]
-
-        ##  flag for indicating calculating median by two numbers (even length)
-        flag = False
-        if length % 2 == 0 : flag = True; target_index = [length/2-1, length/2]
-        else : target_index = [length/2]
-
-        record = []
-        i, j = 0, 0
-
-        while i <= len1 or j <= len2 :
-            ##  achieving target length, return the answer
-            if   not flag and len( record ) - 1 == target_index[0] : return record[-1]
-            elif     flag and len( record ) - 1 == target_index[1] : return ( record[-1] + record[-2] ) / 2.
-
-            ##  compare to find the smaller integer, then append it into the list
-            if i < len1 and j < len2 :
-                if   nums1[i] <= nums2[j] :
-                    record.append( nums1[i] )
-                    i += 1
-                elif nums1[i] > nums2[j] :
-                    record.append( nums2[j] )
-                    j += 1
-
-            ## reaching the end of the second list of integers, append the integer without comparison
-            elif i < len1 and j >= len2 :
-                record.append( nums1[i] )
-                i += 1
-
-            ## reaching the end of the first list of integers, append the integer without comparison
-            elif i >= len1 and j < len2 :
-                record.append( nums2[j] )
-                j += 1
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        A, B  = nums1, nums2
+        
+        #:  take shorter array (here is A) to do Binary Search
+        if len(B) < len(A): A, B = B, A
+            
+        lenA  = len(A)
+        lenB  = len(B)
+        total = lenA + lenB
+        half  = total // 2
+        even  = True if total % 2 == 0 else False
+        
+        # ==================================================
+        #  Array + Binary Seearch                          =
+        # ==================================================
+        
+        l, r = 0, len(A)-1
+        while True:
+            indexA = (l+r) // 2
+            indexB = half - indexA - 2
+            
+            #:  assign value to INFINITY to handle edge case
+            leftA  = A[indexA]     if indexA     >= 0     else float("-inf")
+            rightA = A[indexA + 1] if (indexA+1) < len(A) else float("inf")
+            leftB  = B[indexB]     if indexB     >= 0     else float("-inf")
+            rightB = B[indexB + 1] if (indexB+1) < len(B) else float("inf")
+            
+            #:  left partition is correct
+            if leftA <= rightB and leftB <= rightA:
+                if not even: return min( rightA, rightB )
+                else: return ( min(rightA, rightB) + max(leftA, leftB) ) / 2
+            
+            #:  re-define RIGHT index to do Binary Search
+            elif leftA > rightB: r = indexA - 1
+                
+            #:  re-refine LEFT index to do Binary Search
+            elif leftB > rightA: l = indexA + 1
+ 
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**  
+     * @time  : O(log(m+n)
+     * @space : O(1)
+     */
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        
+    }
+}
+==================================================================================================
+'''
