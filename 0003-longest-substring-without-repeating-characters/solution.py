@@ -1,27 +1,67 @@
-##  Sliding Window solution
-class Solution(object):
-    def lengthOfLongestSubstring(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        ans, i, j = 0, 0, 0
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        ans, slowP, fastP = 0, 0, 0
+        hashTable = dict()
+        
         length = len( s )
-        hash_table = {}
-
-        ##  edge case handling: s = ""
-        if length == 0 : return 0
-
-        while i < length and j < length :
-            ##  meeting new char, add into hash table and renew the longest length, then move the fast-runner pointer
-            if s[j] not in hash_table :
-                hash_table[s[j]] = j
-                j += 1
-                ans = max( ans, j-i )
-
-            ##  meeting existing char, removing from hash table and move the slow-runner pointer
-            else :
-                del hash_table[s[i]]
-                i += 1
-
+        
+        #:  (edge case)
+        if length == 0: return 0
+        
+        # ==================================================
+        #  Hash Table + Sliding Window (Two Pointer)       =
+        # ==================================================
+        
+        while slowP < length and fastP < length:
+            #:  (1) new char: record char in hash table and extend sliding window by fast pointer
+            if s[fastP] not in hashTable:
+                hashTable[s[fastP]] = fastP
+                fastP += 1
+                ans = max( ans, fastP-slowP )
+                
+            #:  (2) repeating char: delete record in hash table and shrink sliding window by slow pointer
+            else:
+                del hashTable[s[slowP]]
+                slowP += 1
+                
         return ans
+
+    
+
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**  
+     * @time  : O(n)
+     * @space : O(n)
+     */
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> hashTable = new HashMap<>();
+        int ans = 0, slowP = 0, fastP = 0;
+        
+        int length = s.length();
+        
+        //  (edge case)
+        if( length == 0 ){ return 0; }
+        
+        while( fastP < length ){
+            char curChar = s.charAt( fastP );
+            
+            if( !hashTable.containsKey( curChar ) ){
+                hashTable.put( curChar, fastP );
+                fastP++;
+                ans = Math.max( ans, fastP-slowP );
+                
+            } else {
+                curChar = s.charAt( slowP );
+                hashTable.remove( curChar );
+                slowP++;
+            }
+        }
+        
+        return ans;
+    }
+}
+==================================================================================================
+'''
