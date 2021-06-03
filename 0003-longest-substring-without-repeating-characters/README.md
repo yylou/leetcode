@@ -16,6 +16,8 @@ class Solution:
         # ==================================================
         #  Hash Table + Sliding Window (Two Pointer)       =
         # ==================================================
+        # time  : O(n)
+        # space : O(n)
         
         while slowP < length and fastP < length:
             #:  (1) new char: record char in hash table and extend sliding window by fast pointer
