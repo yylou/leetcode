@@ -14,6 +14,8 @@ class Solution:
         # ==================================================
         #  Array + Binary Seearch                          =
         # ==================================================
+        # time  : O(log(m+n))
+        # space : O(1)
         
         l, r = 0, len(A)-1
         while True:
