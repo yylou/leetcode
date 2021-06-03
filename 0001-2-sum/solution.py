@@ -5,6 +5,8 @@ class Solution:
         # ==================================================
         #  Array + Hash Table                              =
         # ==================================================
+        # time  : O(n)
+        # space : O(n)
         
         for i in range( len(nums) ):
             remain = target - nums[i]
