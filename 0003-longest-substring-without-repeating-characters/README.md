@@ -4,7 +4,7 @@
 # Performance
 ![result](./result.png)
 
-# Python Solution
+# Python
 ```Python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -37,7 +37,7 @@ class Solution:
         return ans
 ```
    
-# Java Solution
+# Java
 ```Java
 class Solution {
     /**  
