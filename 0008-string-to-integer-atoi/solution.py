@@ -7,7 +7,7 @@ class Solution:
         #  String + Math                                   =
         # ==================================================
         # time  : O(n)
-        # space : O(n)
+        # space : O(1)
         
         integer = []
         sign    = ''
@@ -47,7 +47,7 @@ Java Solution
 class Solution {
     /**
      * @time  : O(n)
-     * @space : O(n)
+     * @space : O(1)
      */
     public int myAtoi(String s) {
         
