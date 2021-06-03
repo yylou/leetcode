@@ -1,37 +1,57 @@
-class Solution(object):
-    def myAtoi(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-
-        ##  question: would input be like '12 and 34'?                     -> Yes, and stop at 'a'
-        ##  question: would sign value shows up repeatedly? (e.g., '+-12') -> Yes, and return 0
-
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        #:  (edge case)
+        if len( s ) == 0: return 0
+        
+        # ==================================================
+        #  String + Math                                   =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
+        
         integer = []
         sign    = ''
+        
+        
+        for char in s:
+            #:  (1) leading whitespace
+            if char == ' ' and not integer and not sign: continue
+            
+            #:  (2) duplicated sign
+            if sign and ( char == '-' or char == '+' ): break                
+                
+            #:  (a) first sign
+            if ( char == '+' or char == '-' ) and not integer and not sign: sign = char
+            
+            #:  (b) non-decimal char
+            elif not 48 <= ord(char) <= 57: break
+                
+            #:  (c) decimal char
+            else: integer.append( char )
+                
+        
+        #:  no decimal char is recorded
+        if not integer: return 0
+        
+        ans = int( ''.join( integer ) )
+        if sign == '-': ans *= -1
+            
+        #:  boundary check
+        if   ans < -2**31    : return -2**31
+        elif ans >  2**31 -1 : return  2**31 - 1
 
-        for char in s :
-            ##  (skip case) ignore leading whitespace
-            if sign == '' and len( integer ) == 0 and char == ' ' : continue
-
-            ##  (end cass) duplicate sign char
-            if ( char == '-' or char == '+' ) and sign != '': break
-
-            ##  record the first '-' or '+' only when no digit or sign is read
-            if ( char == '-' or char == '+' ) and sign == '' and len( integer ) == 0 : sign = char
-
-            ##  break if char is non-digit
-            elif not char.isdigit() : break
-
-            else : integer.append( char )
-
-        if len( integer ) == 0 : return 0
-
-        value = int( ''.join( integer ) )
-        if sign == '-' : value *= -1
-
-        if   value < -2**31    : return -2**31
-        elif value >  2**31 -1 : return  2**31 - 1
-
-        return value
+        return ans
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(n)
+     */
+    public int myAtoi(String s) {
+        
+    }
+}
+==================================================================================================
+'''
