@@ -31,6 +31,14 @@ class Solution:
         #:  for length is odd, middle digit could be ignored by // 10
         if x == rev or x == rev // 10: return True
         else: return False
+        
+        '''
+        # ==================================================
+        #  String                                          =
+        # ==================================================
+        x = str(x)
+        return x[::-1] == x
+        '''
 ```
 
 # Java
