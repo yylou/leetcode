@@ -1,21 +1,55 @@
-##  differentiate the length of integer in odd and even to do string reverse
-class Solution(object):
-    def isPalindrome(self, x):
-        """
-        :type x: int
-        :rtype: bool
-        """
-        ##  edge case handling: [1-9]
-        if x < 0 : return False
-        if x < 10 : return True
-
-        str_num = str( x )
-        length = len( str_num )
-
-        ##  even length
-        if length % 2 == 0 :
-            return True if str_num[:length/2] == str_num[length/2:][::-1] else False
-
-        ##  odd length
-        else :
-            return True if str_num[:length/2] == str_num[length/2+1:][::-1] else False
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        #:  (negative / edge case)
+        if x <  0 or (x != 0 and x % 10 == 0): return False
+        if x < 10: return True
+        
+        # ==================================================
+        #  Math                                            =
+        # ==================================================
+        # time  : O(log(n))
+        # space : O(1)
+        
+        rev = 0
+        
+        #:  loop until reversed integer > divided integer
+        #:  - ex: 12345, rev = 543, x = 12
+        while x > rev:
+            pop = x % 10
+            x //= 10
+            
+            rev = rev*10 + pop
+        
+        #:  for length is odd, middle digit could be ignored by // 10
+        if x == rev or x == rev // 10: return True
+        else: return False
+        
+        '''
+        # ==================================================
+        #  String                                          =
+        # ==================================================
+        x = str(x)
+        return x[::-1] == x
+        '''
+        
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    public boolean isPalindrome(int x) {
+        if( x < 0 || (x != 0 && x % 10 == 0) ) return false;
+        if( x < 10 ) return true;
+        
+        int rev = 0;
+        
+        while( x > rev ){
+            rev = rev*10 + x % 10;;
+            x /= 10;
+        }
+        
+        if( x == rev || x == rev/10 ) return true;
+        else return false;
+    }
+}
+==================================================================================================
+'''
