@@ -53,4 +53,13 @@ class Solution:
 
 # Java (ongoing)
 ```Java
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(1)
+     */
+    public int myAtoi(String s) {
+        
+    }
+}
 ```
