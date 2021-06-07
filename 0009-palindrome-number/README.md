@@ -32,6 +32,7 @@ class Solution:
         if x == rev or x == rev // 10: return True
         else: return False
         
+        
         '''
         
         # ==================================================
@@ -46,6 +47,10 @@ class Solution:
 # Java
 ```Java
 class Solution {
+    /**
+     * @time  : O(log(n))
+     * @space : O(1)
+     */
     public boolean isPalindrome(int x) {
         if( x < 0 || (x != 0 && x % 10 == 0) ) return false;
         if( x < 10 ) return true;
