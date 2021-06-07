@@ -47,6 +47,10 @@ class Solution:
 # Java
 ```Java
 class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(1)
+     */
     public int maxArea(int[] height) {
         if( height.length == 2 ) return Math.min( height[0], height[1] );
         
