@@ -24,12 +24,15 @@ class Solution:
         if x == rev or x == rev // 10: return True
         else: return False
         
+        
         '''
+        
         # ==================================================
         #  String                                          =
         # ==================================================
         x = str(x)
         return x[::-1] == x
+        
         '''
         
 '''
