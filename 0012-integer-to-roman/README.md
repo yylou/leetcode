@@ -19,7 +19,7 @@ class Solution:
         # ==================================================
         #  Math + Greedy                                   =
         # ==================================================
-        # time  : O(1)
+        # time  : O(n)
         # space : O(1)
         
         ret = ''
@@ -41,7 +41,7 @@ class Solution:
 ```Java
 class Solution {
     /**  
-     * @time  : O(1)
+     * @time  : O(n)
      * @space : O(1)
      */
     public String intToRoman(int num) {
