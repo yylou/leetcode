@@ -35,6 +35,10 @@ class Solution:
 # Java
 ```Java
 class Solution {
+    /**
+     * @time  : O(log(n))
+     * @space : O(1)
+     */
     public int reverse(int x) {
         if( x == 0 ) return x;
         
