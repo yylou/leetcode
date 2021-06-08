@@ -33,7 +33,7 @@ class Solution:
                 
             cur = cur.next
             
-        #:  append the reamining linked lists, either l1 or l2
+        #:  append the remaining linked lists, either l1 or l2
         cur.next = l1 or l2
             
         return ret.next
