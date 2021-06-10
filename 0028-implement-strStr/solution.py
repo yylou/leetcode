@@ -1,25 +1,71 @@
-class Solution(object):
-    def strStr(self, haystack, needle):
-        """
-        :type haystack: str
-        :type needle: str
-        :rtype: int
-        """
-
-        length_h = len( haystack )
-        length_n = len( needle )
-
-        ##  (edge case)
-        #   (1) needle is empty --> 0
-        #   (2) haystack is empty --> -1
-        #   (3) length of needle > length of haystack --> -1
-        if not needle : return 0
-        if not haystack : return -1
-        if length_n > length_h : return -1
-
-        ##  no need to loop through the input string
-        ##  only need to check for the string in 'len(haystack) - len(needle)' index
-        for i in range( length_h - length_n + 1 ) :
-            if haystack[i:i+length_n] == needle : return i
-
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        #:  (edge case)
+        if not needle: return 0
+        if not haystack: return -1
+        if len(needle) > len(haystack): return -1
+        
+        # ==================================================
+        #  String + Two Pointer                            =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)        
+        
+        start, end = 0, len(needle)
+        
+        while end-1 < len(haystack):
+            if haystack[start:end] == needle: return start
+            else:
+                start += 1
+                end   += 1
+            
         return -1
+    
+        '''
+        
+        # ==================================================
+        #  KMP Pattern Matching (Substring search)         =
+        # ==================================================
+        # https://github.com/yylou/leetcode-problem-solving/blob/main/0028-implement-strStr/KMP-solution.py
+        
+        # ==================================================
+        #  Python built-in Function                        =
+        # ==================================================
+        try:
+            return haystack.index( needle )
+        except:
+            return -1
+        
+        '''
+        
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(1)
+     */
+
+    public int strStr(String haystack, String needle) {
+        if( needle.length() == 0 ) return 0;
+        if( haystack.length() == 0 || needle.length() > haystack.length() ) return -1;
+        
+        int start = 0, end = needle.length();
+        
+        while( end-1 < haystack.length() ){
+            if( haystack.substring( start, end ).equals( needle ) ){ 
+                return start;
+                
+            } else{
+                start++;
+                end++;
+            }
+            
+        }
+        
+        return -1;
+    }
+}
+==================================================================================================
+'''
