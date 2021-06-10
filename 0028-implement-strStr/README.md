@@ -35,8 +35,6 @@ class Solution:
         return -1
 ```
 
-<br>
-
 ```Python3
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
