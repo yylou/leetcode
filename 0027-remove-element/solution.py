@@ -1,24 +1,49 @@
-class Solution(object):
-    def removeElement(self, nums, val):
-        """
-        :type nums: List[int]
-        :type val: int
-        :rtype: int
-        """
-
-        length = len( nums )
-
-        ##  (edge case) empty list
-        if length == 0 : return 0
-
-        ##  counter to record unequal element
-        retVal = 0
-
-        for i in range( length ) :
-            ##  meet the unequal element
-            ##  --> assign to the array by a counter (retVal), which is the return value
-            if nums[i] != val :
-                nums[retVal] = nums[i]
-                retVal += 1
-
-        return retVal
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        #:  (edge case)
+        if len(nums) == 0 or ( len(nums) == 1 and nums[0] == val): return 0
+        
+        # ==================================================
+        #  Array + Two Pointer                             =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)
+        
+        placeP, moveP = 0, 0
+        
+        while moveP < len(nums):
+            if nums[moveP] != val:
+                nums[placeP] = nums[moveP]
+                placeP += 1
+            
+            moveP += 1
+            
+        return placeP
+    
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(1)
+     */
+    
+    public int removeElement(int[] nums, int val) {
+        if( nums.length == 0 || (nums.length == 1 && nums[0] == val) ) return 0;
+        
+        int placeP = 0, moveP = 0;
+        
+        while( moveP < nums.length ){
+            if( nums[moveP] != val ){
+                nums[placeP++] = nums[moveP];
+            }
+            
+            moveP++;
+        }
+        
+        return placeP;
+    }
+}
+==================================================================================================
+'''
