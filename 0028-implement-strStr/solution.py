@@ -28,7 +28,7 @@ class Solution:
         # ==================================================
         #  KMP Pattern Matching (Substring search)         =
         # ==================================================
-        # https://github.com/yylou/leetcode-problem-solving/blob/main/0028-implement-strStr/KMP-solution.py
+        # https://github.com/yylou/leetcode-problem-solving/blob/main/0028-implement-strStr/solution-KMP.py
         
         # ==================================================
         #  Python built-in Function                        =
