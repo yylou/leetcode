@@ -1,51 +1,70 @@
-#:  Definition for a binary tree node.
-# class TreeNode(object):
+#: Definition for a binary tree node.
+# class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
 
-class Solution(object):
-    def isValidBST(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+        #: (edge case)
+        if not root.left and not root.right: return True
+        
+        # ==================================================
+        #  Tree + DFS + Stack                (Iterative)   =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
+        
+        stack = [(root, float('-inf'), float('inf'))]
+        while stack:
+            node, lower, upper = stack.pop()
+            
+            if node.val >= upper or node.val <= lower: return False
+            
+            #: (left  sub-tree) set UPPER bound to current node's value (<= curValue)
+            #: (right sub-tree) set LOWER bound to current node's value (>= curValue)
+            if node.left : stack.append( (node.left,  lower,    node.val) )
+            if node.right: stack.append( (node.right, node.val, upper) )
+                
+        return True
+    
+    '''
+    # ==================================================
+    #  Tree + DFS + Stack                (Recursive)   =
+    # ==================================================
+    # time  : O(n)
+    # space : O(n)
 
-        #:  (edge case)
+    def _isValidBSTHelper(self, node, lower, upper):
+        if not node: return True
+
+        if ((node.val > lower and node.val < upper)                 and
+            self._isValidBSTHelper(node.left,  lower,    node.val ) and
+            self._isValidBSTHelper(node.right, node.val, upper)):
+            return True
+
+        return False
+
+    def isValidBST(self, root: TreeNode) -> bool:
+        #: (edge case)
         if not root.left and not root.right: return True
 
+        return self._isValidBSTHelper(root, float('-inf'), float('inf'))
+    '''
 
-        #:  Solution (1) iterative in-order traversal
-        stack = []
-        curNode = root
-        bound = -float('inf')
-
-        while stack or curNode:
-            if not curNode:
-                curNode = stack.pop()
-                if curNode.val <= bound: return False
-                bound = curNode.val
-
-                curNode = curNode.right
-
-            else:
-                stack.append( curNode )
-                curNode = curNode.left
-
-
-        # ===================================================================== #
-
-
-        #:  Solution (2) iterative
-        stack = [(root, float('inf'), -float('inf'))]
-        while stack:
-            node, upper, lower = stack.pop()
-
-            val = node.val
-            if val >= upper or val <= lower: return False
-
-            if node.right: stack.append( (node.right, upper, val) )
-            if node.left: stack.append( (node.left, val, lower) )
-
-        return True
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(n)
+     */
+    
+    public boolean isValidBST(TreeNode root) {
+        
+    }
+}
+==================================================================================================
+'''
