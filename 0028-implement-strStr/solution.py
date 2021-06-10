@@ -28,6 +28,11 @@ class Solution:
         # ==================================================
         #  KMP Pattern Matching (Substring search)         =
         # ==================================================
+        # n = length of haystack
+        # m = length of needls
+        # time  : O(n+m)
+        # space : O(m)
+        #
         # https://github.com/yylou/leetcode-problem-solving/blob/main/0028-implement-strStr/solution-KMP.py
         
         # ==================================================
