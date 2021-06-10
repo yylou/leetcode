@@ -8,8 +8,10 @@ class Solution:
         # ==================================================
         #  String + Two Pointer                            =
         # ==================================================
-        # time  : O(n)
-        # space : O(1)        
+        # n = length of haystack
+        # m = length of needls
+        # time  : O(n*m)
+        # space : O(1)
         
         start, end = 0, len(needle)
         
@@ -43,7 +45,7 @@ Java Solution
 ==================================================================================================
 class Solution {
     /**
-     * @time  : O(n)
+     * @time  : O(n*m)
      * @space : O(1)
      */
 
