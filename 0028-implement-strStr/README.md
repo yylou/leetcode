@@ -5,8 +5,7 @@
 ![result](./result.png)
 
 # Reference
-[KMP Algorithm Explanation](https://www.youtube.com/watch?v=GTJr8OvyEVQ)  
-[KMP Algorithm Solution](https://github.com/yylou/leetcode-problem-solving/blob/main/0028-implement-strStr/KMP-solution.py)
+[KMP Algorithm Explanation](https://www.youtube.com/watch?v=GTJr8OvyEVQ)
 
 # Python
 ```Python3
@@ -32,6 +31,23 @@ class Solution:
                 end   += 1
             
         return -1
+```
+
+<br>
+
+```Python3
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        #:  (edge case)
+        if not needle: return 0
+        if not haystack: return -1
+        if len(needle) > len(haystack): return -1
+        
+        # ==================================================
+        #  KMP Pattern Matching (Substring Search)         =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
 ```
 
 # Java
