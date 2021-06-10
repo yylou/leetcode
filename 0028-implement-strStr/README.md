@@ -19,7 +19,9 @@ class Solution:
         # ==================================================
         #  String + Two Pointer                            =
         # ==================================================
-        # time  : O(n)
+        # n = length of haystack
+        # m = length of needls
+        # time  : O(n*m)
         # space : O(1)        
         
         start, end = 0, len(needle)
@@ -46,7 +48,7 @@ class Solution:
         # ==================================================
         #  KMP Pattern Matching (Substring Search)         =
         # ==================================================
-        # time  : O(n)
+        # time  : O(n+m)
         # space : O(n)
 ```
 
@@ -54,7 +56,7 @@ class Solution:
 ```Java
 class Solution {
     /**
-     * @time  : O(n)
+     * @time  : O(n*m)
      * @space : O(1)
      */
     public int strStr(String haystack, String needle) {
