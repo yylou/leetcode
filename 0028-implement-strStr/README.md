@@ -5,7 +5,7 @@
 ![result](./result.png)
 
 # Reference
-[KMP Algorithm Explanation](https://www.youtube.com/watch?v=GTJr8OvyEVQ)
+[KMP Algorithm Explanation](https://www.youtube.com/watch?v=GTJr8OvyEVQ)  
 [KMP Algorithm Solution](https://github.com/yylou/leetcode-problem-solving/blob/main/0028-implement-strStr/KMP-solution.py)
 
 # Python
