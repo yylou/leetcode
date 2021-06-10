@@ -2,7 +2,7 @@
 [28. Implement strStr()](https://leetcode.com/problems/implement-strstr)
 
 # Performance
-![result](./result.png]
+![result](./result.png)
 
 # Reference
 [KMP Algorithm Explanation](https://www.youtube.com/watch?v=GTJr8OvyEVQ)
