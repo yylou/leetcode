@@ -1,64 +1,104 @@
-class Solution(object):
-    def numIslands(self, grid):
-        """
-        :type grid: List[List[str]]
-        :rtype: int
-        """
-
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        #: (base case)
+        if len(grid) == 1 and len(grid[0]) == 1: return 1 if grid[0][0] == "1" else 0
+        
+        # ==================================================
+        #  BFS                                             =
+        # ==================================================
+        # time  : O(nm)
+        # space : O(min(n,m))
+        
         x = len(grid[0])
         y = len(grid)
-
-        #:  (edge case)
-        if x == y == 1: return 1 if grid[0][0] == '1' else 0
-
-
-        #:  Solution (1) BFS
-        #:  - time complexity: O(m*n)
-        #:  - space complexity: O( min(m, n) )
+        
         ans = 0
-        for i in xrange( y ):
-            for j in xrange( x ):
+        
+        for i in range( y ):
+            for j in range( x ):
                 if grid[i][j] == '1':
                     ans += 1
-
+                    
                     visited = set()
                     visited.add( (i, j) )
-
+                    
                     while visited:
-                        index = visited.pop()
-                        row = index[0]
-                        col = index[1]
+                        row, col = visited.pop()
                         grid[row][col] = '0'
-
-                        if row > 0   and grid[row-1][col] == '1': visited.add( (row-1, col) )
-                        if row < y-1 and grid[row+1][col] == '1': visited.add( (row+1, col) )
-                        if col > 0   and grid[row][col-1] == '1': visited.add( (row, col-1) )
-                        if col < x-1 and grid[row][col+1] == '1': visited.add( (row, col+1) )
-
+                        
+                        if row   > 0 and grid[row-1][col] == '1': visited.add( (row-1, col) )
+                        if row+1 < y and grid[row+1][col] == '1': visited.add( (row+1, col) )
+                        if col   > 0 and grid[row][col-1] == '1': visited.add( (row, col-1) )
+                        if col+1 < x and grid[row][col+1] == '1': visited.add( (row, col+1) )
+                            
         return ans
-
-
-        # ======================================================================== #
-
-
-        #:  Solution (2) DFS
-        #:  - time complexity: O(m*n)
-        #:  - space complexity: O(m*n)
-        def explore( i, j ):
-            #:  turn the element to 0 to avoid exploring again
-            grid[i][j] = '0'
-
-            if i > 0   and grid[i-1][j] == '1': explore( i-1, j )
-            if i < y-1 and grid[i+1][j] == '1': explore( i+1, j )
-            if j > 0   and grid[i][j-1] == '1': explore( i, j-1 )
-            if j < x-1 and grid[i][j+1] == '1': explore( i, j+1 )
-
-
+        
+        '''
+        # ==================================================
+        #  DFS                                             =
+        # ==================================================
+        # time  : O(nm)
+        # space : O(nm)
+        
+        def explore(row, col):
+            grid[row][col] = 0
+            
+            if row > 0              and grid[row-1][col] == '1': explore(row-1, col)
+            if row < len(grid)-1    and grid[row+1][col] == '1': explore(row+1, col)
+            if col > 0              and grid[row][col-1] == '1': explore(row, col-1)
+            if col < len(grid[0])-1 and grid[row][col+1] == '1': explore(row, col+1)
+            
         ans = 0
-        for i in xrange( y ):
-            for j in xrange( x ):
+            
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
                 if grid[i][j] == '1':
                     ans += 1
-                    explore( i, j )
-
+                    explore(i, j)
+                    
         return ans
+        '''
+        
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(nm)
+     * @space : O(nm)
+     */
+
+    public int numIslands(char[][] grid) {
+        int count = 0;
+        
+        for(int i=0 ; i<grid.length ; i++) {
+            for(int j=0 ; j<grid[0].length ; j++) {
+                if(grid[i][j] == '1') {
+                    count++;
+                    islandFound(grid, i, j);
+                }
+            }
+        }
+        
+        return count;
+    }
+    
+    public void islandFound(char[][] grid, int x, int y) {
+        if(x<0 || y<0 || x>= grid.length || y>= grid[0].length) {
+            return;
+        }
+        
+        if(grid[x][y] == '0') {
+            return;
+        }
+        
+        grid[x][y] = '0';
+        islandFound(grid, x+1, y);
+        islandFound(grid, x, y+1);
+        islandFound(grid, x-1, y);
+        islandFound(grid, x, y-1);
+        return;
+    }
+}
+==================================================================================================
+'''
