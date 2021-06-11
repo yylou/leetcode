@@ -1,28 +1,56 @@
-class Solution(object):
-    def mySqrt(self, x):
-        """
-        :type x: int
-        :rtype: int
-        """
-
-        ##  (edge case) x is smaller than 2
-        if x < 2: return x
-
-        ##  Solution (1) Binary search
-        left, right = 2, x//2
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        #: (edge)
+        if x == 0: return 0
+        if x < 4: return 1
+        
+        # ==================================================
+        #  Binary Search + Math                            =
+        # ==================================================
+        # time  : O(log(n))
+        # space : O(1)
+        
+        left, right = 2, x // 2
+        
         while left <= right:
             mid = (left + right) // 2
-
-            if x == mid*mid: return mid
-
-            if x > mid*mid: left = mid+1
-            else: right = mid-1
-
+            num = mid * mid
+            
+            if x == num: return mid
+            if x > num: left = mid + 1
+            else: right = mid -1
+                
         return right
+    
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(log(n))
+     * @space : O(1)
+     */
 
-
-        # ======================================================== #
-
-
-        ##  Solution (2) One-liner with Python built-in function
-        return int( sqrt(x) )
+    public int mySqrt(int x) {
+        if( x == 0 ) return 0;
+        if( x  < 4 ) return 1;
+        if( x == 4 ) return 2;
+        
+        int left = 2, right = x/2;
+        
+        while( left <= right ){
+            int mid = (left + right) / 2;
+            
+            // use LONG since mid * mid can be larger than INT.MAX
+            long num = (long) mid * mid;
+            
+            if( x == num ) return mid;
+            if( x > num ) left = mid + 1;
+            else right = mid - 1;
+        }
+        
+        return right;
+    }
+}
+==================================================================================================
+'''
