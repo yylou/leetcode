@@ -1,34 +1,50 @@
-class Solution(object):
-    def plusOne(self, digits):
-        """
-        :type digits: List[int]
-        :rtype: List[int]
-        """
-
-        length = len( digits )
-
-        ##  (edge case) only one digit, do the calculation directly
-        if length == 1 :
-            if digits[0] < 9 :
-                digits[0] += 1
-                return digits
-            else :
-                return [1, 0]
-
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        #: (edge case)
+        if len(digits) == 1: return [1, 0] if digits[0] == 9 else [digits[0] + 1]
+        
+        # ==================================================
+        #  Array + Math                                    =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1) 
+        
         carry = 1
+        for i in range( len(digits)-1, -1, -1 ):
+            digits[i] += carry
+            carry = digits[i] // 10
+            
+            #: if carry == 0, return; otherwise, keep tracking and assign 0 to current element
+            if carry: digits[i] = 0
+            else: return digits
+            
+        return [1] + digits
+    
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(n)
+     */
 
-        for i in range( length-1, -1, -1 ) :
-            result = digits[i] + carry
-            carry = result / 10
-
-            ##  do not have to propagate --> BREAK
-            if carry == 0 :
-                digits[i] += 1
-                break
-
-            ##  need to proceed to the next digit
-            else : digits[i] = 0
-
-        if carry > 0 : digits.insert( 0, 1 )
-
-        return digits
+    public int[] plusOne(int[] digits) {
+        int n = digits.length;
+        
+        for( int i=n-1 ; i>-1 ; i-- ){
+            if( digits[i] == 9 ){
+                digits[i] = 0;
+            } else{
+                digits[i]++;
+                return digits;
+            }
+        }
+        
+        digits = new int[n+1];
+        digits[0] = 1;
+        return digits;
+    }
+}
+==================================================================================================
+'''
