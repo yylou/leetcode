@@ -46,6 +46,7 @@ class Solution:
         for i in xrange( 1, len(nums) ):
             localMax = max( nums[i], localMax + nums[i] )
             globalMax = max( localMax, globalMax )
+            
         return globalMax
 ```
 
