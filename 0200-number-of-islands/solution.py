@@ -75,7 +75,7 @@ class Solution {
             for(int j=0 ; j<grid[0].length ; j++) {
                 if(grid[i][j] == '1') {
                     count++;
-                    islandFound(grid, i, j);
+                    explore(grid, i, j);
                 }
             }
         }
@@ -83,7 +83,7 @@ class Solution {
         return count;
     }
     
-    public void islandFound(char[][] grid, int x, int y) {
+    public void explore(char[][] grid, int x, int y) {
         if(x<0 || y<0 || x>= grid.length || y>= grid[0].length) {
             return;
         }
@@ -93,10 +93,12 @@ class Solution {
         }
         
         grid[x][y] = '0';
-        islandFound(grid, x+1, y);
-        islandFound(grid, x, y+1);
-        islandFound(grid, x-1, y);
-        islandFound(grid, x, y-1);
+        
+        explore(grid, x-1, y);
+        explore(grid, x+1, y);
+        explore(grid, x,   y-1);
+        explore(grid, x,   y+1);
+        
         return;
     }
 }
