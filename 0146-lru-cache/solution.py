@@ -1,93 +1,90 @@
-class ListNode(object):
+class Node:
     def __init__(self, key=-1, val=-1):
-        self.key = key
-        self.val = val
-
-        self.next = None
+        self.key  = key
+        self.val  = val
         self.prev = None
-
-
-class LRUCache(object):
-
-    def __init__(self, capacity):
-        """
-        :type capacity: int
-        """
-        self.capacity = capacity
-
-        ##  initialize a NULL node with key, value = (-1, -1)
-        self.head = ListNode()
+        self.next = None
+        
+class LRUCache:
+    
+    # ==================================================
+    #  Linked List + Hash Table                        =
+    # ==================================================
+    
+    def __init__(self, capacity: int):
+        self.size  = capacity
+        self.table = dict()
+        
+        #: LRU element is at HEAD.NEXT
+        self.head = Node()
         self.tail = self.head
 
-        self.nodeMap = {}
-
-
-    def _move_to_tail(self, node):
-        ##  BREAK links
+    def moveToTail(self, node):
+        #: break current link
         node.prev.next = node.next
         node.next.prev = node.prev
-
-        ##  MOVE to TAIL
-        node.prev = self.tail
+        
+        #: add to TAIL
         self.tail.next = node
+        node.next = None
+        node.prev = self.tail
         self.tail = node
+        
+    def get(self, key: int) -> int:
+        if key not in self.table: return -1
+        
+        node = self.table[key]
+        ret  = node.val
+        
+        #: (recently used) move to TAIL
+        if node != self.tail: self.moveToTail(node)
+        
+        return ret
 
-
-    def get(self, key):
-        """
-        :type key: int
-        :rtype: int
-        """
-
-        if key not in self.nodeMap: return -1
-
-        targetNode = self.nodeMap[key]
-        val = targetNode.val
-
-        ##  (recently used) MOVE to TAIL
-        if targetNode != self.tail: self._move_to_tail( targetNode )
-
-        return val
-
-
-    def put(self, key, value):
-        """
-        :type key: int
-        :type value: int
-        :rtype: None
-        """
-
-        ##  node not existing
-        ##  (1) add NEW node to TAIL
-        ##  (2) CHECK capacity to remove LRU data (HEAD.next node)
-        if key not in self.nodeMap:
-            newNode = ListNode( key, value )
-
-            newNode.prev = self.tail
-            self.tail.next = newNode
-            self.tail = newNode
-
-            self.nodeMap[key] = newNode
-
-            if len( self.nodeMap ) > self.capacity:
-                targetNode = self.head.next
-                self.head.next = targetNode.next
-                self.head.next.prev = self.head
-
-                del self.nodeMap[targetNode.key]
-
-        ##  node existing
-        ##  (1) UPDATE node's value
-        ##  (2) move the node to TAIL (recently used)
+    def put(self, key: int, value: int) -> None:
+        if key in self.table:
+            node = self.table[key]
+            node.val = value
+            
+            #: (recently used) move to TAIL
+            if node != self.tail: self.moveToTail(node)
+                
         else:
-            targetNode = self.nodeMap[key]
-            targetNode.val = value
+            node = Node(key, value)
+            self.table[key] = node
+            
+            #: add to TAIL
+            self.tail.next = node
+            node.prev = self.tail
+            self.tail = node
+            
+            #: remove LRU element at HEAD.NEXT, del from hash table
+            if len(self.table) > self.size:
+                node = self.head.next
+                node.prev.next = node.next
+                node.next.prev = node.prev
+                
+                del self.table[node.key]
+                
+'''
+from collections import OrderedDict
 
-            if targetNode != self.tail: self._move_to_tail( targetNode )
+class LRUCache(OrderedDict):
+    def __init__(self, capacity: int):
+        self.capacity = capacity
 
+    def get(self, key: int) -> int:
+        if key not in self: return -1
+        
+        self.move_to_end(key)
+        
+        return self[key]
 
-
-##  Your LRUCache object will be instantiated and called as such:
-# obj = LRUCache(capacity)
-# param_1 = obj.get(key)
-# obj.put(key,value)
+    def put(self, key: int, value: int) -> None:
+        if key in self: self.move_to_end(key)
+            
+        self[key] = value
+        
+        if len(self) > self.capacity:
+            self.popitem(last = False)
+'''
