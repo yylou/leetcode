@@ -1,34 +1,65 @@
-##  visit by row
-class Solution(object):
-    def convert(self, s, numRows):
-        """
-        :type s: str
-        :type numRows: int
-        :rtype: str
-        """
-
-        length = len( s )
-
-        ##  (edge case) numRows = 1, row > length of string
-        if numRows == 1 : return s
-        if numRows >= length : return s
-
-        ##  calculate the divide unit
-        gap = numRows - 2
-        cycle = numRows + gap
-
-        record = ''
-
-        for i in range( numRows ) :
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        #: (base case)
+        if numRows == 1: return s
+        
+        # ==================================================
+        #  String + Math                                   =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)
+        
+        ret = ''
+        cycle = numRows + numRows - 2
+        
+        for i in range(numRows):
             j = 0
-            while j+i < length :
-                ##  EDGE elements
-                record += s[j + i]
-
-                ##  INNER elements (not first/last row)
-                if i != 0 and i != numRows - 1 and j + cycle - i < length :
-                    record += s[j + cycle - i]
-
+            
+            while i+j < len(s):
+                # CYCLE element
+                ret += s[i+j]
+                
+                # INNER element
+                index = j + cycle - i
+                if i != 0 and i != numRows - 1 and index < len(s):
+                    ret += s[index]
+                
                 j += cycle
+                
+        return ret
+    
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(1)
+     */
 
-        return record
+    public String convert(String s, int numRows) {
+        if( numRows == 1 ) return s;
+        
+        StringBuilder ret = new StringBuilder();
+        int cycle = numRows * 2 - 2;
+            
+        for(int i = 0 ; i < numRows ; i++){
+            int j = 0;
+            
+            while(i+j < s.length()){
+                ret.append(s.charAt(i+j));
+                
+                int index = j + cycle - i;
+                if(i != 0 && i != numRows - 1 && index < s.length()){
+                    ret.append(s.charAt(index));
+                }
+                    
+                j += cycle;
+            }
+        }
+        
+        return ret.toString();
+    }
+}
+==================================================================================================
+'''
