@@ -22,7 +22,7 @@ class Solution:
                 l -= 1
                 r += 1
             
-            ##  EVEN length (aabbdde -> [a'a']bbdde, a[a'b']bdde, ..., aabbd[d'e'])
+            ##  EVEN length (aabbdde -> ['aa']bbdde, a['ab']bdde, ..., aabbd['de'])
             l, r = i, i+1
             while l >=0 and r < len(s) and s[l] == s[r]:
                 if (r - l + 1) > maxLen:
