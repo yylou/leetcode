@@ -1,60 +1,109 @@
-class Solution(object):
-    def expand(self, string, length, start, end):
-        left = start
-        right = end
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        #: (base case)
+        if not s or len(s) == 1: return s
+    
+        # ==================================================
+        #  Expand around Corner                            =
+        # ==================================================
+        # time  : O(n^2)
+        # space : O(1)
+        
+        ret = ''
+        maxLen = 0
+        
+        for i in range(len(s)):
+            ##  ODD length (aabbdde -> [a'a'b]bdde, a[a'b'd], ..., aabb[d'd'e])
+            l, r = i, i
+            while l >=0 and r < len(s) and s[l] == s[r]:
+                if (r - l + 1) > maxLen:
+                    ret = s[l:r+1]
+                    maxLen = len(ret)
+                l -= 1
+                r += 1
+            
+            ##  EVEN length (aabbdde -> [a'a']bbdde, a[a'b']bdde, ..., aabbd[d'e'])
+            l, r = i, i+1
+            while l >=0 and r < len(s) and s[l] == s[r]:
+                if (r - l + 1) > maxLen:
+                    ret = s[l:r+1]
+                    maxLen = len(ret)
+                l -= 1
+                r += 1
+            
+        return ret
+        
+        '''
+        # ==================================================
+        #  Dynamic Programming                             =
+        # ==================================================
+        # time  : O(n^2)
+        # space : O(n^2)
+        
+        ret = ''
+        
+        #: dp[i][j] = True == s[i:j] = Palindrome
+        dp = [[None] * len(s) for i in range(len(s))]
+        
+        for i in range(len(s)):
+            for j in range(i+1):
+                if i == j: dp[i][j] = True
+                elif i == j+1: dp[i][j] = s[i] == s[j]
+                else: dp[i][j] = (dp[i-1][j+1] and s[i] == s[j])
+                
+                if dp[i][j] and i - j + 1 > len(ret): ret = s[j:i+1]
+                    
+        return ret
+        '''
+        
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n^2)
+     * @space : O(1)
+     */
 
-        ##  keep EXPANDING
-        while left >= 0 and right < length and string[left] == string[right]:
-            left -= 1
-            right += 1
-
-        ##  LEFT needs to be added '1', RIGHT does not need (due to string[LEFT:RIGTH])
-        return left+1, right, right-left-1
-
-    def longestPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-
-        ##  (edge case) length of 's' == 1
-        length = len(s)
-        if not s or length == 1: return s
-
-        ##  Solution (1) Find palindrome string with ODD length at first, then check for EVEN length
-        ##  - time complexity: O(n)
-        retStr = ''
-        expand = 0
-
-        ##  ODD length (aabbdde -> [a'a'b]bdde, a[a'b'd], ..., aabb[d'd'e])
-        for i in xrange( length ):
-            while i-expand >= 0 and i+expand < length and s[i-expand:i] == s[i+expand:i:-1]:
-                retStr = s[i-expand:i+expand+1]
-                expand += 1
-
-        ##  EVEN length (aabbdde -> [a'a']bbdde, a[a'b']bdde, ..., aabbd[d'e'])
-        for i in xrange( 1, length ):
-            while i-expand >= 0 and i+expand <= length and s[i-expand:i] == s[i+expand-1:i-1:-1]:
-                retStr = s[i-expand:i+expand]
-                expand += 1
-
-        return retStr
-
-
-        # ============================================================================================= #
-
-
-        ##  Solution (2) Iterate through string and EXPAND for both ODD and EVEN legnth each iteration
-        ##  - time complexity: O(n^2)
-        start, end, maxLen = 0, 0, float( 'inf' )*-1
-
-        for i in xrange( length ):
-            ##  ODD length of palindromic string
-            s1, e1, len1 = self.expand( s, length, i, i )
-            ##  EVEN length of palindromic string
-            s2, e2, len2 = self.expand( s, length, i, i+1 )
-
-            if len1 > len2 and len1 > maxLen: start, end, maxLen = s1, e1, len1
-            elif len2 > len1 and len2 > maxLen: start, end, maxLen = s2, e2, len2
-
-        return s[start:end]
+    public String longestPalindrome(String s) {
+        int len = s.length();
+        
+        if( len == 0 || len == 1 ) return s;
+        
+        int start = 0, end = 0;
+        int maxLen = 0;
+        
+        for(int i=0 ; i<len ; i++){
+            /* Odd Length */
+            int l = i, r = i;
+            while(l >= 0 && r < len && s.charAt(l) == s.charAt(r)){
+                int tmp = r - l + 1;
+                if(tmp > maxLen){
+                    start = l;
+                    end = r;
+                    maxLen = tmp;
+                }
+                l--;
+                r++;
+            }
+            
+            /* Even Length */
+            l = i;
+            r = i+1;
+            while(l >= 0 && r < len && s.charAt(l) == s.charAt(r)){
+                int tmp = r - l + 1;
+                if(tmp > maxLen){
+                    start = l;
+                    end = r;
+                    maxLen = tmp;
+                }
+                l--;
+                r++;
+            }           
+        }
+        
+        return s.substring(start, end + 1);
+    } 
+}
+==================================================================================================
+'''
