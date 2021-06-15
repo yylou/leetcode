@@ -1,48 +1,81 @@
-class Solution(object):
-    def searchRange(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-
-        ##  (edge case) nums == null
-        if not nums: return [-1, -1]
-
-        ##  (edge case) length == 1
-        length = len( nums )
-        if length == 1:
-            if nums[0] != target: return [-1, -1]
-            else: return [0, 0]
-
-        # ============================================
-        #  BINARY SEARCH                             =
-        # ============================================
-        left, right = 0, length-1
-
-        ##  ALL MATCH
-        if nums[left] == target and nums[right] == target: return [left, right]
-
-        ##  for LEFT-most
-        ##  5  7  [7]  8  8  10  (8), return left = mid + 1
-        while left <= right:
-            mid = (left+right) // 2
-
-            if target > nums[mid]: left = mid + 1
-            else: right = mid - 1
-
-        start = left
-        left, right = 0, length-1
-
-        ##  for RIGHT-most
-        ##  5  7  7  8  8  [10]  (8), return right = mid - 1
-        while left <= right:
-            mid = (left+right) // 2
-
-            if target >= nums[mid]: left = mid + 1
-            else: right = mid -1
-
-        end = right
-
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        #: (base case)
+        if not nums or (len(nums) == 1 and nums[0] != target): return [-1, -1]
+        if len(nums) == 1 and nums[0] == target: return [0, 0]
+        if nums[0] == target and nums[-1] == target: return [0, len(nums)-1]
+        
+        # ==================================================
+        #  Array + Binary Search                           =
+        # ==================================================
+        # time  : O(log(n))
+        # space : O(1)
+        
+        start, end = 0, 0
+        
+        #: find the starting position (left-most element)
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            mid = (l + r) // 2
+            
+            if nums[mid] >= target: r = mid-1
+            else: l = mid + 1
+                
+        start = l
+        
+        #: find the ending position (right-most element)
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            mid = (l + r) // 2
+            
+            if nums[mid] > target: r = mid-1
+            else: l = mid + 1
+                
+        end = r
+        
         if start > end: return [-1, -1]
         return [start, end]
+    
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(log(n))
+     * @space : O(1)
+     */
+
+    public int[] searchRange(int[] nums, int target) {
+        /* base case */
+        if(nums.length == 0) return new int[]{-1, -1};
+        
+        int start = 0, end = 0;
+        
+        /* starting position (left-most element) */
+        int l = 0, r = nums.length - 1;
+        while(l <= r){
+            int mid = (l + r) / 2;
+            
+            if(nums[mid] >= target) r = mid - 1;
+            else l = mid + 1;
+        }
+        
+        start = l;
+        
+        /* ending position (right-most element) */
+        l = 0;
+        r = nums.length - 1;
+        while(l <= r){
+            int mid = (l + r) / 2;
+            
+            if(nums[mid] > target) r = mid - 1;
+            else l = mid + 1;
+        }
+        
+        end = r;
+        
+        if(start > end) return new int[]{-1, -1};
+        return new int[]{start, end};
+    }}
+==================================================================================================
+'''
