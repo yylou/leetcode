@@ -1,74 +1,87 @@
-class Solution(object):
-    def merge(self, nums1, m, nums2, n):
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
-        :type nums1: List[int]
-        :type m: int
-        :type nums2: List[int]
-        :type n: int
-        :rtype: None Do not return anything, modify nums1 in-place instead.
-
-        reference: https://www.geeksforgeeks.org/in-place-merge-sort/
+        Do not return anything, modify nums1 in-place instead.
         """
-
-        #:  (edge case) nums2 is empty
-        if not nums2: return
-
-
-        #:  Solution (1) place from the end of 'nums1'
-        lastElement = m+n-1
-        while m > 0 and n > 0:
-            if nums1[m-1] > nums2[n-1]:
-                nums1[lastElement] = nums1[m-1]
-                m -= 1
-                lastElement -= 1
+        
+        #: (base case)
+        if m == 0: 
+            for i in range(n): nums1[i] = nums2[i]
+        if n == 0: return    
+        
+        # ==================================================
+        #  Array + Three Pointers        (Start from End)  =
+        # ==================================================        
+        # time  : O(m+n)
+        # space : O(1)
+        
+        p1 = m - 1
+        p2 = n - 1
+        
+        for placeP in range(m+n-1, -1, -1):
+            #: use p2 for termination since p1 could be left due to the final return
+            if p2 < 0: break
+                
+            if p1 >= 0 and nums1[p1] >= nums2[p2]:
+                nums1[placeP] = nums1[p1]
+                p1 -= 1
             else:
-                nums1[lastElement] = nums2[n-1]
-                n -= 1
-                lastElement -= 1
-
-        while n > 0:
-            nums1[lastElement] = nums2[n-1]
-            n -= 1
-            lastElement -= 1
-
-
-        # ============================================================================= #
-
-
-        """
-        #:  Solution (2) two pointers to modify in-place and shift (without copy)
+                nums1[placeP] = nums2[p2]
+                p2 -= 1
+        
+        '''
+        # ==================================================
+        #  Array + Three Pointers   (Start from Begining)  =
+        # ==================================================        
+        # time  : O(m+n)
+        # space : O(n)
+        
+        nums1_copy = nums1[:m]
+        
+        #: pointers for nums1Copy and nums2 respectively
         p1, p2 = 0, 0
-        while p1 < m and p2 < n:
-            if nums1[p1] <= nums2[p2]:
+        
+        for p in range(n + m):
+            if p2 >= n or (p1 < m and nums1_copy[p1] <= nums2[p2]):
+                nums1[p] = nums1_copy[p1] 
                 p1 += 1
-
-            elif nums1[p1] > nums2[p2]:
-                #:  shift element
-                tmpP = m
-                while tmpP > p1:
-                    nums1[tmpP] = nums1[tmpP-1]
-                    tmpP -= 1
-
-                nums1[p1] = nums2[p2]
-
-                p1 += 1
+            else:
+                nums1[p] = nums2[p2]
                 p2 += 1
-                m += 1
+        '''
 
-        #:  for the remaining elements in nums2
-        if p2 != n:
-            while p2 < n:
-                nums1[m] = nums2[p2]
-                m += 1
-                p2 += 1
-        """
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(m+n)
+     * @space : O(1)
+     */
 
-
-        # ============================================================================= #
-
-
-        """
-        #:  Solution (3) using python built-in sorting function
-        for i in xrange( m, len(nums1) ): nums1[i] = nums2[i-m]
-        nums1.sort()
-        """
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        /* base case */
+        if(m == 0){
+            for(int i = 0 ; i < n ; i++){
+                nums1[i] = nums2[i];
+            }
+        }
+        if(n == 0) return;
+        
+        int p1 = m - 1, p2 = n - 1;
+        
+        for(int p = m+n-1 ; p > -1 ; p--){
+            if(p2 < 0) break;
+            
+            if(p1 >= 0 && nums1[p1] >= nums2[p2]){
+                nums1[p] = nums1[p1];
+                p1--;
+            } else{
+                nums1[p] = nums2[p2];
+                p2--;
+            }
+        }
+    }
+}
+==================================================================================================
+'''
