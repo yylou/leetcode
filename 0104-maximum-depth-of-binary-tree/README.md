@@ -60,8 +60,6 @@ class Solution {
      * @space : O(n), O(log(n)) for average case
      */
 
-    /* Iterative Solution */
-
     public int maxDepth(TreeNode root) {
         /* base case */
         if(root == null) return 0;
@@ -69,16 +67,16 @@ class Solution {
         
         int maxDepth = 0;
         LinkedList<TreeNode> stack = new LinkedList<>();
-        stack.add(root);
+        stack.push(root);
         
         while(!stack.isEmpty()) {
             int size = stack.size();
             
             for(int i=0 ; i<size ; i++) {
-                TreeNode node = stack.pollFirst();
+                TreeNode node = stack.pollLast();
                 
-                if(node.left != null) stack.add(node.left);
-                if(node.right != null) stack.add(node.right);
+                if(node.left != null) stack.push(node.left);
+                if(node.right != null) stack.push(node.right);
             }
             
             maxDepth++;
