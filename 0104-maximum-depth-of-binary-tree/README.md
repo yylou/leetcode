@@ -60,6 +60,8 @@ class Solution {
      * @space : O(n), O(log(n)) for average case
      */
 
+    /* Iterative Solution */
+
     public int maxDepth(TreeNode root) {
         /* base case */
         if(root == null) return 0;
