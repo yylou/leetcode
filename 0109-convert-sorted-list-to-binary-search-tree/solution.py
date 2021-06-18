@@ -1,82 +1,105 @@
-#:  Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-
-#:  Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
-class Solution(object):
-    def sortedListToBST(self, head):
-        """
-        :type head: ListNode
-        :rtype: TreeNode
-        """
-
-        #:  (edge case)
+class Solution:
+    def sortedListToBST(self, head: ListNode) -> TreeNode:
+        #: (base case)
         if not head: return None
-        if not head.next: return TreeNode( head.val )
+        if not head.next: return TreeNode(head.val)
+        
+        # ==================================================
+        #  Linked List + Tree + DFS + Recursion            =
+        # ==================================================
+        # time  : O(nlog(n))
+        # space : O(log(n)) due to height-balanced BST
+        
+        def findMid(node) -> TreeNode:
+            prevP, slowP, fastP = None, node, node
+            
+            while fastP and fastP.next:
+                prevP = slowP
+                slowP = slowP.next
+                fastP = fastP.next.next
+            
+            #: DISCONNECT the left half from the mid node.
+            if prevP: prevP.next = None
+                
+            return slowP
+            
+        mid  = findMid(head)
+        
+        node       = TreeNode(mid.val)
+        node.left  = self.sortedListToBST(head)
+        node.right = self.sortedListToBST(mid.next)
+        
+        return node
+    
+        '''
 
-
-        #:  Solution (1) convery list to array at first
-        #:  - time complexity: O(n)
-        #:  - space complexity: O(n)
-        array = []
-        while head:
-            array.append( head.val )
-            head = head.next
-
-        def subtree( left, right ):
-            if left > right: return None
-            if left == right: return TreeNode( array[left] )
-
-            center = (left + right) // 2
-
-            node = TreeNode( array[center] )
-            node.left = subtree( left, center-1 )
-            node.right = subtree( center+1, right)
-
-            return node
-
-
-        return subtree( 0, len(array)-1 )
-
-
-        # ======================================================================= #
-
-
-        #:  Solution (2) In-order Traversal Simulation
-        #:  - time complexity: O(n)
-        #:  - space complexity: O(logn) (due to recursive call)
+        # ==================================================
+        #  Linked List + Tree + In-order Recursion         =
+        # ==================================================
+        # time  : O(n)
+        # space : O(log(n)) due to height-balanced BST
+        
+        #: (find size)
         size = 0
-        tmp = head
+        tmp  = head
         while tmp:
             size += 1
             tmp = tmp.next
-
-        global head_tmp
-        head_tmp = head
-
-        def simulation( left, right ):
-            global head_tmp
-
-            if left > right: return None
-
-            center = (left + right ) // 2
-            left = simulation( left, center-1 )
-
-            node = TreeNode( head_tmp.val )
+        
+        def subTree(left, right) -> TreeNode:
+            nonlocal head
+            
+            if left  > right: return None
+            
+            mid = (left + right) // 2
+            left = subTree(left, mid - 1)
+            
+            node = TreeNode(head.val)
             node.left = left
-
-            head_tmp = head_tmp.next
-            node.right = simulation( center+1, right )
-
+            head = head.next
+            
+            node.right = subTree(mid + 1, right)
+            
             return node
+            
+        return subTree(0, size - 1)
+        '''
+        
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(nlog(n))
+     * @space : O(log(n)) due to height-balanced BST
+     */
 
-
-        return simulation( 0, size-1 )
+    public ListNode findMid(ListNode head) {
+        ListNode prevP = null, slowP = head, fastP = head;
+        
+        while(fastP != null && fastP.next != null) {
+            prevP = slowP;
+            slowP = slowP.next;
+            fastP = fastP.next.next;
+        }
+        
+        if(prevP != null) prevP.next = null;
+        return slowP;
+    }
+    
+    public TreeNode sortedListToBST(ListNode head) {
+        /* base case */
+        if(head == null) return null;
+        if(head.next == null) return new TreeNode(head.val);
+        
+        ListNode mid = findMid(head);
+        
+        TreeNode node = new TreeNode(mid.val);
+        node.left     = sortedListToBST(head);
+        node.right    = sortedListToBST(mid.next);
+        
+        return node;
+    }
+}
+==================================================================================================
+'''
