@@ -29,8 +29,8 @@ Java Solution
 ==================================================================================================
 class Solution {
     /**
-     * @time  : O(n)
-     * @space : O(1)
+     * @time  : O(n^2)
+     * @space : O(n^2)
      */
 
     public List<List<Integer>> generate(int numRows) {
