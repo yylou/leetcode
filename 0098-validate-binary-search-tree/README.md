@@ -61,7 +61,7 @@ class Solution:
         return self._isValidBSTHelper(root, float('-inf'), float('inf'))
 ```
 
-# Java (ongoing)
+# Java
 ```Java
 class Solution {
     /**
