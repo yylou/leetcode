@@ -11,7 +11,7 @@
 
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
-        #: (edge case)
+        #: (base case)
         if not root.left and not root.right: return True
         
         # ==================================================
@@ -49,7 +49,7 @@ class Solution:
         return False
     
     def isValidBST(self, root: TreeNode) -> bool:
-        #: (edge case)
+        #: (base case)
         if not root.left and not root.right: return True
         
         # ==================================================
