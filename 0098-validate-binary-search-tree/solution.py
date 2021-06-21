@@ -1,13 +1,6 @@
-#: Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
-        #: (edge case)
+        #: (base case)
         if not root.left and not root.right: return True
         
         # ==================================================
@@ -39,7 +32,7 @@ class Solution:
     def _isValidBSTHelper(self, node, lower, upper):
         if not node: return True
 
-        if ((node.val > lower and node.val < upper)                 and
+        if ((upper > node.val > lower)                              and
             self._isValidBSTHelper(node.left,  lower,    node.val ) and
             self._isValidBSTHelper(node.right, node.val, upper)):
             return True
@@ -47,7 +40,7 @@ class Solution:
         return False
 
     def isValidBST(self, root: TreeNode) -> bool:
-        #: (edge case)
+        #: (base case)
         if not root.left and not root.right: return True
 
         return self._isValidBSTHelper(root, float('-inf'), float('inf'))
@@ -61,10 +54,19 @@ class Solution {
      * @time  : O(n)
      * @space : O(n)
      */
+     
+    public boolean isValid(TreeNode node, long lower, long upper) {
+        if(node == null) return true;
+        
+        return (lower < node.val && node.val < upper) &&
+               isValid(node.left, lower, node.val)    && 
+               isValid(node.right, node.val, upper);
+    }
     
     public boolean isValidBST(TreeNode root) {
+        if(root.left == null && root.right == null) return true;
         
+        return isValid(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
-}
-==================================================================================================
+}==================================================================================================
 '''
