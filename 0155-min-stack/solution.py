@@ -1,3 +1,27 @@
+class MinStack:
+    # ==================================================
+    #  Python built-in List                            =
+    # ==================================================
+    # time  : O(1) for all operations
+    # space : O(n)
+
+    def __init__(self):
+        self.stack = []
+
+    def push(self, val: int) -> None:
+        if not self.stack: self.stack.append((val, val))
+        else: self.stack.append((val, min(val, self.stack[-1][1])))
+                               
+    def pop(self) -> None:
+        self.stack.pop()
+
+    def top(self) -> int:
+        return self.stack[-1][0]
+
+    def getMin(self) -> int:
+        return self.stack[-1][1]
+    
+'''
 class Node:
     def __init__(self, val, min, next):
         self.val  = val
@@ -5,6 +29,9 @@ class Node:
         self.next = next
 
 class MinStack:
+    # ==================================================
+    #  Single Linked-List                              =
+    # ==================================================
     # time  : O(1) for all operations
     # space : O(n)
 
@@ -23,6 +50,7 @@ class MinStack:
 
     def getMin(self) -> int:
         return self.head.min
+'''
 
 '''
 Java Solution
