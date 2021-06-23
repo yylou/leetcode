@@ -1,23 +1,28 @@
+class Node:
+    def __init__(self, val, min, next):
+        self.val  = val
+        self.min  = min
+        self.next = next
+
 class MinStack:
     # time  : O(1) for all operations
     # space : O(n)
 
     def __init__(self):
-        self.stack = []
+        self.head = None
 
     def push(self, val: int) -> None:
-        if not self.stack: self.stack.append((val, val))
-        else: self.stack.append((val, min(val, self.stack[-1][1])))
+        if not self.head: self.head = Node(val, val, None)
+        else: self.head = Node(val, min(val, self.head.min), self.head)
 
     def pop(self) -> None:
-        self.stack.pop()
+        self.head = self.head.next
 
     def top(self) -> int:
-        return self.stack[-1][0]
+        return self.head.val
 
     def getMin(self) -> int:
-        return self.stack[-1][1]
-
+        return self.head.min
 
 '''
 Java Solution
@@ -27,32 +32,43 @@ class MinStack {
      * @time  : O(1) for all operations
      * @space : O(n)
      */
-
-    private Stack<int[]> stack;
     
+    private class Node {
+        int val;
+        int min;
+        Node next;
+        
+        private Node(int val, int min, Node next) {
+            this.val = val;
+            this.min = min;
+            this.next = next;
+        }
+    }
+    
+    private Node head;
+
     public MinStack() {
-        stack = new Stack<>();
+        
     }
     
     public void push(int val) {
-        if(stack.isEmpty()) {
-            stack.push(new int[]{val, val});
+        if(head == null) {
+            head = new Node(val, val, null);
         } else {
-            int curMin = stack.peek()[1];
-            stack.push(new int[]{val, Math.min(val, curMin)});
+            head = new Node(val, Math.min(val, head.min), head);
         }
     }
     
     public void pop() {
-        stack.pop();
+        head = head.next;
     }
     
     public int top() {
-        return stack.peek()[0];
+        return head.val;
     }
     
     public int getMin() {
-        return stack.peek()[1];
+        return head.min;
     }
 }
 ==================================================================================================
