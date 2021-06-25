@@ -51,6 +51,11 @@ class Solution:
 ```
 
 ```Python3
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        #  (base case)
+        if len(prices) == 1: return 0
+        
         # ==================================================
         #  Array + Dynamic Programming              (FSM)  =
         # ==================================================
