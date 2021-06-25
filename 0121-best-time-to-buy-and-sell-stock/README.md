@@ -29,6 +29,28 @@ class Solution:
 ```
 
 ```Python3
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        #  (base case)
+        if len(prices) == 1: return 0
+        
+        # ==================================================
+        #  Array + Dynamic Programming         (localMax)  =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)
+        
+        localMax, maxProfit = float('-inf'), float('-inf')
+        for i in range(len(prices)-1, -1, -1):
+            if prices[i] > localMax: localMax = prices[i]
+            
+            tmpProfit = localMax - prices[i]
+            if tmpProfit > maxProfit: maxProfit = tmpProfit
+                
+        return maxProfit
+```
+
+```Python3
         # ==================================================
         #  Array + Dynamic Programming              (FSM)  =
         # ==================================================
@@ -49,28 +71,6 @@ class Solution:
         
         #  (HOLD state does not have MAX profit)
         return noHold
-```
-
-```Python3
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        #  (base case)
-        if len(prices) == 1: return 0
-        
-        # ==================================================
-        #  Array + Dynamic Programming         (localMax)  =
-        # ==================================================
-        # time  : O(n)
-        # space : O(1)
-        
-        localMax, maxProfit = float('-inf'), float('-inf')
-        for i in range(len(prices)-1, -1, -1):
-            if prices[i] > localMax: localMax = prices[i]
-            
-            tmpProfit = localMax - prices[i]
-            if tmpProfit > maxProfit: maxProfit = tmpProfit
-                
-        return maxProfit
 ```
 
 # Java
