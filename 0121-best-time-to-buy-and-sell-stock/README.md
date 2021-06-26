@@ -91,10 +91,10 @@ class Solution {
         if(prices.length == 1) return 0;
         
         int localMin = Integer.MAX_VALUE, maxProfit = Integer.MIN_VALUE;
-        for(int i=0 ; i<prices.length ; i++) {
-            if(prices[i] < localMin) localMin = prices[i];
+        for(int price: prices) {
+            if(price < localMin) localMin = price;
                 
-            int tmpProfit = prices[i] - localMin;
+            int tmpProfit = price - localMin;
             if(tmpProfit > maxProfit) maxProfit = tmpProfit;
         }
         
