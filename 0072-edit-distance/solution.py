@@ -29,7 +29,7 @@ class Solution:
             self.table[index1][index2] = self.dp(index1 + 1, index2 + 1)
             
         else:
-            insert  = 1 + self.dp(index1    , index2 + 1)
+            insert  = 1 + self.dp(index1,     index2 + 1)
             delete  = 1 + self.dp(index1 + 1, index2)
             replace = 1 + self.dp(index1 + 1, index2 + 1)
             
