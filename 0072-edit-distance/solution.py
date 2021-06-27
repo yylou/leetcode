@@ -26,7 +26,7 @@ class Solution:
         
         #  (SKIP) move both indexes without increasing moves
         if self.word1[index1] == self.word2[index2]: 
-            self.table[index1][index2] = self.dp(index1+1, index2+1)
+            self.table[index1][index2] = self.dp(index1 + 1, index2 + 1)
             
         else:
             insert  = 1 + self.dp(index1 + 1, index2)
