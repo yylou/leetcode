@@ -29,8 +29,8 @@ class Solution:
             self.table[index1][index2] = self.dp(index1 + 1, index2 + 1)
             
         else:
-            insert  = 1 + self.dp(index1 + 1, index2)
-            delete  = 1 + self.dp(index1,     index2 + 1)
+            insert  = 1 + self.dp(index1    , index2 + 1)
+            delete  = 1 + self.dp(index1 + 1, index2)
             replace = 1 + self.dp(index1 + 1, index2 + 1)
             
             self.table[index1][index2] = min(insert, delete, replace)
@@ -78,8 +78,8 @@ class Solution {
             this.table[index1][index2] = dp(index1 + 1, index2 + 1);
             
         } else {
-            int insert  = 1 + dp(index1 + 1, index2);
-            int delete  = 1 + dp(index1,     index2 + 1);
+            int insert  = 1 + dp(index1,     index2 + 1);
+            int delete  = 1 + dp(index1 + 1, index2);
             int replace = 1 + dp(index1 + 1, index2 + 1);
             
             this.table[index1][index2] = Math.min(Math.min(insert, delete), replace);
