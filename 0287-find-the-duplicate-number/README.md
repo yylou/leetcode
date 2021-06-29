@@ -2,7 +2,7 @@
 [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number)
 
 # Performance
-![result](./result.png)
+![result-python](./result.png)
 ![result-java](./result-java.png)
 
 # Python
