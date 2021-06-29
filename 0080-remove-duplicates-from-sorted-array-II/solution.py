@@ -1,35 +1,55 @@
-##  Related problem: 26. Remove Duplicates from Sorted Array
-##  For this problem, only need to add one counter and additional if-else statements
-class Solution(object):
-    def removeDuplicates(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-
-        length = len( nums )
-
-        ##  (edge case)
-        if length == 0 : return 0
-        if length == 1 : return 1
-
-        counter = 0
-        retVal = 0
-
-        for i in range( 1, length ) :
-            if nums[i] == nums[retVal] :
-                counter += 1
-
-                ##  not exceeding 2 times, move to the next element but CANNOT renew counter
-                if counter < 2 : retVal += 1
-
-            ##  uneqal condition: renew counter and move to the next element concurrently (ret_value and i)
-            else :
-                counter = 0
-                retVal += 1
-
-            ##  assign element by two pointers: ret_value and i
-            nums[retVal] = nums[i]
-
-
-        return retVal + 1
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        #  (base case)
+        if len(nums) == 1 or len(nums) == 2: return len(nums)
+        
+        # ==================================================
+        #  Array + Two Pointer                             =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)
+        
+        placeP, moveP = 0, 0
+        
+        while moveP < len(nums):
+            num = nums[moveP]
+            
+            if placeP < 2 or num != nums[placeP - 2]:
+                nums[placeP] = num
+                placeP += 1
+            
+            moveP += 1
+        
+        return placeP
+    
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(1)
+     */
+    
+    public int removeDuplicates(int[] nums) {
+        /* base case */
+        if(nums.length == 1 || nums.length == 2) return nums.length;
+        
+        int moveP = 0, placeP = 0;
+        
+        while(moveP < nums.length) {
+            int num = nums[moveP];
+            
+            if(placeP < 2 || num != nums[placeP - 2]) {
+                nums[placeP] = num;
+                placeP += 1;
+            }
+            
+            moveP += 1;
+        }
+        
+        return placeP;
+    }
+}
+==================================================================================================
+'''
