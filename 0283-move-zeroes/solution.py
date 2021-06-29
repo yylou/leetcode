@@ -1,19 +1,49 @@
-class Solution(object):
-    def moveZeroes(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: None Do not return anything, modify nums in-place instead.
-        """
-
-        pCur, pIndexToBePlace = 0, 0
-
-        while pCur < len( nums ):
-            if nums[pCur] != 0:
-                ##  (1) whenever meet NON-ZERO element, move it forward
-                if nums[pIndexToBePlace] != nums[pCur]:
-                    nums[pIndexToBePlace], nums[pCur] = nums[pCur], nums[pIndexToBePlace]
-
-                ##  (2) move the pointer that points to the index to be placed by NON-ZERO element
-                pIndexToBePlace += 1
-
-            pCur += 1
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        #  (base case)
+        if len(nums) == 1: return nums
+        
+        # ==================================================
+        #  Array + Two Pointer                             =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)
+        
+        placeP, moveP = 0, 0
+        
+        while moveP < len(nums):
+            if nums[moveP] != 0: 
+                nums[placeP], nums[moveP] = nums[moveP], nums[placeP]    
+                placeP += 1
+            
+            moveP += 1
+            
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(1)
+     */
+    
+    public void moveZeroes(int[] nums) {
+        /* base case */
+        if(nums.length == 1) return;
+        
+        int moveP = 0, placeP = 0;
+        
+        while(moveP < nums.length) {
+            if(nums[moveP] != 0) {
+                int tmp = nums[placeP];
+                nums[placeP] = nums[moveP];
+                nums[moveP] = tmp;
+                
+                placeP += 1;
+            }
+            
+            moveP += 1;
+        }
+    }
+}==================================================================================================
+'''
