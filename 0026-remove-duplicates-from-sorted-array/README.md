@@ -3,6 +3,7 @@
 
 # Performance
 ![result](./result.png)
+![result-java](./result-java.png)
 
 # Python
 ```python3
@@ -36,6 +37,7 @@ class Solution {
      * @time  : O(n)
      * @space : O(1)
      */
+     
     public int removeDuplicates(int[] nums) {
         if( nums.length == 0 || nums.length == 1 ) return nums.length;
         
