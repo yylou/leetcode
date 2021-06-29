@@ -1,69 +1,59 @@
-class Solution(object):
-    def exist(self, board, word):
-        """
-        :type board: List[List[str]]
-        :type word: str
-        :rtype: bool
-        """
-
-        x = len(board[0])
-        y = len(board)
-
-        ##  (edge case) follow the constraints
-        n = len(word)
-        if n > x*y : return False
-
-        ##  iterate through matrix to record index
-        firstPosition = set()
-        posRecord = {}
-        for i in xrange( y ):
-            for j in xrange( x ):
-                if board[i][j] == word[0]: firstPosition.add( (i, j) )
-                posRecord[board[i][j]] = posRecord.get( board[i][j], 0 ) + 1
-
-        ##  iterate through word to count char existence
-        charCount = {}
+class Solution:    
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        
+        # ==================================================
+        #  Array + DFS + Backtracking                      =
+        # ==================================================
+        # time  : O(m*3^k), m is the number of starting positions, k is the length of word
+        # space : O(m+x*y+2k)
+        
+        self.board, self.word = board, word
+        self.x, self.y, self.k = len(board[0]), len(board), len(word)
+        
+        starting, tableB, tableW = set(), dict(), dict()
+        
+        #  (candidate position & char existence table) x*y iterations
+        for i in range(self.y):
+            for j in range(self.x):
+                if board[i][j] == word[0]: starting.add((i, j))
+                tableB[board[i][j]] = tableB.get(board[i][j], 1)
+                
+        #  (check word for char existence record) k iterations
         for char in word:
-            charCount[char] = charCount.get( char, 0 ) + 1
-
-            ##  check whether char occurrence qualifies
-            if char not in posRecord: return False
-            if charCount[char] > posRecord[char]: return False
-
-
-        def recursive( wordIndex, curPos, visited ):
-            if wordIndex == n: return True
-
-            ##  UP
-            if curPos[0]-1 >= 0 and board[curPos[0]-1][curPos[1]] == word[wordIndex] and (curPos[0]-1, curPos[1]) not in visited:
-                visited.add( (curPos[0]-1, curPos[1]) )
-                if recursive( wordIndex+1, (curPos[0]-1, curPos[1]), visited ): return True
-                visited.remove( (curPos[0]-1, curPos[1]) )
-
-            ##  DOWN
-            if curPos[0]+1 < y and board[curPos[0]+1][curPos[1]] == word[wordIndex] and (curPos[0]+1, curPos[1]) not in visited:
-                visited.add( (curPos[0]+1, curPos[1]) )
-                if recursive( wordIndex+1, (curPos[0]+1, curPos[1]), visited ): return True
-                visited.remove( (curPos[0]+1, curPos[1]) )
-
-            ##  LEFT
-            if curPos[1]-1 >= 0 and board[curPos[0]][curPos[1]-1] == word[wordIndex] and (curPos[0], curPos[1]-1) not in visited:
-                visited.add( (curPos[0], curPos[1]-1) )
-                if recursive( wordIndex+1, (curPos[0], curPos[1]-1), visited ): return True
-                visited.remove( (curPos[0], curPos[1]-1) )
-
-            ##  RIGHT
-            if curPos[1]+1 < x and board[curPos[0]][curPos[1]+1] == word[wordIndex] and (curPos[0], curPos[1]+1) not in visited:
-                visited.add( (curPos[0], curPos[1]+1) )
-                if recursive( wordIndex+1, (curPos[0], curPos[1]+1), visited ): return True
-                visited.remove( (curPos[0], curPos[1]+1) )
-
-            return False
-
-
-        for pos in firstPosition:
-            tmpSet = set()
-            tmpSet.add( pos )
-            if recursive( 1, pos, tmpSet ): return True
-
+            tableW[char] = tableW.get(char, 1)
+            
+            if char not in tableB: return False
+            if tableW[char] > tableB[char]: return False
+        
+        #  (DFS)
+        for i, j in starting:
+            if self.DFS(0, j, i): return True
+            
+        return False
+    
+    def DFS(self, index, x, y) -> bool:
+        if index == self.k - 1: return True
+        
+        nextChar = self.word[index+1]
+        
+        if y - 1 >= 0 and self.board[y-1][x] == nextChar:
+            self.board[y][x] = '.'
+            if self.DFS(index + 1, x, y - 1): return True
+            self.board[y][x] = self.word[index]
+            
+        if y + 1 < self.y and self.board[y+1][x] == nextChar:
+            self.board[y][x] = '.'
+            if self.DFS(index + 1, x, y + 1): return True
+            self.board[y][x] = self.word[index]
+            
+        if x - 1 >= 0 and self.board[y][x-1] == nextChar:
+            self.board[y][x] = '.'
+            if self.DFS(index + 1, x - 1, y): return True
+            self.board[y][x] = self.word[index]
+            
+        if x + 1 < self.x and self.board[y][x+1] == nextChar:
+            self.board[y][x] = '.'
+            if self.DFS(index + 1, x + 1, y): return True
+            self.board[y][x] = self.word[index]
+            
         return False
