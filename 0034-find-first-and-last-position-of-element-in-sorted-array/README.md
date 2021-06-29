@@ -11,8 +11,6 @@ class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         #: (base case)
         if not nums or (len(nums) == 1 and nums[0] != target): return [-1, -1]
-        if len(nums) == 1 and nums[0] == target: return [0, 0]
-        if nums[0] == target and nums[-1] == target: return [0, len(nums)-1]
         
         # ==================================================
         #  Array + Binary Search                           =
@@ -27,7 +25,7 @@ class Solution:
         while l <= r:
             mid = (l + r) // 2
             
-            if nums[mid] >= target: r = mid-1
+            if nums[mid] >= target: r = mid - 1
             else: l = mid + 1
                 
         start = l
@@ -37,8 +35,8 @@ class Solution:
         while l <= r:
             mid = (l + r) // 2
             
-            if nums[mid] > target: r = mid-1
-            else: l = mid + 1
+            if nums[mid] <= target: l = mid + 1
+            else: r = mid - 1
                 
         end = r
         
@@ -53,7 +51,7 @@ class Solution {
      * @time  : O(log(n))
      * @space : O(1)
      */
-
+    
     public int[] searchRange(int[] nums, int target) {
         /* base case */
         if(nums.length == 0) return new int[]{-1, -1};
@@ -77,8 +75,8 @@ class Solution {
         while(l <= r){
             int mid = (l + r) / 2;
             
-            if(nums[mid] > target) r = mid - 1;
-            else l = mid + 1;
+            if(nums[mid] <= target) l = mid + 1;
+            else r = mid - 1;
         }
         
         end = r;
