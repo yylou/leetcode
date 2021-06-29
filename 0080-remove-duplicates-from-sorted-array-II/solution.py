@@ -9,7 +9,7 @@ class Solution:
         # time  : O(n)
         # space : O(1)
         
-        placeP, moveP = 0, 0
+        moveP, placeP = 0, 0
         
         while moveP < len(nums):
             num = nums[moveP]
