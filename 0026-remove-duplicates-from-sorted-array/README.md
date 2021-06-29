@@ -10,7 +10,7 @@
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         #  (base case)
-        if len(nums) == 0 or len(nums) == 1: return
+        if len(nums) == 0 or len(nums) == 1: return len(nums)
         
         # ==================================================
         #  Array + Two Pointer                             =
