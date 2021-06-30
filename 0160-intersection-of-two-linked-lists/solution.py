@@ -1,79 +1,94 @@
-##  Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution(object):
-    def getIntersectionNode(self, headA, headB):
-        """
-        :type head1, head1: ListNode
-        :rtype: ListNode
-        """
-
-        #:  (edge case)
-        if (headA and not headB) or (not headA and headB) or (not headA and not headB): return None
-
-
-        #:  Solution (1) a + shared + b == b + shared + a
-        #:  - time complexity: O(n + m)
-        #:  - space complexity: O(1)
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        
+        # ==================================================
+        #  Linked List + Two Pointer                       =
+        # ==================================================
+        # time  : O(n+m)
+        # space : O(1)
+        # note  : A + shared path + B = B + shared path + A
+        
         pA, pB = headA, headB
         while pA != pB:
-            if not pA: pA = headB
-            else: pA = pA.next
-
-            if not pB: pB = headA
-            else: pB = pB.next
-
+            pA = pA.next if pA else headB
+            pB = pB.next if pB else headA
+            
         return pA
-
-
-        # ============================================================================================= #
-
-
-        ##  Solution (2) find the length of two lists and align before traversing
-        #:  - time complexity: O(n + m)
-        #:  - space complexity: O(1)
-        lenA, lenB = 1, 1
-        tmpA, tmpB = headA, headB
-        while tmpA:
-            lenA += 1
-            tmpA = tmpA.next
-        while tmpB:
-            lenB += 1
-            tmpB = tmpB.next
-
+        
+        '''
+        # ==================================================
+        #  Linked List + Two Pointer                       =
+        # ==================================================
+        # time  : O(max(n,m))
+        # space : O(1)
+        # note  : Find the length, then align two head pointers
+        
+        pA, pB, lenA, lenB = headA, headB, 0, 0
+        while pA or pB:
+            if pA: 
+                lenA += 1
+                pA = pA.next
+                
+            if pB: 
+                lenB += 1
+                pB = pB.next
+                
         if lenA > lenB:
-            counter = lenA - lenB
-            while counter:
+            for i in range(lenA - lenB):
                 headA = headA.next
-                counter -= 1
-        else:
-            counter = lenB - lenA
-            while counter:
+        elif lenA < lenB:
+            for i in range(lenB - lenA):
                 headB = headB.next
-                counter -= 1
-
+                
         while headA != headB:
             headA = headA.next
             headB = headB.next
-
+            
         return headA
-
-
-        # ============================================================================================= #
-
-
-        #:  Solution (3) using SET to record
-        #:  - time complexity: O(n + m)
-        #:  - space complexity: O(n)
-        recA = set()
-        while headA:
-            recA.add(headA)
-            headA = headA.next
-        while headB:
-            if headB in recA: return headB
-            headB = headB.next
-
+        '''
+        
+        '''
+        # ==================================================
+        #  Linked List + Set                               =
+        # ==================================================
+        # time  : O(max(n,m))
+        # space : O(n+m)
+        
+        setA, setB = set(), set()
+        
+        while headA or headB:
+            if headA:
+                if headA in setB: return headA
+                setA.add(headA)
+                headA = headA.next
+            
+            if headB:
+                if headB in setA: return headB
+                setB.add(headB)
+                headB = headB.next
+                
         return None
+        '''
+        
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(1)
+     */
+     
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode pA = headA, pB = headB;
+        
+        while(pA != pB) {
+            pA = (pA != null) ? pA.next : headB;
+            pB = (pB != null) ? pB.next : headA;
+        }
+        
+        return pA;
+    }
+}
+==================================================================================================
+'''
