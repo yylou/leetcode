@@ -15,7 +15,8 @@ class Solution:
             while left  < len(s) and not s[left].isalnum(): left += 1
             while right >= 0     and not s[right].isalnum(): right -= 1
                 
-            if left > right or s[left].lower() != s[right].lower(): return True
+            if left > right: return True
+            if s[left].lower() != s[right].lower(): return False
             
             left  += 1
             right -= 1
