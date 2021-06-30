@@ -1,26 +1,48 @@
-##  Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution(object):
-    def hasCycle(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
-
-        ##  (edge case) head is null / head has no next node
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        #  (base case)
         if not head or not head.next: return False
-
-        ##  (1) visit each node and modify the next node to tmpNode
-        ##  (2) if certain node's next is tmpNode, there is a cycle
-        tmpNode = ListNode( -1 )
-        while head:
-            if head.next == None: return False
-            if head.next == tmpNode: return True
-
-            nextNode = head.next
-            head.next = tmpNode
-            head = nextNode
+        if head.next.next == head: return True
+        
+        # ==================================================
+        #  Linked List + Two Pointer                       =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)
+        
+        slowP, fastP = head, head
+        
+        while fastP and fastP.next:
+            slowP = slowP.next
+            fastP = fastP.next.next
+            if slowP == fastP: return True
+        
+        return False
+        
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(1)
+     */
+     
+    public boolean hasCycle(ListNode head) {
+        /* base case */
+        if(head == null || head.next == null) return false;
+        if(head.next.next == head) return true;
+        
+        ListNode slowP = head, fastP = head;
+        
+        while(fastP != null && fastP.next != null) {
+            slowP = slowP.next;
+            fastP = fastP.next.next;
+            if(slowP == fastP) return true;
+        }
+        
+        return false;
+    }
+}
+==================================================================================================
+'''
