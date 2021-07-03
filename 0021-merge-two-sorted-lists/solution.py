@@ -32,6 +32,20 @@ class Solution:
             
         return ret.next
     
+        '''
+        # ==================================================
+        #  Linked List + Recursion                         =
+        # ==================================================
+        # n is the length of l1, and m is the length of l2
+        # time  : O(n+m)
+        # space : O(n+m)
+            
+        if l1 and l2:
+            if l1.val > l2.val: l1, l2 = l2, l1
+            l1.next = self.mergeTwoLists(l1.next, l2)
+        return l1 or l2
+        '''
+    
 '''
 Java Solution
 ==================================================================================================
