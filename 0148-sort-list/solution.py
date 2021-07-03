@@ -1,159 +1,176 @@
-#:  Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-
-class Solution(object):
-    def sortList(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-
-        #:  Solution (1) using List to record
-        #:  - time complexity: O(n)
-        #:  - space complexity: O(n)
-
-        #:  (edge case)
+class Solution:
+    def sortList(self, head: ListNode) -> ListNode:
+        #  (base case)
         if not head or not head.next: return head
-
-        valList = []
-
-        tmpNode = head
-        while tmpNode:
-            valList.append( tmpNode.val )
-            tmpNode = tmpNode.next
-
-        valList.sort()
-
-        tmpNode = head
-        for element in valList:
-            tmpNode.val = element
-            tmpNode = tmpNode.next
-
-        return head
-
-
-        # ========================================================================== #
-
-
-        #:  Solution (2) Top-down Merge Sort
-        #:  - time complexity: O(nlogn)
-        #:  - space complexity: O(logn)
-
-        def getMid(node):
-            slowP, fastP = node, node
-            while fastP.next and fastP.next.next:
-                slowP = slowP.next
-                fastP = fastP.next.next
-
-            fastP = slowP.next
-            slowP.next = None
-            return fastP
-
-        def merge(l1, l2):
-            if not l1 and not l2: return None
-            if l1 and not l2: return l1
-            if not l1 and l2: return l2
-
-            if l1.val > l2.val:
-                golden = l2
-                refer = l1
-            else:
-                golden = l1
-                refer = l2
-
-            head = golden
-
-            while refer:
-                if not golden.next:
-                    golden.next = refer
-                    return head
-
-                elif refer.val >= golden.val and refer.val < golden.next.val:
-                    golden.next = ListNode( refer.val, golden.next )
-                    refer = refer.next
-
-                else:
-                    golden = golden.next
-
-            return head
-
-        #:  (edge case)
-        if not head or not head.next: return head
-
-        mid   = getMid( head )
-        left  = self.sortList( head )
-        right = self.sortList( mid )
-
-        return merge( left, right )
-
-
-        # ========================================================================== #
-
-
-        #:  Solution (3) Bottom-up Merge Sort
-        #:  - time complexity: O(nlogn)
-        #:  - space complexity: O(1)
-
-        def getSize( head ):
-            size = 0
-            while head:
-                size += 1
-                head = head.next
-
-            return size
-
-        def split( head, size ):
-            for i in xrange( size-1 ):
-                if not head: break
-                head = head.next
-
-            if not head: return None
-
-            nextNode, head.next = head.next, None
-            return nextNode
-
-        def merge( l1, l2, start ):
-            curNode = start
-            while l1 and l2:
-                if l1.val <= l2.val:
-                    curNode.next, l1 = l1, l1.next
-                else:
-                    curNode.next, l2 = l2, l2.next
-
-                curNode = curNode.next
-
-            curNode.next = l1 if l1 else l2
-            while curNode.next: curNode = curNode.next
-
-            return curNode
-
-        #:  (edge case)
-        if not head or not head.next: return head
-
-        #:  Get total length
-        length = getSize( head )
-
-        dummyNode = ListNode( 0 )
-        dummyNode.next = head
-
-        start, dummyStart, size = None, None, 1
-
+        
+        # ==================================================
+        #  Linked List + Merge Sort           (Iterative)  =
+        # ==================================================
+        # time  : O(nlog(n))
+        # space : O(1)
+        
+        length = self.getSize(head)
+        ret, size = ListNode(0, head), 1
+        
         while size < length:
-            #:  re-Initialize
-            dummyStart = dummyNode
-            start = dummyNode.next
-
-            #:  SPLIT and MERGE-SORT
-            while start:
-                left = start
-                right = split( left, size )
-                start = split( right, size )
-
-                dummyStart = merge( left, right, dummyStart )
-
+            splitHead, mergeHead = ret.next, ret
+            
+            while splitHead:
+                left  = splitHead
+                right = self.split(size, left)
+                
+                splitHead = self.split(size, right)
+                mergeHead = self.merge(left, right, mergeHead)
+            
             size *= 2
-
-        return dummyNode.next
+        
+        return ret.next
+        
+    def getSize(self, node: ListNode) -> int:
+        size, tmp = 0, node
+        while tmp: size, tmp = size + 1, tmp.next
+        return size
+    
+    def split(self, size: int, node: ListNode) -> ListNode:
+        pre = None
+        for i in range(size):
+            if not node: break
+            pre, node = node, node.next
+        
+        #  (break the link)
+        if pre: pre.next = None
+        return node
+    
+    def merge(self, left: ListNode, right: ListNode, head: ListNode) -> ListNode:
+        while left and right:
+            if left.val <= right.val: head.next, left = left, left.next
+            else: head.next, right = right, right.next
+                
+            head = head.next
+        
+        head.next = left if left else right
+        while head.next: head = head.next
+        return head
+    
+    '''
+    def sortList(self, head: ListNode) -> ListNode:
+        #  (base case)
+        if not head or not head.next: return head
+        
+        # ==================================================
+        #  Linked List + Merge Sort           (Recursive)  =
+        # ==================================================
+        # time  : O(nlog(n))
+        # space : O(log(n))
+        
+        mid   = self.split(head)
+        left  = self.sortList(head)
+        right = self.sortList(mid)
+        return self.merge(left, right)
+        
+    def split(self, node: ListNode) -> ListNode:
+        if not node or not node.next: return head
+        
+        pre, slowP, fastP = node, node, node
+        
+        while fastP and fastP.next:
+            pre   = slowP
+            slowP = slowP.next
+            fastP = fastP.next.next
+            
+        pre.next = None
+        return slowP
+    
+    def merge(self, left: ListNode, right: ListNode) -> ListNode:
+        ret = ListNode(0)
+        head = ret
+        
+        while left and right:
+            if left.val <= right.val: 
+                head.next = ListNode(left.val)
+                left = left.next
+            else:
+                head.next = ListNode(right.val)
+                right = right.next
+            
+            head = head.next
+        
+        head.next = left if (left and not right) else right
+        
+        return ret.next
+    '''
+    
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**
+     * @time  : O(nlog(n))
+     * @space : O(1)
+     */
+    
+    public ListNode sortList(ListNode head) {
+        /* base case */
+        if(head == null || head.next == null) return head;
+        
+        int len = getLen(head);
+        
+        int size = 1;
+        ListNode ret = new ListNode(0, head);
+        
+        while(size < len) {
+            ListNode splitHead = ret.next, mergeHead = ret;
+            while(splitHead != null) {
+                ListNode left  = splitHead;
+                ListNode right = split(size, left);
+                
+                splitHead = split(size, right);
+                mergeHead = merge(left, right, mergeHead);
+            }
+            
+            size *= 2;
+        }
+        
+        return ret.next;
+    }
+    
+    public int getLen(ListNode head) {
+        int len = 0;
+        ListNode cur = head;
+        while(cur != null) {
+            len++;
+            cur = cur.next;
+        }
+        return len;
+    }
+    
+    public ListNode split(int size, ListNode node) {
+        ListNode pre = null;
+        for(int i=0 ; i<size ; i++) {
+            if(node == null) break; 
+            pre = node;
+            node = node.next;
+        }
+        /* break the link */
+        if(pre != null) pre.next = null;
+        return node;
+    }
+    
+    public ListNode merge(ListNode left, ListNode right, ListNode head) {
+        while(left != null && right != null) {
+            if(left.val <= right.val) {
+                head.next = left;
+                left = left.next;
+            } else {
+                head.next = right;
+                right = right.next;
+            }
+            head = head.next;
+        }
+        head.next = (left != null) ? left : right;
+        while(head.next != null) head = head.next;
+        return head;
+    }
+}
+==================================================================================================
+'''
