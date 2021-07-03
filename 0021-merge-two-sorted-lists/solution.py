@@ -9,7 +9,7 @@ class Solution:
         #  Linked List + Two Pointers                      =
         # ==================================================
         # n is the length of l1, and m is the length of l2
-        # time  : O(n+m), 
+        # time  : O(n+m)
         # space : O(1)
             
         ret = cur = ListNode(0)
