@@ -1,4 +1,4 @@
-# leetcode-problem-solving
+# Leetcode Problem Solving
 
 | **`Problem`** | **`Runtime`** | **`Mem Usage`** | **`Level`** |
 | :------------- | :------------- | :----- | :----- |
