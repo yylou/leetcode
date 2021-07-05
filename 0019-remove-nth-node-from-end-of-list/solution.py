@@ -1,34 +1,87 @@
-##  Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        #  (base case)
+        if not head.next and n == 1: return None
+        
+        # ==================================================
+        #  Linked List + Two Pointer                       =
+        # ==================================================
+        # time  : O(n), one pass
+        # space : O(1)
+        
+        slowP, fastP = head, head
+        
+        for i in range(n): fastP = fastP.next
+        
+        #  move fast-pointer to keep the gap(n) apart from slow-pointer
+        if not fastP:
+            head = head.next
+            return head
+        
+        while fastP.next:
+            slowP = slowP.next
+            fastP = fastP.next
+            
+        slowP.next = slowP.next.next
+        return head
+        
+        '''
+        # ==================================================
+        #  Linked List + Hash Table                        =
+        # ==================================================
+        # time  : O(n), one pass
+        # space : O(n)
+        
+        ret = head
+        
+        counter = 0
+        table = dict()
+        while head:
+            table[counter] = head
+            head = head.next
+            counter += 1
+        
+        if n == counter: return ret.next
+        
+        node = table[counter - n - 1]
+        node.next = node.next.next
+        
+        return ret
+        '''
 
-##  two-pointer solution: using the gap between two pointers to find the target node
-class Solution(object):
-    def removeNthFromEnd(self, head, n):
-        """
-        :type head: ListNode
-        :type n: int
-        :rtype: ListNode
-        """
-
-        ##  edge case handling
-        if head.next == None : return None
-
-        dummy_head = ListNode( -1 )
-        dummy_head.next = head
-
-        flag_node, cur_node = dummy_head, dummy_head
-
-        while n:
-            flag_node = flag_node.next
-            n -= 1
-
-        while flag_node.next:
-            flag_node = flag_node.next
-            cur_node = cur_node.next
-
-        cur_node.next = cur_node.next.next
-
-        return dummy_head.next
+'''
+Java Solution
+==================================================================================================
+class Solution {
+    /**  
+     * @time  : O(n)
+     * @space : O(1)
+     */
+    
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        /* base case */
+        if(head.next == null && n == 1) return null;
+        
+        ListNode slowP = head, fastP = head;
+        
+        /* Advances fast-pointer so that the gap between two pointers is n nodes apart */
+        for (int i=0 ; i<n ; i++) fastP = fastP.next;
+        
+        /* nth node from the end points to HEAD */
+        if(fastP == null) {
+            head = head.next;
+            return head;
+        }
+            
+        /* Move fast-pointer to the end, maintaining the gap */
+        while (fastP.next != null) {
+            slowP = slowP.next;
+            fastP = fastP.next;
+        }
+        
+        slowP.next = slowP.next.next;
+        return head;
+    }
+}
+==================================================================================================
+'''
