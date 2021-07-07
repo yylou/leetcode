@@ -16,29 +16,3 @@ class Solution:
             
             #:  Since there is only one exact solution, it has no problem to overwrite the record
             hashTable[nums[i]] = i
-
-            
-            
-'''
-Java Solution
-==================================================================================================
-class Solution {
-    /**  
-     * @time  : O(n)
-     * @space : O(n)
-     */
-    
-    public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        
-        for( int i = 0; i < nums.length; i++ ) {
-            int remain = target - nums[i];
-            if( map.containsKey(potentialMatch) ) {
-                return new int[] {i, map.get(potentialMatch)};
-            }
-            map.put(nums[i], i);
-        }
-    }
-}
-==================================================================================================
-'''
