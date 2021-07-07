@@ -3,7 +3,6 @@
 
 # Performance
 ![result](./result.png)
-![result-java](./result-java.png)
 
 # Python
 ```Python
