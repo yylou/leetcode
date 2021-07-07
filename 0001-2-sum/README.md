@@ -3,6 +3,7 @@
 
 # Performance
 ![result](./result.png)
+![result-java](./result-java.png)
 
 # Python
 ```Python
@@ -37,13 +38,14 @@ class Solution {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         
-        for( int i = 0; i < nums.length; i++ ) {
+        for(int i = 0; i < nums.length; i++) {
             int remain = target - nums[i];
-            if( map.containsKey(potentialMatch) ) {
-                return new int[] {i, map.get(potentialMatch)};
-            }
+            if(map.containsKey(remain)) return new int[] {i, map.get(remain)};
+            
             map.put(nums[i], i);
         }
+        
+        return null;
     }
 }
 ```
