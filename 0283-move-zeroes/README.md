@@ -44,6 +44,7 @@ class Solution {
         
         while(moveP < nums.length) {
             if(nums[moveP] != 0) {
+                /* swap */
                 int tmp = nums[placeP];
                 nums[placeP] = nums[moveP];
                 nums[moveP] = tmp;
