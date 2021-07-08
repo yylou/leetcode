@@ -1,7 +1,7 @@
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
         #  (base case)
-        if len(nums) == 1: return nums
+        if len(nums) == 1: return
         
         # ==================================================
         #  Array + Two Pointer                             =
@@ -17,34 +17,3 @@ class Solution:
                 placeP += 1
             
             moveP += 1
-            
-'''
-Java Solution
-==================================================================================================
-class Solution {
-    /**
-     * @time  : O(n)
-     * @space : O(1)
-     */
-    
-    public void moveZeroes(int[] nums) {
-        /* base case */
-        if(nums.length == 1) return;
-        
-        int moveP = 0, placeP = 0;
-        
-        while(moveP < nums.length) {
-            if(nums[moveP] != 0) {
-                int tmp = nums[placeP];
-                nums[placeP] = nums[moveP];
-                nums[moveP] = tmp;
-                
-                placeP += 1;
-            }
-            
-            moveP += 1;
-        }
-    }
-}
-==================================================================================================
-'''
