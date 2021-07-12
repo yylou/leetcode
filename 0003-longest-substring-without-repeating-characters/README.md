@@ -8,13 +8,8 @@
 ```Python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        ans, slowP, fastP = 0, 0, 0
-        hashTable = dict()
-        
-        length = len( s )
-        
-        #:  (edge case)
-        if length == 0: return 0
+        # (base case)
+        if not s: return 0
         
         # ==================================================
         #  Hash Table + Sliding Window (Two Pointer)       =
@@ -22,16 +17,18 @@ class Solution:
         # time  : O(n)
         # space : O(n)
         
-        while slowP < length and fastP < length:
-            #:  (1) new char: record char in hash table and extend sliding window by fast pointer
-            if s[fastP] not in hashTable:
-                hashTable[s[fastP]] = fastP
+        table = set()
+        slowP, fastP = 0, 0
+        ans = float('-inf')
+        
+        while fastP < len(s):
+            if s[fastP] not in table:
+                table.add(s[fastP])
                 fastP += 1
-                ans = max( ans, fastP-slowP )
+                ans = max(ans, fastP - slowP)
                 
-            #:  (2) repeating char: delete record in hash table and shrink sliding window by slow pointer
             else:
-                del hashTable[s[slowP]]
+                table.remove(s[slowP])
                 slowP += 1
                 
         return ans
