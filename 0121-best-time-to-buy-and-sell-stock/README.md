@@ -2,7 +2,7 @@
 [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock)
 
 # Performance
-![result](./result.png)
+![result-python](./result.png)
 ![result-java](./result-java.png)
 
 # Python
