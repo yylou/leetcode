@@ -9,6 +9,27 @@
 ```Python3
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
+        # (base case)
+        if len(nums) == 1: return nums[0]
+        
+        # ==================================================
+        #  Array + Dynamic Programming                     =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)
+        
+        curSum = maxSum = nums[0]
+        
+        for i in range( 1, len(nums) ):
+            curSum = max(nums[i], curSum + nums[i])
+            maxSum = max(curSum, maxSum)
+
+        return maxSum
+```
+
+```Python3
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
         #: (edge case)
         if len(nums) == 1: return nums[0]
         
@@ -30,27 +51,6 @@ class Solution:
         return max(dp)
 ```
 
-```Python3
-class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        #: (edge case)
-        if len(nums) == 1: return nums[0]
-        
-        # ==================================================
-        #  Array + Dynamic Programming + Greedy            =
-        # ==================================================
-        # time  : O(n)
-        # space : O(1)
-        
-        localMax = globalMax = nums[0]
-        
-        for i in xrange( 1, len(nums) ):
-            localMax = max( nums[i], localMax + nums[i] )
-            globalMax = max( localMax, globalMax )
-            
-        return globalMax
-```
-
 # Java
 ```Java
 class Solution {
@@ -58,15 +58,16 @@ class Solution {
      * @time  : O(n)
      * @space : O(1)
      */
+
     public int maxSubArray(int[] nums) {
-        int localMax = nums[0], globalMax = nums[0];
+        int curSum = nums[0], maxSum = nums[0];
         
         for( int i=1 ; i<nums.length ; i++){
-            localMax  = Math.max(nums[i], localMax + nums[i]);
-            globalMax = Math.max(localMax, globalMax);
+            curSum  = Math.max(nums[i], curSum + nums[i]);
+            maxSum = Math.max(curSum, maxSum);
         }
         
-        return globalMax;
+        return maxSum;
     }
 }
 ```
