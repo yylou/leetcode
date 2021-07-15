@@ -5,13 +5,13 @@ class Solution {
      */
 
     public int maxSubArray(int[] nums) {
-        int localMax = nums[0], globalMax = nums[0];
+        int curSum = nums[0], maxSum = nums[0];
         
         for( int i=1 ; i<nums.length ; i++){
-            localMax  = Math.max(nums[i], localMax + nums[i]);
-            globalMax = Math.max(localMax, globalMax);
+            curSum  = Math.max(nums[i], curSum + nums[i]);
+            maxSum = Math.max(curSum, maxSum);
         }
         
-        return globalMax;
+        return maxSum;
     }
 }
