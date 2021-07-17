@@ -6,15 +6,15 @@ class Solution {
     
     int[] nums;
     
-    public TreeNode subTree(int left, int right) {
-        if(left  > right) return null;
-        if(left == right) return new TreeNode(nums[left]);
+    public TreeNode subTree(int start, int end) {
+        if(start  > end) return null;
+        if(start == end) return new TreeNode(nums[start]);
             
-        int center = (left + right) / 2;
+        int center = (start + end) / 2;
         
         TreeNode node = new TreeNode(nums[center]);
-        node.left  = subTree(left, center - 1);
-        node.right = subTree(center + 1, right);
+        node.left  = subTree(start, center - 1);
+        node.right = subTree(center + 1, end);
         
         return node;
     }
