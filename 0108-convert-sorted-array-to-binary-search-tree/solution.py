@@ -5,55 +5,22 @@ class Solution:
         if len(nums) == 2: return TreeNode(nums[0], None, TreeNode(nums[1]))
         
         # ==================================================
-        #  Tree + DFS + Recursion                          =
+        #  Array + Binary Search Tree + Recursion          =
         # ==================================================
         # time  : O(n)
         # space : O(n)
         
-        def subTree(left, right) -> TreeNode:
-            if left  > right: return None
-            if left == right: return TreeNode(nums[left])
-            
-            center = (left + right) // 2
-            
-            node       = TreeNode(nums[center])
-            node.left  = subTree(left, center - 1)
-            node.right = subTree(center + 1, right)
-            
-            return node
-            
-        return subTree(0, len(nums)-1)
-    
-'''
-Java Solution
-==================================================================================================
-class Solution {
-    /**
-     * @time  : O(n)
-     * @space : O(n)
-     */
-
-    public TreeNode subTree(int left, int right) {
-        if(left  > right) return null;
-        if(left == right) return new TreeNode(nums[left]);
-            
-        int center = (left + right) / 2;
+        self.nums = nums
+        return self.subTree(0, len(nums) - 1)
         
-        TreeNode node = new TreeNode(nums[center]);
-        node.left  = subTree(left, center - 1);
-        node.right = subTree(center + 1, right);
+    def subTree(self, start: int, end: int) -> TreeNode:
+        if start  > end: return None
+        if start == end: return TreeNode(self.nums[start])
         
-        return node;
-    }
-    
-    public TreeNode sortedArrayToBST(int[] nums) {
-        /* base case */
-        if(nums.length == 1) return new TreeNode(nums[0]);
+        mid = (start + end) // 2
         
-        this.nums = nums;
+        node = TreeNode(self.nums[mid])
+        node.left  = self.subTree(start, mid - 1)
+        node.right = self.subTree(mid + 1, end)
         
-        return subTree(0, nums.length - 1);
-    }
-}
-==================================================================================================
-'''
+        return node
