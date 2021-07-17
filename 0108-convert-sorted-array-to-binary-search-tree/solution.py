@@ -5,7 +5,7 @@ class Solution:
         if len(nums) == 2: return TreeNode(nums[0], None, TreeNode(nums[1]))
         
         # ==================================================
-        #  Array + Binary Search Tree + Recursion          =
+        #  Binary Search Tree + Inorder Traversal          =
         # ==================================================
         # time  : O(n)
         # space : O(n)
