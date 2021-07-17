@@ -9,7 +9,7 @@
 ```Python3
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
-        #: (base case)
+        # (base case)
         if len(nums) == 1: return TreeNode(nums[0])
         if len(nums) == 2: return TreeNode(nums[0], None, TreeNode(nums[1]))
         
