@@ -7,12 +7,6 @@
 
 # Python
 ```Python
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         cur   = ListNode()
@@ -40,7 +34,7 @@ class Solution:
             if l1: l1 = l1.next
             if l2: l2 = l2.next
         
-        #:  check carry to see whether creating extra node is needed
+        #  check carry to see whether creating extra node is needed
         if carry != 0: cur.next = ListNode( carry )
             
         return ret.next
