@@ -20,22 +20,25 @@ class Solution:
         # space : O(1)
         
         while l1 or l2:
-            if l1: num1 = l1.val
-            else: num1 = 0
+            if l1: 
+                num1 = l1.val
+                l1 = l1.next
+            else: 
+                num1 = 0
                 
-            if l2: num2 = l2.val
-            else: num2 = 0
+            if l2: 
+                num2 = l2.val
+                l2 = l2.next
+            else: 
+                num2 = 0
             
-            tmp      = num1 + num2 + carry
-            carry    = tmp // 10
-            cur.next = ListNode( tmp % 10 )
+            val      = num1 + num2 + carry
+            carry    = val // 10
+            cur.next = ListNode(val % 10)
             cur      = cur.next
-            
-            if l1: l1 = l1.next
-            if l2: l2 = l2.next
         
-        #  check carry to see whether creating extra node is needed
-        if carry != 0: cur.next = ListNode( carry )
+        # check carry to see if need to create extra node
+        if carry != 0: cur.next = ListNode(carry)
             
         return ret.next
 ```
@@ -56,11 +59,15 @@ class Solution {
         while(l1 != null || l2 != null) {
             int num1, num2;
             
-            if(l1 != null) num1 = l1.val;
-            else num1 = 0;
+            if(l1 != null) {
+                num1 = l1.val;
+                l1 = l1.next;
+            } else num1 = 0;
             
-            if(l2 != null) num2 = l2.val;
-            else num2 = 0;
+            if(l2 != null) {
+                num2 = l2.val;
+                l2 = l2.next;
+            } else num2 = 0;
             
             int sum = num1 + num2 + carry;
             carry = sum / 10;
@@ -68,13 +75,11 @@ class Solution {
             
             cur.next = new ListNode(sum);
             cur = cur.next;
-            
-            if(l1 != null) l1 = l1.next;
-            if(l2 != null) l2 = l2.next;
         }
         
         if(carry != 0) cur.next = new ListNode(carry);
         return ret.next;
     }
 }
+
 ```
