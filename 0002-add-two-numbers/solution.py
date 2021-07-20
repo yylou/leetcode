@@ -11,21 +11,24 @@ class Solution:
         # space : O(1)
         
         while l1 or l2:
-            if l1: num1 = l1.val
-            else: num1 = 0
+            if l1: 
+                num1 = l1.val
+                l1 = l1.next
+            else: 
+                num1 = 0
                 
-            if l2: num2 = l2.val
-            else: num2 = 0
+            if l2: 
+                num2 = l2.val
+                l2 = l2.next
+            else: 
+                num2 = 0
             
-            tmp      = num1 + num2 + carry
-            carry    = tmp // 10
-            cur.next = ListNode( tmp % 10 )
+            val      = num1 + num2 + carry
+            carry    = val // 10
+            cur.next = ListNode(val % 10)
             cur      = cur.next
-            
-            if l1: l1 = l1.next
-            if l2: l2 = l2.next
         
-        #  check carry to see whether creating extra node is needed
-        if carry != 0: cur.next = ListNode( carry )
+        # check carry to see if need to create extra node
+        if carry != 0: cur.next = ListNode(carry)
             
         return ret.next
