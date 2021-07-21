@@ -29,6 +29,7 @@
 | [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | 16 ms (*99.65%*) | 13.7 MB (*43.77%*) | Medium |
 | [34. Find First & Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 56 ms (*98.10%*) | 14.5 MB (*72.72%*) | Medium |
 | [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | 52 ms (*100%*) | 13.4 MB (*74.16%*) | Medium |
+| [38. Count and Say](https://leetcode.com/problems/count-and-say/) | 36 ms (*96.09%*) | 14.3 MB (*74.99%*) | Medium |
 | [39. Combination Sum](https://leetcode.com/problems/combination-sum/) | 32 ms (*99.36%*) | 13.5 MB (*67.08%*) | Medium |
 | [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive/) | 16 ms (*95.77%*) | 13.4 MB (*88.19%*) | Hard |
 | [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | 32 ms (*95.67%*) | 14 MB (*90.79%*) | Hard |
@@ -69,6 +70,7 @@
 | [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/) | 12 ms (*96.83%*) | 13.3 MB (*69.56%*) | Easy |
 | [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | 796 ms (*96.38%*) | 22.7 MB (*60.86%*) | Easy |
 | [122. Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) | 56 ms (*90.42%*) | 14.9 MB (*87.75%*) | Easy |
+| [123. Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) | 3 ms (*98.94%*) | 51.9 MB (*76.35%) | Hard |
 | [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | 32 ms (*91.46%*) | 14.1 MB (*75.36%*) | Easy |
 | [136. Single Number](https://leetcode.com/problems/single-number/) | 92 ms (*99.65%*) | 16 MB (*41.70%*) | Easy |
 | [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | 32 ms (*97.19%*) | 16.9 MB (*99.58%*) | Easy |
@@ -81,6 +83,7 @@
 | [155. Min Stack](https://leetcode.com/problems/min-stack/) | 40 ms (*99.55%*) | 17.6 MB (*41.78%*) | Easy |
 | [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) | 200 ms (*49.81%*) | 43.2 MB (*94.05%*) | Easy |
 | [169. Majority Element](https://leetcode.com/problems/majority-element/) | 124 ms (*98.64%*) | 14.7 MB (*70.88%*) | Easy |
+| [188. Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) | 76 ms (*96.01%*) | 14.1 MB (*98.32%*) | Hard |
 | [189. Rotate Array](https://leetcode.com/problems/rotate-array/) | 36 ms (*99.48%*) | 13.8 MB (*86.25%*) | Medium |
 | [190. Reverse Bits](https://leetcode.com/problems/reverse-bits/) | 12 ms (*97.33%*) | 13.3 MB (*88.48%*) | Easy |
 | [200. Number of Islands](https://leetcode.com/problems/number-of-islands/) | 96 ms (*99.60%*) | 21.5 MB (*42.70%*) | Medium |
@@ -105,8 +108,10 @@
 | [338. Counting Bits](https://leetcode.com/problems/counting-bits/) | 56 ms (*99.11%*) | 15.5 MB (*95.57%*) | Medium |
 | [344. Reverse String](https://leetcode.com/problems/reverse-string/) | 152 ms (*98.00%*) | 21.2 MB (*57.89%*) | Easy |
 | [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/) | 24 ms (*94.12%*) | 14.3 MB (*41.27%*) | Easy |
+| [415. Add Strings](https://leetcode.com/problems/add-strings/) | 28 ms (*97.36%*) | 14.2 MB (*83.13%*) | Easy |
 | [429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) | 32 ms (*98.53%*) | 16.3 MB (*96.69%*) | Medium |
 | [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | 72 ms (*98.73%*) | 14.1 MB (*96.90%*) | Medium |
+| [445. Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/) | 60 ms (*98.66%*) | 14.2 MB (*90.09%*) | Medium |
 | [448. Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) | 272 ms (*99.93%*) | 24.7 MB (*8.55%*) | Easy |
 | [461. Hamming Distance](https://leetcode.com/problems/hamming-distance/) | 12 ms (*94.82%*) | 13.3 MB (*89.86%*) | Easy |
 | [509. Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) | 12 ms (*96.11%*) | 13.3 MB (*90.24%*) | Easy |
@@ -125,4 +130,3 @@
 | [1346. Check If N and Its Double Exist](https://leetcode.com/problems/check-if-n-and-its-double-exist/) | 32 ms (*95.34%*) | 13.3 MB (*89.97%*) | Easy |
 | [1408. String Matching in an Array](https://leetcode.com/problems/string-matching-in-an-array/) | 16 ms (*99.24%*) | 13.5 MB (*79.01%*) | Easy |
 | [1710. Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck/) | 120 ms (*94.94%*) | 13.7 MB (*97.83%*) | Easy |
-
