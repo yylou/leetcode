@@ -1,4 +1,9 @@
 class Solution {
+    /**
+     * @time  : O(n)
+     * @space : O(n)
+     */
+
     public List<Integer> inorderTraversal(TreeNode root) {
         /* base case */
         if(root == null) return new ArrayList<>();
