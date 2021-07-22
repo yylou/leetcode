@@ -25,3 +25,13 @@ class Solution:
                 if node.left: stack.append((node.left, False))
             
         return ret
+
+        '''
+        # ==================================================
+        #  Binary Tree + In-order Traversal               =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
+
+        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+        '''
