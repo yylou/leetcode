@@ -1,37 +1,27 @@
-##  Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
-class Solution(object):
-    def levelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
-
-        ##  (edge case) root is null, no children nodes
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        # (base case)
         if not root: return []
-        if not root.left and not root.right: return[[root.val]]
-
-        retVal = []
+        if not root.left and not root.right: return [[root.val]]
+        
+        # ==================================================
+        #  Binary Tree + Level Order Traversal             =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
+        
+        ans = []
         stack = [root]
-
-        ##  pop the parents and record, then append theirs children nodes into the stack
+        
         while stack:
-            tmpList = []
-            for i in range( len(stack) ):
-                ##  POP + RECORD
-                curNode = stack.pop(0)
-                tmpList.append( curNode.val )
-
-                ##  APPEND to stack
-                if curNode.left: stack.append(curNode.left)
-                if curNode.right: stack.append(curNode.right)
-
-            ##  APPEND to answer (at the TAIL for TOP-DOWN approcach)
-            retVal.append(tmpList)
-
-        return retVal
+            tmp = []
+            for i in range(len(stack)):
+                node = stack.pop(0)
+                tmp.append(node.val)
+                
+                if node.left: stack.append(node.left)
+                if node.right: stack.append(node.right)
+                    
+            ans.append(tmp)
+                    
+        return ans
