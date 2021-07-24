@@ -35,35 +35,3 @@ class Solution:
             
         return maxDepth
         '''
-        
-'''
-Java Solution
-==================================================================================================
-class Solution {
-    public int maxDepth(TreeNode root) {
-        /* base case */
-        if(root == null) return 0;
-        if(root.left == null && root.right == null) return 1;
-        
-        int maxDepth = 0;
-        LinkedList<TreeNode> stack = new LinkedList<>();
-        stack.push(root);
-        
-        while(!stack.isEmpty()) {
-            int size = stack.size();
-            
-            for(int i=0 ; i<size ; i++) {
-                TreeNode node = stack.pollLast();
-                
-                if(node.left != null) stack.push(node.left);
-                if(node.right != null) stack.push(node.right);
-            }
-            
-            maxDepth++;
-        }
-        
-        return maxDepth;
-    }
-}
-==================================================================================================
-'''
