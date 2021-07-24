@@ -38,20 +38,21 @@ class Solution:
         # ==================================================
         # time  : O(n)
         # space : O(n)
-
-        retVal = [root.val]
-
-        def recursive(node, retVal):
-            retVal.append(node.val)
-
+        
+        global ans
+        ans = [root.val]
+        
+        def recursive(node) -> None:
+            ans.append(node.val)
+            
             if node.children:
-                for childNode in node.children:
-                    recursive( childNode, retVal )
-
+                for element in node.children:
+                    recursive(element)
+        
         for node in root.children:
-            recursive(node, retVal)
-
-        return retVal
+            recursive(node)
+            
+        return ans
         '''
 ```
 
