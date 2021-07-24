@@ -1,18 +1,9 @@
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
-        #: (base case)
+        # (base case)
         if not root: return 0
         if not root.left and not root.right: return 1
-        
-        # ==================================================
-        #  Binary Tree                       (Recursive)   =
-        # ==================================================
-        # time  : O(n)
-        # space : O(n), O(log(n)) for average case
-        
-        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
     
-        '''
         # ==================================================
         #  Binary Tree                       (Iterative)   =
         # ==================================================
@@ -22,9 +13,8 @@ class Solution:
         maxDepth = 0
         stack = [root]
         
-        #: (level-order iterative solution)
         while stack:
-            #: loop through stack for current length, pop the first node
+            # loop through stack for current length, pop the first node
             for i in range(len(stack)):
                 node = stack.pop( 0 )
                 
@@ -34,4 +24,13 @@ class Solution:
             maxDepth += 1
             
         return maxDepth
+        
+        '''
+        # ==================================================
+        #  Binary Tree                       (Recursive)   =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n), O(log(n)) for average case
+        
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
         '''
