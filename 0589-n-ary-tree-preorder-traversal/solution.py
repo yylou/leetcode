@@ -1,44 +1,35 @@
-"""
-##  Definition for a Node.
-class Node(object):
-    def __init__(self, val=None, children=None):
-        self.val = val
-        self.children = children
-"""
-
-class Solution(object):
-    def preorder(self, root):
-        """
-        :type root: Node
-        :rtype: List[int]
-        """
-
-        ## (edge case) root == none, root's children == none
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        # (base case)
         if not root: return []
         if not root.children: return [root.val]
-
-        ##  (1) Iterative Solution
-        retVal = []
+        
+        # ==================================================
+        #  N-ary Tree + Pre-order Traversal   (Iterative)  =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
+        
+        ans = []
         stack = [root]
+        
         while stack:
-            ##  (debug)
-            # print map(lambda x: x.val, stack), retVal[::-1]
+            node = stack.pop()
+            ans.append(node.val)
+            
+            if node.children:
+                for i in range(len(node.children)-1, -1, -1):
+                    stack.append(node.children[i])
+                
+        return ans
+        
+        '''
+        # ==================================================
+        #  N-ary Tree + Pre-order Traversal   (Recursive)  =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
 
-            ##  pop the last node added to the stack
-            curNode = stack.pop()
-
-            ##  REVERSLY append the children nodes of the popped node to the stack
-            ##  [NOTE] to make the last node in the stack be the first child node
-            if curNode.children: stack += curNode.children[::-1]
-
-            ##  append popped node's value to the list
-            retVal.append(curNode.val)
-
-        return retVal
-
-        ##  ==================================================================================  ##
-
-        ##  (2) Recursive Solution
         retVal = [root.val]
 
         def recursive(node, retVal):
@@ -52,3 +43,4 @@ class Solution(object):
             recursive(node, retVal)
 
         return retVal
+        '''
