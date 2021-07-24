@@ -31,7 +31,7 @@ class Solution:
         # space : O(n)
         
         global ans
-        ans = [root.val]
+        ans = []
         
         def recursive(node) -> None:
             ans.append(node.val)
@@ -40,8 +40,6 @@ class Solution:
                 for element in node.children:
                     recursive(element)
         
-        for node in root.children:
-            recursive(node)
-            
+        recursive(root)
         return ans
         '''
