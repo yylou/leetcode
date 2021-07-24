@@ -49,10 +49,9 @@ class Solution:
         # time  : O(n)
         # space : O(n)
         
-        global ans
         ans = []
         
-        def recursive(node) -> None:
+        def recursive(node: 'Node') -> None:
             if node.children:
                 for element in node.children:
                     recursive(element)
