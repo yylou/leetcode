@@ -1,38 +1,48 @@
-"""
-##  Definition for a Node.
-class Node(object):
-    def __init__(self, val=None, children=None):
-        self.val = val
-        self.children = children
-"""
-
-class Solution(object):
-    def levelOrder(self, root):
-        """
-        :type root: Node
-        :rtype: List[List[int]]
-        """
-
-        ##  (edge case) root is null, no children nodes
+class Solution:
+    def levelOrder(self, root: 'Node') -> List[List[int]]:
+        # (base case)
         if not root: return []
-        if len(root.children) == 0: return[[root.val]]
-
-        retVal = []
+        if not root.children: return [[root.val]]
+        
+        # ==================================================
+        #  N-ary Tree + Level Order Traversal (Iterative)  =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
+        
+        ans = []
         stack = [root]
-
-        ##  pop the parents and record, then append theirs children nodes into the stack
+        
         while stack:
-            tmpList = []
-            for i in range( len(stack) ):
-                ##  since the children nodes are stored in a list, need to POP FIRST element to keep the order
-                curNode = stack.pop(0)
-                tmpList.append(curNode.val)
+            tmp = []
+            for i in range(len(stack)):
+                node = stack.pop(0)
+                tmp.append(node.val)
+                
+                for element in node.children: stack.append(element)
+                    
+            ans.append(tmp)
+                    
+        return ans
 
-                ##  APPEND to stack
-                for element in curNode.children:
-                    stack.append(element)
-
-            ##  APPEND to answer (at the TAIL for TOP-DOWN approcach)
-            retVal.append(tmpList)
-
-        return retVal
+        '''
+        # ==================================================
+        #  N-ary Tree + Level Order Traversal (Recursive)  =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
+        
+        ans = []
+        
+        def recursive(node: 'Node', level: int) -> None:
+            if len(ans) == level: ans.append([])
+                
+            ans[level].append(node.val)
+            
+            if node.children:
+                for element in node.children:
+                    recursive(element, level + 1)
+        
+        recursive(root, 0)
+        return ans
+        '''
