@@ -6,12 +6,12 @@
 ![result-java](./result-java.png)
 
 # Python
-```Python3
+```python
 # Iterative Solution
 
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
-        #: (base case)
+        # (base case)
         if not root.left and not root.right: return True
         
         # ==================================================
@@ -26,15 +26,15 @@ class Solution:
             
             if node.val >= upper or node.val <= lower: return False
             
-            #: (left  sub-tree) set UPPER bound to current node's value (<= curValue)
-            #: (right sub-tree) set LOWER bound to current node's value (>= curValue)
+            # (left  sub-tree) set UPPER bound to current node's value (<= curValue)
+            # (right sub-tree) set LOWER bound to current node's value (>= curValue)
             if node.left : stack.append( (node.left,  lower,    node.val) )
             if node.right: stack.append( (node.right, node.val, upper) )
                 
         return True
 ```
 
-```Python3
+```python
 # Recursive Solution
 
 class Solution:
@@ -49,7 +49,7 @@ class Solution:
         return False
     
     def isValidBST(self, root: TreeNode) -> bool:
-        #: (base case)
+        # (base case)
         if not root.left and not root.right: return True
         
         # ==================================================
