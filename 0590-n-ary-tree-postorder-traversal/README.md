@@ -34,8 +34,15 @@ class Solution:
                     stack.append((node.children[i], False))
                         
         return ans
+```
 
-        '''
+```python
+class Solution:
+    def postorder(self, root: 'Node') -> List[int]:
+        # (base case)
+        if not root: return []
+        if not root.children: return [root.val]
+        
         # ==================================================
         #  N-ary Tree + Post-order Traversal  (Recursive)  =
         # ==================================================
@@ -54,8 +61,6 @@ class Solution:
         
         recursive(root)
         return ans
-        '''
-
 ```
 
 # Java
