@@ -31,8 +31,15 @@ class Solution:
                     stack.append(node.children[i])
                 
         return ans
+```
+
+```python
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        # (base case)
+        if not root: return []
+        if not root.children: return [root.val]
         
-        '''
         # ==================================================
         #  N-ary Tree + Pre-order Traversal   (Recursive)  =
         # ==================================================
@@ -40,7 +47,7 @@ class Solution:
         # space : O(n)
         
         global ans
-        ans = [root.val]
+        ans = []
         
         def recursive(node) -> None:
             ans.append(node.val)
@@ -49,11 +56,8 @@ class Solution:
                 for element in node.children:
                     recursive(element)
         
-        for node in root.children:
-            recursive(node)
-            
+        recursive(root)
         return ans
-        '''
 ```
 
 # Java
