@@ -2,7 +2,7 @@
 [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree)
 
 # Performance
-![result](./result.png)
+![result-python](./result.png)
 ![result-java](./result-java.png)
 
 # Python
