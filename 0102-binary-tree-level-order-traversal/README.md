@@ -36,6 +36,32 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        # (base case)
+        if not root: return []
+        if not root.left and not root.right: return [[root.val]]
+
+        # ===================================================
+        #  Binary Tree + Level Order Traversal (Recursive)  =
+        # ===================================================
+        # time  : O(n)
+        # space : O(n)
+        
+        ans = []
+        
+        def recursive(node: TreeNode, depth: int) -> None:
+            if len(ans) == depth: ans.append([])
+            ans[depth].append(node.val)
+            
+            if node.left: recursive(node.left, depth + 1)
+            if node.right: recursive(node.right, depth + 1)
+        
+        recursive(root, 0)
+        return ans
+```
+
 # Java
 ```Java
 class Solution {
