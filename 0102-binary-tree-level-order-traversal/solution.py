@@ -25,3 +25,23 @@ class Solution:
             ans.append(tmp)
                     
         return ans
+
+        '''
+        # ===================================================
+        #  Binary Tree + Level Order Traversal (Recursive)  =
+        # ===================================================
+        # time  : O(n)
+        # space : O(n)
+        
+        ans = []
+        
+        def recursive(node: TreeNode, depth: int) -> None:
+            if len(ans) == depth: ans.append([])
+            ans[depth].append(node.val)
+            
+            if node.left: recursive(node.left, depth + 1)
+            if node.right: recursive(node.right, depth + 1)
+        
+        recursive(root, 0)
+        return ans
+        '''
