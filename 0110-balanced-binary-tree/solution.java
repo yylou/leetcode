@@ -1,4 +1,9 @@
 class Solution {
+    /**  
+     * @time  : O(n)
+     * @space : O(n)
+     */
+    
     public boolean isBalanced(TreeNode root) {
         /* base case */
         if(root == null) return true;
