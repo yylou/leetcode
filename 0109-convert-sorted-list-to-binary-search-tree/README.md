@@ -6,10 +6,10 @@
 ![result-java](./result-java.png)
 
 # Python
-```Python3
+```python
 class Solution:
     def sortedListToBST(self, head: ListNode) -> TreeNode:
-        #: (base case)
+        # (base case)
         if not head: return None
         if not head.next: return TreeNode(head.val)
         
@@ -19,32 +19,31 @@ class Solution:
         # time  : O(nlog(n))
         # space : O(log(n)) due to height-balanced BST
         
-        def findMid(node) -> TreeNode:
-            prevP, slowP, fastP = None, node, node
-            
-            while fastP and fastP.next:
-                prevP = slowP
-                slowP = slowP.next
-                fastP = fastP.next.next
-            
-            #: DISCONNECT the left half from the mid node.
-            if prevP: prevP.next = None
-                
-            return slowP
-            
-        mid  = findMid(head)
+        mid = self.findMid(head)
         
-        node       = TreeNode(mid.val)
-        node.left  = self.sortedListToBST(head)
+        node = TreeNode(mid.val)
+        node.left = self.sortedListToBST(head)
         node.right = self.sortedListToBST(mid.next)
         
         return node
+        
+    def findMid(self, node: ListNode) -> TreeNode:
+        pre, slow, fast = None, node, node
+        while fast and fast.next:
+            pre  = slow
+            slow = slow.next
+            fast = fast.next.next
+            
+        # DISCONNECT the left half from the mid node.
+        if pre: pre.next = None
+            
+        return slow
 ```
 
-```Python3
+```python
 class Solution:
     def sortedListToBST(self, head: ListNode) -> TreeNode:
-        #: (base case)
+        # (base case)
         if not head: return None
         if not head.next: return TreeNode(head.val)
         
@@ -54,30 +53,27 @@ class Solution:
         # time  : O(n)
         # space : O(log(n)) due to height-balanced BST
         
-        #: (find size)
-        size = 0
-        tmp  = head
-        while tmp:
+        cur, size = head, 0
+        while cur:
             size += 1
-            tmp = tmp.next
+            cur = cur.next
         
-        def subTree(left, right) -> TreeNode:
-            nonlocal head
-            
-            if left  > right: return None
-            
-            mid = (left + right) // 2
-            left = subTree(left, mid - 1)
-            
-            node = TreeNode(head.val)
-            node.left = left
-            head = head.next
-            
-            node.right = subTree(mid + 1, right)
-            
-            return node
-            
-        return subTree(0, size - 1)
+        self.head = head
+        return self.inOrder(0, size - 1)
+        
+    def inOrder(self, start: int, end: int) -> TreeNode:
+        if start > end: return None
+        
+        mid = (start + end) // 2
+        
+        left = self.inOrder(start, mid - 1)
+        node = TreeNode(self.head.val)
+        node.left = left
+        self.head = self.head.next
+        
+        node.right = self.inOrder(mid + 1, end)
+        
+        return node
 ```
 
 # Java
