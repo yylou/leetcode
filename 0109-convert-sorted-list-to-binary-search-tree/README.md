@@ -68,10 +68,11 @@ class Solution:
         
         left = self.inOrder(start, mid - 1)
         node = TreeNode(self.head.val)
-        node.left = left
         self.head = self.head.next
+        right = self.inOrder(mid + 1, end)
         
-        node.right = self.inOrder(mid + 1, end)
+        node.left = left
+        node.right = right
         
         return node
 ```
