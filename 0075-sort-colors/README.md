@@ -6,13 +6,13 @@
 ![result-java](./result-java.png)
 
 # Python
-```Python3
+```Python
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
-        #: (base case)
+        # (base case)
         if len(nums) == 1: return
         
         # ==================================================
@@ -21,35 +21,29 @@ class Solution:
         # time  : O(n)
         # space : O(1)
         
-        p0, p2 = 0, len(nums)-1
+        p0, p2 = 0, len(nums) - 1
         
-        #: move pointer for '0' until meet non-0 element, check whether all numbers are '0'
+        # (optimization)
         while p0 < len(nums) and nums[p0] == 0: p0 += 1
-        if p0 == len(nums): return
+        if p0 == len(nums): return 
         
-        #: move pointer for '2' until meet non-2 element, check whether all numbers are '2'
         while p2 >= 0 and nums[p2] == 2: p2 -= 1
         if p2 == 0: return
         
         moveP = p0
         
         while moveP <= p2:
-            #: (ZERO)
             if nums[moveP] == 0:
-                nums[moveP], nums[p0] = nums[p0], nums[moveP]
-                
+                nums[p0], nums[moveP] = nums[moveP], nums[p0]
                 p0 += 1
                 moveP += 1
-               
-            #: (TWO)
-            elif nums[moveP] == 2:
-                nums[moveP], nums[p2] = nums[p2], nums[moveP]
                 
-                p2 -= 1
-                
-            #: (ONE)
-            else: 
+            elif nums[moveP] == 1:
                 moveP += 1
+                
+            elif nums[moveP] == 2:
+                nums[p2], nums[moveP] = nums[moveP], nums[p2]
+                p2 -= 1
 ```
 
 # Java
@@ -59,6 +53,7 @@ class Solution {
      * @time  : O(n)
      * @space : O(1)
      */
+
     public void sortColors(int[] nums) {
         /* base case */
         if(nums.length == 1) return;
