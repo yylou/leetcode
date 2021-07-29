@@ -5,6 +5,7 @@ class Solution {
      */
 
     public int mySqrt(int x) {
+        /* base case */
         if( x == 0 ) return 0;
         if( x  < 4 ) return 1;
         if( x == 4 ) return 2;
