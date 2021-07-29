@@ -10,7 +10,7 @@ class Solution:
         # time  : O(log(n))
         # space : O(1)
         
-        l, r = 0, x
+        l, r = 1, x
         
         while l < r:
             mid = (l + r) // 2
