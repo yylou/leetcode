@@ -3,12 +3,13 @@
 
 # Performance
 ![result](./result.png)
+![result-java](./result-java.png)
 
 # Python
-```Python3
+```Python
 class Solution:
     def mySqrt(self, x: int) -> int:
-        #: (base case)
+        #: (edge)
         if x == 0: return 0
         if x < 4: return 1
         
@@ -18,17 +19,18 @@ class Solution:
         # time  : O(log(n))
         # space : O(1)
         
-        left, right = 2, x // 2
+        l, r = 0, x
         
-        while left <= right:
-            mid = (left + right) // 2
+        while l < r:
+            mid = (l + r) // 2
             num = mid * mid
             
-            if x == num: return mid
-            if x > num: left = mid + 1
-            else: right = mid -1
+            if num == x: return mid
+            elif num > x: r = mid
+            elif num < x: l = mid + 1
                 
-        return right
+        return l - 1
+
 ```
 
 # Java
@@ -38,26 +40,26 @@ class Solution {
      * @time  : O(log(n))
      * @space : O(1)
      */
-     
+
     public int mySqrt(int x) {
         if( x == 0 ) return 0;
         if( x  < 4 ) return 1;
         if( x == 4 ) return 2;
         
-        int left = 2, right = x/2;
+        int l = 1, r = x;
         
-        while( left <= right ){
-            int mid = (left + right) / 2;
+        while(l < r){
+            int mid = l + (r - l) / 2;
             
             // use LONG since mid * mid can be larger than INT.MAX
             long num = (long) mid * mid;
             
-            if( x == num ) return mid;
-            if( x > num ) left = mid + 1;
-            else right = mid - 1;
+            if(num == x) return mid;
+            else if(num > x) r = mid;
+            else if(num < x) l = mid + 1;
         }
         
-        return right;
+        return l - 1;
     }
 }
 ```
