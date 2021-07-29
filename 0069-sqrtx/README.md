@@ -30,7 +30,6 @@ class Solution:
             elif num < x: l = mid + 1
                 
         return l - 1
-
 ```
 
 # Java
