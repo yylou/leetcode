@@ -8,10 +8,10 @@ class Solution {
         /* base case */
         if(num == 1) return true;
         
-        long l = 1, r = num;
+        int l = 1, r = num;
         while(l < r) {
-            long mid = l + (r - l) / 2;
-            long val = mid * mid;
+            int mid = l + (r - l) / 2;
+            long val = (long) mid * mid;
             
             if(val == num) return true;
             else if(val > num) r = mid;
