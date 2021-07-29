@@ -1,5 +1,5 @@
 # Problem
-[278. First Bad Version](https://leetcode.com/problems/search-insert-position/)
+[278. First Bad Version](https://leetcode.com/problems/first-bad-version/)
 
 # Performance
 ![result](./result.png)
