@@ -7,8 +7,6 @@
 
 # Python
 ```python
-# Iterative Solution
-
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
         # (base case)
@@ -27,27 +25,16 @@ class Solution:
             if node.val >= upper or node.val <= lower: return False
             
             # (left  sub-tree) set UPPER bound to current node's value (<= curValue)
-            # (right sub-tree) set LOWER bound to current node's value (>= curValue)
             if node.left : stack.append( (node.left,  lower,    node.val) )
+
+            # (right sub-tree) set LOWER bound to current node's value (>= curValue)
             if node.right: stack.append( (node.right, node.val, upper) )
                 
         return True
 ```
 
 ```python
-# Recursive Solution
-
 class Solution:
-    def _isValidBSTHelper(self, node, lower, upper):
-        if not node: return True
-        
-        if ((upper > node.val > lower)                              and
-            self._isValidBSTHelper(node.left,  lower,    node.val ) and
-            self._isValidBSTHelper(node.right, node.val, upper)):
-            return True
-        
-        return False
-    
     def isValidBST(self, root: TreeNode) -> bool:
         # (base case)
         if not root.left and not root.right: return True
@@ -59,6 +46,16 @@ class Solution:
         # space : O(n)
         
         return self._isValidBSTHelper(root, float('-inf'), float('inf'))
+
+    def _isValidBSTHelper(self, node, lower, upper):
+        if not node: return True
+        
+        if ((upper > node.val > lower)                              and
+            self._isValidBSTHelper(node.left,  lower,    node.val ) and
+            self._isValidBSTHelper(node.right, node.val, upper)):
+            return True
+        
+        return False
 ```
 
 # Java
