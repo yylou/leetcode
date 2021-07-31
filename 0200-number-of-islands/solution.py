@@ -14,8 +14,8 @@ class Solution:
         
         ans = 0
         
-        for i in range( y ):
-            for j in range( x ):
+        for i in range(y):
+            for j in range(x):
                 if grid[i][j] == '1':
                     ans += 1
                     
