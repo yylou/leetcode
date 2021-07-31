@@ -5,7 +5,7 @@
 ![result](./result.png)
 
 # Python
-```python
+```Python
 class TwoSum:
 
     def __init__(self):
