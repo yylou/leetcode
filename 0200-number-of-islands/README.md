@@ -3,9 +3,10 @@
 
 # Performance
 ![result](./result.png)
+![result-java](./result-java.png)
 
 # Python
-```Python3
+```Python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         #: (base case)
@@ -42,7 +43,7 @@ class Solution:
         return ans
 ```
 
-```Python3
+```Python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         #: (base case)
@@ -80,15 +81,19 @@ class Solution {
      * @time  : O(nm)
      * @space : O(nm)
      */
+    
+    char[][] map;
 
     public int numIslands(char[][] grid) {
         int count = 0;
+        
+        map = grid;
         
         for(int i=0 ; i<grid.length ; i++) {
             for(int j=0 ; j<grid[0].length ; j++) {
                 if(grid[i][j] == '1') {
                     count++;
-                    explore(grid, i, j);
+                    explore(i, j);
                 }
             }
         }
@@ -96,21 +101,21 @@ class Solution {
         return count;
     }
     
-    public void explore(char[][] grid, int x, int y) {
-        if(x<0 || y<0 || x>= grid.length || y>= grid[0].length) {
+    public void explore(int x, int y) {
+        if(x<0 || y<0 || x>= map.length || y>= map[0].length) {
             return;
         }
         
-        if(grid[x][y] == '0') {
+        if(map[x][y] == '0') {
             return;
         }
         
-        grid[x][y] = '0';
+        map[x][y] = '0';
         
-        explore(grid, x-1, y);
-        explore(grid, x+1, y);
-        explore(grid, x,   y-1);
-        explore(grid, x,   y+1);
+        explore(x-1, y);
+        explore(x+1, y);
+        explore(x,   y-1);
+        explore(x,   y+1);
         
         return;
     }
