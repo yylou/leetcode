@@ -1,5 +1,5 @@
 # Leetcoding
 
-Refer to my [GitBook](https://yyloumike.gitbook.io/leetcode/){:target="_blank"} for the **details of solution**. 
+Refer to my [GitBook](https://yyloumike.gitbook.io/leetcode/) for the **details of solution**. 
 
-Refer to my [Website](https://yylou.github.io/leetcoding/){:target="_blank"} for the **categorization of problems**.
+Refer to my [Website](https://yylou.github.io/leetcoding/) for the **categorization of problems**.
