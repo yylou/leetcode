@@ -9,7 +9,7 @@
 ```Python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        #: (base case)
+        # (base case)
         if len(grid) == 1 and len(grid[0]) == 1: return 1 if grid[0][0] == "1" else 0
         
         # ==================================================
@@ -46,7 +46,7 @@ class Solution:
 ```Python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        #: (base case)
+        # (base case)
         if len(grid) == 1 and len(grid[0]) == 1: return 1 if grid[0][0] == "1" else 0
         
         # ==================================================
