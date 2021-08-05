@@ -5,9 +5,6 @@ class Solution {
      */
     
     public int shipWithinDays(int[] weights, int days) {
-        /* base case */
-        if(weights.length == 1) return 1;
-        
         int left = 0, right = 0;
         for (int w: weights) {
             left = Math.max(left, w);

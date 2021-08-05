@@ -1,7 +1,5 @@
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
-        # (base case)
-        if len(weights) == 1: return 1
         
         # ==================================================
         #  Binary Search                                   =
