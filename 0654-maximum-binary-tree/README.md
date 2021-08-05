@@ -1,5 +1,5 @@
 # Problem
-[0654. Maximum Binary Tree](https://yyloumike.gitbook.io/leetcode/tree/0654.-maximum-binary-tree)
+[0654. Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)
 
 # Performance
 ![result](./result.png)
