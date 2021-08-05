@@ -2,7 +2,7 @@
 [69. Sqrt(x)](https://leetcode.com/problems/sqrtx)
 
 # Performance
-![result](./result.png)
+![result-python](./result.png)
 ![result-java](./result-java.png)
 
 # Python
