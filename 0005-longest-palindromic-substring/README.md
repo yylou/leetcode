@@ -3,49 +3,46 @@
 
 # Performance
 ![result](./result.png)
+![result-java](./result-java.png)
 
 # Python
-```Python3
+```Python
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        #: (base case)
-        if not s or len(s) == 1: return s
-    
+        # (base case)
+        if len(s) < 2: return s
+        
         # ==================================================
         #  Expand around Corner                            =
         # ==================================================
         # time  : O(n^2)
         # space : O(1)
         
-        ret = ''
-        maxLen = 0
+        self.ret = ''
+        self.maxLen = 0
         
         for i in range(len(s)):
-            ##  ODD length (aabbdde -> [a'a'b]bdde, a[a'b'd], ..., aabb[d'd'e])
-            l, r = i, i
-            while l >=0 and r < len(s) and s[l] == s[r]:
-                if (r - l + 1) > maxLen:
-                    ret = s[l:r+1]
-                    maxLen = len(ret)
-                l -= 1
-                r += 1
+            # ODD length (aabbdde -> [a'a'b]bdde, a[a'b'd], ..., aabb[d'd'e])
+            self.expand(s, i, i)
+
+            # EVEN length (aabbdde -> [a'a']bbdde, a[a'b']bdde, ..., aabbd[d'e'])
+            self.expand(s, i, i + 1)
             
-            ##  EVEN length (aabbdde -> ['aa']bbdde, a['ab']bdde, ..., aabbd['de'])
-            l, r = i, i+1
-            while l >=0 and r < len(s) and s[l] == s[r]:
-                if (r - l + 1) > maxLen:
-                    ret = s[l:r+1]
-                    maxLen = len(ret)
-                l -= 1
-                r += 1
-            
-        return ret
+        return self.ret
+    
+    def expand(self, s: str, l: int, r: int) -> None:
+        while l >=0 and r < len(s) and s[l] == s[r]:
+            if(r - l + 1) > self.maxLen:
+                self.ret = s[l:r+1]
+                self.maxLen = len(self.ret)
+            l -= 1
+            r += 1
 ```
 
-```Python3
+```Python
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        #: (base case)
+        # (base case)
         if not s or len(s) == 1: return s
     
         # ==================================================
@@ -56,7 +53,7 @@ class Solution:
         
         ret = ''
         
-        #: dp[i][j] = True == s[i:j] = Palindrome
+        # dp[i][j] = True == s[i:j] = Palindrome
         dp = [[None] * len(s) for i in range(len(s))]
         
         for i in range(len(s)):
@@ -77,44 +74,33 @@ class Solution {
      * @time  : O(n^2)
      * @space : O(1)
      */
+
+    private int start, end, maxLen;
+
     public String longestPalindrome(String s) {
         int len = s.length();
         
-        if( len == 0 || len == 1 ) return s;
-        
-        int start = 0, end = 0;
-        int maxLen = 0;
-        
-        for(int i=0 ; i<len ; i++){
-            /* Odd Length */
-            int l = i, r = i;
-            while(l >= 0 && r < len && s.charAt(l) == s.charAt(r)){
-                int tmp = r - l + 1;
-                if(tmp > maxLen){
-                    start = l;
-                    end = r;
-                    maxLen = tmp;
-                }
-                l--;
-                r++;
-            }
-            
-            /* Even Length */
-            l = i;
-            r = i+1;
-            while(l >= 0 && r < len && s.charAt(l) == s.charAt(r)){
-                int tmp = r - l + 1;
-                if(tmp > maxLen){
-                    start = l;
-                    end = r;
-                    maxLen = tmp;
-                }
-                l--;
-                r++;
-            }           
+        if(len < 2) return s;
+
+        for(int i=0 ; i<len-1 ; i++) {
+            extendPalindrome(s, i, i);      // odd  length
+            extendPalindrome(s, i, i+1);    // even length
         }
         
         return s.substring(start, end + 1);
-    } 
+    }
+
+    private void extendPalindrome(String s, int j, int k) {
+        while(j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k)) {
+            j--;
+            k++;
+        }
+        
+        if(k - j - 1 > maxLen) {
+            start = j + 1;
+            end = k - 1;
+            maxLen = k - j - 1;
+        }
+    }
 }
 ```
