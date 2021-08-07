@@ -1,39 +1,39 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         # (base case)
-        if not s or len(s) == 1: return s
-    
+        if len(s) < 2: return s
+        
         # ==================================================
         #  Expand around Corner                            =
         # ==================================================
         # time  : O(n^2)
         # space : O(1)
         
-        ret = ''
-        maxLen = 0
+        self.ret = ''
+        self.maxLen = 0
         
         for i in range(len(s)):
             # ODD length (aabbdde -> [a'a'b]bdde, a[a'b'd], ..., aabb[d'd'e])
-            l, r = i, i
-            while l >=0 and r < len(s) and s[l] == s[r]:
-                if (r - l + 1) > maxLen:
-                    ret = s[l:r+1]
-                    maxLen = len(ret)
-                l -= 1
-                r += 1
+            self.expand(s, i, i)
+
+            # EVEN length (aabbdde -> [a'a']bbdde, a[a'b']bdde, ..., aabbd[d'e'])
+            self.expand(s, i, i + 1)
             
-            # EVEN length (aabbdde -> ['aa']bbdde, a['ab']bdde, ..., aabbd['de'])
-            l, r = i, i+1
-            while l >=0 and r < len(s) and s[l] == s[r]:
-                if (r - l + 1) > maxLen:
-                    ret = s[l:r+1]
-                    maxLen = len(ret)
-                l -= 1
-                r += 1
-            
-        return ret
+        return self.ret
+    
+    def expand(self, s: str, l: int, r: int) -> None:
+        while l >=0 and r < len(s) and s[l] == s[r]:
+            if(r - l + 1) > self.maxLen:
+                self.ret = s[l:r+1]
+                self.maxLen = len(self.ret)
+            l -= 1
+            r += 1
         
-        '''
+    '''
+    def longestPalindrome(self, s: str) -> str:
+        # (base case)
+        if len(s) < 2: return s
+
         # ==================================================
         #  Dynamic Programming                             =
         # ==================================================
@@ -54,4 +54,4 @@ class Solution:
                 if dp[i][j] and i - j + 1 > len(ret): ret = s[j:i+1]
                     
         return ret
-        '''
+    '''
