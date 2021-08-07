@@ -1,6 +1,6 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        #: (base case)
+        # (base case)
         if not s or len(s) == 1: return s
     
         # ==================================================
@@ -13,7 +13,7 @@ class Solution:
         maxLen = 0
         
         for i in range(len(s)):
-            ##  ODD length (aabbdde -> [a'a'b]bdde, a[a'b'd], ..., aabb[d'd'e])
+            # ODD length (aabbdde -> [a'a'b]bdde, a[a'b'd], ..., aabb[d'd'e])
             l, r = i, i
             while l >=0 and r < len(s) and s[l] == s[r]:
                 if (r - l + 1) > maxLen:
@@ -22,7 +22,7 @@ class Solution:
                 l -= 1
                 r += 1
             
-            ##  EVEN length (aabbdde -> ['aa']bbdde, a['ab']bdde, ..., aabbd['de'])
+            # EVEN length (aabbdde -> ['aa']bbdde, a['ab']bdde, ..., aabbd['de'])
             l, r = i, i+1
             while l >=0 and r < len(s) and s[l] == s[r]:
                 if (r - l + 1) > maxLen:
@@ -42,7 +42,7 @@ class Solution:
         
         ret = ''
         
-        #: dp[i][j] = True == s[i:j] = Palindrome
+        # dp[i][j] = True == s[i:j] = Palindrome
         dp = [[None] * len(s) for i in range(len(s))]
         
         for i in range(len(s)):
@@ -55,55 +55,3 @@ class Solution:
                     
         return ret
         '''
-        
-'''
-Java Solution
-==================================================================================================
-class Solution {
-    /**
-     * @time  : O(n^2)
-     * @space : O(1)
-     */
-
-    public String longestPalindrome(String s) {
-        int len = s.length();
-        
-        if( len == 0 || len == 1 ) return s;
-        
-        int start = 0, end = 0;
-        int maxLen = 0;
-        
-        for(int i=0 ; i<len ; i++){
-            /* Odd Length */
-            int l = i, r = i;
-            while(l >= 0 && r < len && s.charAt(l) == s.charAt(r)){
-                int tmp = r - l + 1;
-                if(tmp > maxLen){
-                    start = l;
-                    end = r;
-                    maxLen = tmp;
-                }
-                l--;
-                r++;
-            }
-            
-            /* Even Length */
-            l = i;
-            r = i+1;
-            while(l >= 0 && r < len && s.charAt(l) == s.charAt(r)){
-                int tmp = r - l + 1;
-                if(tmp > maxLen){
-                    start = l;
-                    end = r;
-                    maxLen = tmp;
-                }
-                l--;
-                r++;
-            }           
-        }
-        
-        return s.substring(start, end + 1);
-    } 
-}
-==================================================================================================
-'''
