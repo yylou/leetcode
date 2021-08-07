@@ -2,7 +2,7 @@
 [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring)
 
 # Performance
-![result](./result.png)
+![result-python](./result.png)
 ![result-java](./result-java.png)
 
 # Python
