@@ -6,10 +6,10 @@
 ![result-java](./result-java.png)
 
 # Python
-```Python3
+```Python
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
-        #  (base case)
+        # (base case)
         if not word1 and not word2: return 0
         if not word1 or not word2: return len(word1) + len(word2)
 
