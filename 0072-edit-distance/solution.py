@@ -1,38 +1,23 @@
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
-        #  (base case)
+        # (base case)
         if not word1 and not word2: return 0
         if not word1 or not word2: return len(word1) + len(word2)
 
         # ==================================================
         #  String + Dynamic Programming                    =
         # ==================================================
-        # time  : O(m*n)
-        # space : O(m*n)
+        # time  : O(mn)
+        # space : O(mn)
         
-        self.word1, self.word2 = word1, word2
-        self.n1, self.n2 = len(word1), len(word2)
+        table = [[0] * (len(word2) + 1) for _ in range(len(word1) + 1)]
+        for i in range(len(word1) + 1): table[i][0] = i
+        for j in range(len(word2) + 1): table[0][j] = j
         
-        self.table = [[-1 for _ in range(self.n2)] for _ in range(self.n1)]
+        for i in range(1, len(word1) + 1):
+            for j in range(1, len(word2) + 1):
+                if word1[i - 1] == word2[j - 1]: table[i][j] = table[i-1][j-1]
+                else:
+                    table[i][j] = 1 + min(table[i-1][j], table[i][j-1], table[i-1][j-1])
         
-        return self.dp(0, 0)
-        
-    def dp(self, index1, index2) -> int:
-        #  if one of string reaches the end, return the remaining length of the other string
-        if index1 == self.n1: return self.n2 - index2
-        if index2 == self.n2: return self.n1 - index1
-        
-        if self.table[index1][index2] != -1: return self.table[index1][index2]
-        
-        #  (SKIP) move both indexes without increasing moves
-        if self.word1[index1] == self.word2[index2]: 
-            self.table[index1][index2] = self.dp(index1 + 1, index2 + 1)
-            
-        else:
-            insert  = 1 + self.dp(index1,     index2 + 1)
-            delete  = 1 + self.dp(index1 + 1, index2)
-            replace = 1 + self.dp(index1 + 1, index2 + 1)
-            
-            self.table[index1][index2] = min(insert, delete, replace)
-            
-        return self.table[index1][index2]
+        return table[-1][-1]
