@@ -2,7 +2,7 @@
 [28. Implement strStr()](https://leetcode.com/problems/implement-strstr)
 
 # Performance
-![result](./result.png)
+![result-python](./result.png)
 ![result-java](./result-java.png)
 
 # Reference
