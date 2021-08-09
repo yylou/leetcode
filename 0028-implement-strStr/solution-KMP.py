@@ -51,7 +51,7 @@ class Solution:
             jumpP, moveP = 0, 0
 
             while moveP < len(str1):
-                if str2[jumpP] != str1[moveP]:
+                if str1[moveP] != str2[jumpP]:
                     if jumpP == 0:
                         moveP += 1
                     else:
@@ -61,7 +61,7 @@ class Solution:
                     jumpP += 1
                     moveP += 1
 
-                #:  Meet the end, return starting index
+                # Meet the end, return starting index
                 if jumpP == len(str2): return moveP - len(str2)
 
             return -1
