@@ -3,15 +3,16 @@
 
 # Performance
 ![result](./result.png)
+![result-java](./result-java.png)
 
 # Reference
 [KMP Algorithm Explanation](https://www.youtube.com/watch?v=GTJr8OvyEVQ)
 
 # Python
-```Python3
+```Python
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
-        #:  (edge case)
+        # (base case)
         if not needle: return 0
         if not haystack: return -1
         if len(needle) > len(haystack): return -1
@@ -21,7 +22,7 @@ class Solution:
         # ==================================================
         # n = length of haystack
         # m = length of needls
-        # time  : O(n*m)
+        # time  : O(nm)
         # space : O(1)        
         
         start, end = 0, len(needle)
@@ -35,10 +36,10 @@ class Solution:
         return -1
 ```
 
-```Python3
+```Python
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
-        #:  (edge case)
+        # (base case)
         if not needle: return 0
         if not haystack: return -1
         if len(needle) > len(haystack): return -1
@@ -51,11 +52,10 @@ class Solution:
         # time  : O(n+m)
         # space : O(m)
 
-
         # (1) build LPS table (Longest proper Prefix also Suffix)
         # time  : O(n)
         # space : O(n)
-        def LPS(string, length):
+        def LPS(string: str, length: int) -> list:
             '''
             Two pointers, jump and move, point to GOLDEN string
             '''
@@ -81,7 +81,7 @@ class Solution:
         # (2) use LPS table to do pattern matching
         # time  : O(m)
         # space : O(1)
-        def KMP(str1, str2, LPSTable):
+        def KMP(str1: str, str2: str, LPSTable: list) -> int:
             '''
             Two pointers:
             - jump pointer point to LPS table / GOLDEN string
@@ -105,35 +105,27 @@ class Solution:
 
             return -1
 
-
         LPSTable = LPS(needle, len(needle))
         return KMP(haystack, needle, LPSTable)
+
 ```
 
 # Java
 ```Java
 class Solution {
     /**
-     * @time  : O(n*m)
+     * @time  : O(nm)
      * @space : O(1)
      */
+
     public int strStr(String haystack, String needle) {
-        if( needle.length() == 0 ) return 0;
-        if( haystack.length() == 0 || needle.length() > haystack.length() ) return -1;
+        /* base case */
+        if(needle.length() == 0) return 0;
+        if(haystack.length() == 0 || needle.length() > haystack.length()) return -1;
         
-        int start = 0, end = needle.length();
-        
-        while( end-1 < haystack.length() ){
-            if( haystack.substring( start, end ).equals( needle ) ){ 
-                return start;
-                
-            } else{
-                start++;
-                end++;
-            }
-            
+        for(int i=0; i<(haystack.length()-needle.length()+1);i++) {
+            if (haystack.substring(i,i+needle.length()).equals(needle)) return i;
         }
-        
         return -1;
     }
 }
