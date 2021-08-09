@@ -1,6 +1,6 @@
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
-        #:  (edge case)
+        # (base case)
         if not needle: return 0
         if not haystack: return -1
         if len(needle) > len(haystack): return -1
@@ -13,11 +13,10 @@ class Solution:
         # time  : O(n+m)
         # space : O(m)
 
-
         # (1) build LPS table (Longest proper Prefix also Suffix)
         # time  : O(n)
         # space : O(n)
-        def LPS(string, length):
+        def LPS(string: str, length: int) -> list:
             '''
             Two pointers, jump and move, point to GOLDEN string
             '''
@@ -43,7 +42,7 @@ class Solution:
         # (2) use LPS table to do pattern matching
         # time  : O(m)
         # space : O(1)
-        def KMP(str1, str2, LPSTable):
+        def KMP(str1: str, str2: str, LPSTable: list) -> int:
             '''
             Two pointers:
             - jump pointer point to LPS table / GOLDEN string
@@ -66,7 +65,6 @@ class Solution:
                 if jumpP == len(str2): return moveP - len(str2)
 
             return -1
-
 
         LPSTable = LPS(needle, len(needle))
         return KMP(haystack, needle, LPSTable)
