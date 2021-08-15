@@ -3,12 +3,13 @@
 
 # Performance
 ![result](./result.png)
+![result-java](./result-java.png)
 
 # Python
 ```Python
 class Solution:
     def reverse(self, x: int) -> int:
-        #:  (edge case)
+        # (base case)
         if x == 0: return x
         
         # ==================================================
@@ -39,6 +40,7 @@ class Solution {
      * @time  : O(log(n))
      * @space : O(1)
      */
+
     public int reverse(int x) {
         if( x == 0 ) return x;
         
