@@ -22,7 +22,7 @@ class Solution:
         rev = 0
         
         # loop until reversed integer > divided integer
-        # - ex: 12321, rev = 321, x = 12
+        # - ex: 12321, rev = 123, x = 12
         # - ex: 9119,  rev = 91,  x = 91
         # - ex: 4321,  rev = 123, x = 4
         # - ex: 1234,  rev = 43,  x = 12
