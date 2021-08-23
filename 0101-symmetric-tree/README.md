@@ -2,7 +2,7 @@
 [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree)
 
 # Performance
-![result](./result.png)
+![result-python](./result.png)
 ![result-java](./result-java.png)
 
 # Python
