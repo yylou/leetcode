@@ -6,10 +6,10 @@
 ![result-java](./result-java.png)
 
 # Python
-```Python3
+```Python
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
-        #: (base case)
+        # (base case)
         if not root.left and not root.right: return True
         
         # ==================================================
@@ -29,10 +29,10 @@ class Solution:
         return isMirror(root.left, root.right)
 ```
 
-```Python3
+```Python
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
-        #: (base case)
+        # (base case)
         if not root.left and not root.right: return True
         
         # ==================================================
@@ -41,19 +41,18 @@ class Solution:
         # time  : O(n)
         # space : O(n)
         
-        stack = [root.left, root.right]
+        stack = [(root.left, root.right)]
         while stack:
-            node1 = stack.pop()
-            node2 = stack.pop()
+            node1, node2 = stack.pop()
             
+            # no child nodes, continue instead of pushing null nodes
             if not (node1  or node2): continue
+                
             if not (node1 and node2): return False
             if node1.val != node2.val: return False
             
-            stack.append(node1.left)
-            stack.append(node2.right)
-            stack.append(node1.right)
-            stack.append(node2.left)
+            stack.append((node1.left,  node2.right))
+            stack.append((node1.right, node2.left))
             
         return True
 ```
