@@ -6,7 +6,7 @@
 ![result-java](./result-java.png)
 
 # Python
-```Python3
+```Python
 class Trie:
 
     def __init__(self):
