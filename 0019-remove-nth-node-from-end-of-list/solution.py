@@ -1,6 +1,6 @@
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        #  (base case)
+        # (base case)
         if not head.next and n == 1: return None
         
         # ==================================================
@@ -11,13 +11,13 @@ class Solution:
         
         slowP, fastP = head, head
         
+        # move fast-pointer to keep the gap(n) apart from slow-pointer
         for i in range(n): fastP = fastP.next
         
-        #  move fast-pointer to keep the gap(n) apart from slow-pointer
-        if not fastP:
-            head = head.next
-            return head
+        # n == length of the linked list
+        if not fastP: return head.next
         
+        # move fast-pointer to the end, maintaining the gap
         while fastP.next:
             slowP = slowP.next
             fastP = fastP.next
@@ -34,54 +34,18 @@ class Solution:
         
         ret = head
         
-        counter = 0
+        index = 0
         table = dict()
         while head:
-            table[counter] = head
+            table[index] = head
             head = head.next
-            counter += 1
+            index += 1
         
-        if n == counter: return ret.next
+        if n == index: return ret.next
         
-        node = table[counter - n - 1]
+        # find the node before the one that needs to be removed
+        node = table[index - n - 1]
         node.next = node.next.next
         
         return ret
         '''
-
-'''
-Java Solution
-==================================================================================================
-class Solution {
-    /**  
-     * @time  : O(n)
-     * @space : O(1)
-     */
-    
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        /* base case */
-        if(head.next == null && n == 1) return null;
-        
-        ListNode slowP = head, fastP = head;
-        
-        /* Advances fast-pointer so that the gap between two pointers is n nodes apart */
-        for (int i=0 ; i<n ; i++) fastP = fastP.next;
-        
-        /* nth node from the end points to HEAD */
-        if(fastP == null) {
-            head = head.next;
-            return head;
-        }
-            
-        /* Move fast-pointer to the end, maintaining the gap */
-        while (fastP.next != null) {
-            slowP = slowP.next;
-            fastP = fastP.next;
-        }
-        
-        slowP.next = slowP.next.next;
-        return head;
-    }
-}
-==================================================================================================
-'''
