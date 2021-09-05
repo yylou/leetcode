@@ -9,7 +9,7 @@
 ```Python
 class Solution:
     def isValid(self, s: str) -> bool:
-        # (base case)
+        # (base case)fy
         if len(s) == 1: return False
         
         # ==================================================
@@ -25,16 +25,15 @@ class Solution:
         }
         stack = []
         
+        # return False if first char is right-side parenthesis
         if s[0] in table: return False
         
         for char in s:
             if char in table:
-                # if stack is alread empty, return False
+                # return False if stack is already empty
                 if not stack: return False 
                 
-                item = stack.pop()
-                
-                if item != table[char]: return False
+                if stack.pop() != table[char]: return False
                 
             else:
                 stack.append( char )
