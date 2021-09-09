@@ -6,7 +6,7 @@
 ![result-java](./result-java.png)
 
 # Python
-```python3
+```Python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         #  (base case)
