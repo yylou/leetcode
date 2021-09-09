@@ -9,7 +9,7 @@
 ```Python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        #  (base case)
+        # (base case)
         if len(nums) == 0 or len(nums) == 1: return len(nums)
         
         # ==================================================
@@ -23,7 +23,7 @@ class Solution:
         while moveP < len(nums):
             num = nums[moveP]
             
-            #  (meet number different from previous placed number)
+            # meet number different from previous placed number
             if placeP < 1 or num != nums[placeP - 1]:
                 nums[placeP] = num
                 placeP += 1
