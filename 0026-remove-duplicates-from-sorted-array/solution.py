@@ -15,7 +15,7 @@ class Solution:
             num = nums[moveP]
             
             # meet number different from previous placed number
-            if placeP < 1 or num != nums[placeP - 1]:
+            if placeP == 0 or num != nums[placeP - 1]:
                 nums[placeP] = num
                 placeP += 1
                 
