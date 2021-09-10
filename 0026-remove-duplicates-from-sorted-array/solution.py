@@ -12,11 +12,9 @@ class Solution:
         moveP, placeP = 0, 0
         
         while moveP < len(nums):
-            num = nums[moveP]
-            
             # meet number different from previous placed number
-            if placeP == 0 or num != nums[placeP - 1]:
-                nums[placeP] = num
+            if placeP == 0 or nums[moveP] != nums[placeP - 1]:
+                nums[placeP] = nums[moveP]
                 placeP += 1
                 
             moveP += 1
