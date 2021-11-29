@@ -1,55 +1,82 @@
-##  Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-
-class Solution(object):
-    def isPalindrome(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
-
-        ##  (edge case) linked list only has one node
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        # (base case) only one node
         if not head.next: return True
 
+        # ==================================================
+        #  In-place Reverse Half then Compare              =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)
 
-        ##  Solution (1) reverse half (in-place) and then compare
-        ##  (a) find the half-point (NOTE: BEFORE the real half-point)
-        fastP, slowP = head, head
-        while fastP.next and fastP.next.next:
-            fastP = fastP.next.next
-            slowP = slowP.next
+        # Reverse first-half / Find middle
+        rev, fast, slow = None, head, head
+        while fast and fast.next:
+            fast = fast.next.next
 
-        halfNode = slowP.next
+            tmp = rev
+            rev = slow
+            slow = slow.next
+            rev.next = tmp
 
-        ##  (b) reverse the second-half of linked list (NOTE: take the PREV NODE)
-        preNode, curNode = None, halfNode
-        while curNode:
-            nexNode = curNode.next
-            curNode.next = preNode
-            preNode = curNode
-            curNode = nexNode
+        # Skip middle point
+        if fast: slow = slow.next
 
-        newHead = preNode
-
-        ##  (c) compare
-        while head and newHead:
-            if head.val != newHead.val: return False
-            head = head.next
-            newHead = newHead.next
+        # Compare
+        while rev and slow:
+            if rev.val != slow.val: return False
+            rev, slow = rev.next, slow.next
 
         return True
 
+        """
+        N    1 -> 2 -> 3 -> 2 -> 1 -> N
+             s
+             f
+        r
 
-        # =================================================================== #
+        N <- 1    2 -> 3 -> 2 -> 1 -> N
+             r    s    f
+
+        N <- 1 <- 2    3 -> 2 -> 1 -> N
+                  r    s         f
+
+        N <- 1 <- 2    3 -> 2 -> 1 -> N
+                  r         s    f
+        """
+
+        """
+        N    1 -> 2 -> 2 -> 1 -> N
+             s
+             f
+        r
+
+        N <- 1 <- 2    2 -> 1 -> N
+                  r    s         f
+        """
+
+        """
+        N    1 -> 2 -> N
+             s
+             f
+        r
+
+        N <- 1    2 -> N
+             r    s    f
+        """
 
 
-        ##  Solution (2) record each node's value with space complexity O(n)
+        """
+        # ==================================================
+        #  Store each node's value                         =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
+
         record = []
         while head:
             record.append( head.val )
             head = head.next
 
         return record == record[::-1]
+        """
