@@ -57,7 +57,7 @@ class Solution:
         
         node = self.reverseList(head.next)
         
-        # recursion will end at the last-two element since head.next == None
+        # recursion will stop at the last element since head.next == None
         head.next.next = head
         head.next = None
         
