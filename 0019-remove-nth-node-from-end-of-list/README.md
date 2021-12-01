@@ -27,9 +27,7 @@ class Solution:
         if not fastP: return head.next
         
         # move fast-pointer to the end, maintaining the gap
-        while fastP.next:
-            slowP = slowP.next
-            fastP = fastP.next
+        while fastP.next: slowP, fastP = slowP.next, fastP.next
             
         slowP.next = slowP.next.next
         return head
