@@ -17,15 +17,12 @@ class Solution:
         # ==================================================
         # time  : O(n)
         # space : O(1)
-        
-        first, second = 0, 1
-        
+
+        n1, n2 = 0, 1
         for i in range(n - 1):
-            tmp = first
-            first = second
-            second += tmp
+            n1, n2 = n2, n1 + n2
             
-        return second
+        return n2
 ```
 
 # Java
