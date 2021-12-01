@@ -16,6 +16,15 @@ class Solution:
 
         return [start, end] if start <= end else [-1, -1]
 
+        """
+        target = 3
+
+        [1,2,2] = 3, 2 # (start, end)
+        [1,2,4] = 2, 1
+        [1,2,5] = 2, 1
+        [1,3,5] = 1, 1
+        """
+
     def binarySearch(self, target):
         """
         Find the position to insert target number to keep list sorted
