@@ -24,14 +24,14 @@ class Solution:
         # (Return top-k largest elements)
         # return self.nums[:k]
     
-    def quickSelect(self, left, right, kLargest) -> int:
+    def quickSelect(self, left, right, kLargest) -> None:
         if not (left < right): return 
         
         pivot = self.partition(left, right)
 
-        if pivot == kLargest: return self.nums[kLargest]
+        if pivot == kLargest: return
         elif pivot > kLargest: self.quickSelect(left, pivot-1, kLargest)
-        else: left = self.quickSelect(pivot+1, right, kLargest)
+        else: self.quickSelect(pivot+1, right, kLargest)
                 
     def partition(self, left, right) -> int:
         randomNum = (left + right) // 2
@@ -40,14 +40,14 @@ class Solution:
         pivot = right
         self.nums[randomNum], self.nums[pivot] = self.nums[pivot], self.nums[randomNum]
         
-        # move all larger elements to the left
+        # move larger elements to the left
         placeP = left
         for i in range(left, right):
             if self.nums[i] >= self.nums[pivot]:
                 self.nums[placeP], self.nums[i] = self.nums[i], self.nums[placeP]
                 placeP += 1
             
-        # move back the pivot to make an almost-sorted array
+        # move back the pivot
         self.nums[placeP], self.nums[pivot] = self.nums[pivot], self.nums[placeP]
         return placeP
 ```
