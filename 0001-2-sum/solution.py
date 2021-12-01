@@ -7,12 +7,12 @@ class Solution:
         # ==================================================
         # time  : O(n)
         # space : O(n)
-        
-        for i in range( len(nums) ):
+
+        for i in range(len(nums)):
             remain = target - nums[i]
-            
+
             if remain in hashTable:
                 return [i, hashTable[remain]]
-            
-            #:  Since there is only one exact solution, it has no problem to overwrite the record
+
+            # We could overwrite since there is only one solution
             hashTable[nums[i]] = i
