@@ -8,7 +8,7 @@
 ```Python3
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        # (base case) only one node
+        # (base case)
         if not head.next: return True
 
         # ==================================================
@@ -18,22 +18,24 @@ class Solution:
         # space : O(1)
         
         # Reverse first-half / Find middle
-        rev, fast, slow = None, head, head
+        prev, fast, slow = None, head, head
         while fast and fast.next:
             fast = fast.next.next
+            tmp = slow.next
             
-            tmp = rev
-            rev = slow
-            slow = slow.next
-            rev.next = tmp
+            slow.next = prev
+            prev = slow
+            
+            slow = tmp
 
-        # Skip middle point
+        # For odd length, fast stops at tail
+        # For even length, fast stops at tail's next
         if fast: slow = slow.next
 
         # Compare
-        while rev and slow:
-            if rev.val != slow.val: return False
-            rev, slow = rev.next, slow.next
+        while prev and slow:
+            if prev.val != slow.val: return False
+            prev, slow = prev.next, slow.next
 
         return True
     
@@ -41,36 +43,36 @@ class Solution:
         N    1 -> 2 -> 3 -> 2 -> 1 -> N
              s
              f
-        r
+        p
         
         N <- 1    2 -> 3 -> 2 -> 1 -> N
-             r    s    f
+             p    s    f
         
         N <- 1 <- 2    3 -> 2 -> 1 -> N
-                  r    s         f
+                  p    s         f
         
         N <- 1 <- 2    3 -> 2 -> 1 -> N
-                  r         s    f
+                  p         s    f
         """
         
         """     
         N    1 -> 2 -> 2 -> 1 -> N
              s
              f
-        r
+        p
         
         N <- 1 <- 2    2 -> 1 -> N
-                  r    s         f
+                  p    s         f
         """
         
         """     
         N    1 -> 2 -> N
              s
              f
-        r
+        p
         
         N <- 1    2 -> N
-             r    s    f
+             p    s    f
         """
 ```
 
