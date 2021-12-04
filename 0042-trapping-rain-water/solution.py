@@ -8,14 +8,32 @@ class Solution:
         while r >= 0 and height[r] == 0: r -= 1
         if r - l + 1 < 3: return 0
 
-        area = 0
+        return self.monotonic_stack(height, l, r)
+        return self.dp(height, l, r)
+        return self.two_pointers(height, l, r)
+        return self.max_func(height, l, r)
 
+        """
+            |           |
+        |ooo|           |ooo|
+        ||o||           ||o||
+
+
+             |
+        |oooo|
+        |oo|o|                |
+        ||o|||            |ooo||o|
+        ||o|||          |o||o||||||
+        """
+
+    def two_pointers(self, height: List[int], l: int, r: int) -> int:
         # ==================================================
         #  Two pointers                                    =
         # ==================================================
         # time  : O(n)
         # space : O(1)
 
+        area = 0
         maxL, maxR = height[l], height[r]
 
         while l < r:
@@ -31,26 +49,15 @@ class Solution:
 
         return area
 
-        """
-            |           |
-        |ooo|           |ooo|
-        ||o||           ||o||
 
-
-             |
-        |oooo|
-        |oo|o|                |
-        ||o|||            |ooo||o|
-        ||o|||          |o||o||||||
-        """
-
-        '''
+    def dp(self, height: List[int], l: int, r: int) -> int:
         # ==================================================
         #  Dynamic Programming                             =
         # ==================================================
         # time  : O(n)
         # space : O(n)
 
+        area = 0
         n, recL, recR = r - l + 1, float('-inf'), float('-inf')
         maxL, maxR = [0] * len(height), [0] * len(height)
 
@@ -66,16 +73,15 @@ class Solution:
             area += min(maxL[i], maxR[i]) - height[i]
 
         return area
-        '''
 
-        '''
+    def monotonic_stack(self, height: List[int], l: int, r: int) -> int:
         # ==================================================
         #  Monotonic Stack                                 =
         # ==================================================
         # time  : O(n)
         # space : O(n)
 
-        stack = []
+        area, stack = 0, []
         for i in range(l, r+1):
             cur = height[i]
 
@@ -90,15 +96,15 @@ class Solution:
             stack.append((i, cur))
 
         return area
-        '''
 
-        '''
+    def max_func(self, height: List[int], l: int, r: int) -> int:
         # ==================================================
         #  MAX for each iteration                          =
         # ==================================================
         # time  : O(n^2)
         # space : O(1)
 
+        area = 0
         for i in range(l, len(height)):
             leftMax  = max(height[0:i+1])
             rightMax = max(height[i:len(height)])
@@ -106,4 +112,3 @@ class Solution:
             area += min(leftMax, rightMax) - height[i]
 
         return area
-        '''
