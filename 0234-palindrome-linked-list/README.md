@@ -83,15 +83,27 @@ class Solution:
         if not head.next: return True
 
         # ==================================================
-        #  Store each node's value                         =
+        #  Find middle with string record                  =
         # ==================================================
         # time  : O(n)
         # space : O(n)
+        
+        stack = []
+        # Find middle / Append elements
+        prev, fast, slow = None, head, head
+        while fast and fast.next:
+            stack.append(slow.val)
+            fast = fast.next.next
+            slow = slow.next
 
-        record = []
-        while head:
-            record.append( head.val )
-            head = head.next
+        # For odd length, fast stops at tail
+        # For even length, fast stops at tail's next
+        if fast: slow = slow.next
 
-        return record == record[::-1]
+        # Compare
+        while slow:
+            if slow.val != stack.pop(): return False
+            slow = slow.next
+
+        return True
 ```
