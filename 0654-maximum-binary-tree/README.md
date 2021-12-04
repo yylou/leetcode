@@ -20,13 +20,12 @@ class Solution:
         # space : O(n)
         
         stack = []
-        for i in nums:
-            node, last = TreeNode(i), None
+        for num in nums:
+            node, last = TreeNode(num), None
             
-            # (current node's value > previous node's value)
-            #  1. pop from stack
-            #  2. append the MAX element in the stack to current node's left
-            while stack and stack[-1].val < i:
+            # 1. (current node's value > previous node's value) pop from stack
+            # 2. append the MAX element in the stack to current node's left
+            while stack and stack[-1].val < num:
                 last = stack.pop()
             node.left = last
             
