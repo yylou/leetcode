@@ -25,11 +25,10 @@ class Solution:
         # move the pointer with SHORTER height
         while r > l:
             tmp = min(height[l], height[r]) * (r - l)
+            if tmp > area: area = tmp
             
             if height[r] > height[l]: l += 1
             else: r -= 1
-                
-            if tmp > area: area = tmp
                 
         return area
 ```
