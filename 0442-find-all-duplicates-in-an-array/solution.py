@@ -1,53 +1,34 @@
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
+    def findDuplicates(self, nums: List[int]) -> List[int]:
         # (base case)
-        if len(nums) == 1: return False
+        if len(nums) == 1: return []
 
         # ==================================================
-        #  Array + Set                                     =
+        #  Negative Marking                                =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)
+
+        ans = []
+
+        for i in range(len(nums)):
+            num = abs(nums[i]) - 1
+
+            if nums[num] < 0: ans.append(num + 1)
+            else: nums[num] *= -1
+
+        return ans
+
+        """
+        # ==================================================
+        #  Counter / Hash Table                            =
         # ==================================================
         # time  : O(n)
         # space : O(n)
 
-        table = set()
-
-        for num in nums:
-            if num not in table: table.add(num)
-            else: return True
-
-        return False
-
+        counter = Counter(nums)
+        res = list()
+        for k, v in counter.items():
+            if v == 2: res.append(k)
+        return res
         """
-        # ==================================================
-        #  One-liner                                       =
-        # ==================================================
-        # time  : O(n)
-        # space : O(n)
-
-        return len(nums) != len(set(nums))
-        """
-
-        """
-        # ==================================================
-        #  Quick Sort                                      =
-        # ==================================================
-        # time  : O(nlogn)
-        # space : O(logn)
-
-        sorted_array = self.quickSort(nums)
-        for i in range(0, len(sorted_array)-1):
-            if sorted_array[i] == sorted_array[i+1]: return True
-        return False
-        """
-
-    def quickSort(self, nums: List[int]) -> List[int]:
-        if not nums or len(nums) == 1: return nums
-
-        pivot = nums[len(nums) // 2]
-        lt, eq, lg = list(), list(), list()
-        for num in nums:
-            if   num == pivot: eq += [num]
-            elif num  > pivot: lg += [num]
-            else: lt += [num]
-
-        return self.quickSort(lt) + eq + self.quickSort(lg)
