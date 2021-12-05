@@ -9,7 +9,7 @@
 ```Python3
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
-        #  (base case)
+        # (base case)
         if not head or not head.next: return False
         if head.next.next == head: return True
         
