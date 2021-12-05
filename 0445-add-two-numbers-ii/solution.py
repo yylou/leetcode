@@ -5,7 +5,8 @@ class Solution:
         #  Linked List                        (Recursive)  =
         # ==================================================
         # time  : O(m+n)
-        # space : O(abs(m-n)
+        # space : O(abs(m-n))
+
         len1, len2 = self.length(l1), self.length(l2)
         if   len1 > len2: l2 = self.fill(l2, len1 - len2)
         elif len2 > len1: l1 = self.fill(l1, len2 - len1)
@@ -20,6 +21,7 @@ class Solution:
         # ==================================================
         # time  : O(m+n)
         # space : O(1)
+
         l1, l2 = self.reverse(l1), self.reverse(l2)
         return self.reverse(self.add(l1, l2))
 
@@ -28,6 +30,7 @@ class Solution:
         # ==================================================
         # time  : O(m+n)
         # space : O(m+n)
+
         return self.stack(l1, l2)
 
     def length(self, l: ListNode) -> int:
