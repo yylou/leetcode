@@ -8,68 +8,44 @@
 # Python
 ```Python3
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
+    def findDuplicates(self, nums: List[int]) -> List[int]:
         # (base case)
-        if len(nums) == 1: return False
-        
+        if len(nums) == 1: return []
+
         # ==================================================
-        #  One-liner                                       =
+        #  Negative Marking                                =
         # ==================================================
         # time  : O(n)
-        # space : O(n)
+        # space : O(1)
         
-        return len(nums) != len(set(nums))
-```
+        ans = []
 
-```Python3
-class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        # (base case)
-        if len(nums) == 1: return False
-        
-        # ==================================================
-        #  Array + Set                                     =
-        # ==================================================
-        # time  : O(n)
-        # space : O(n)
-        
-        table = set()
-        
-        for num in nums:
-            if num not in table: table.add(num)
-            else: return True
-        
-        return False
-```
-
-```Python3
-class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        # (base case)
-        if len(nums) == 1: return False
-        
-        # ==================================================
-        #  Quick Sort                                      =
-        # ==================================================
-        # time  : O(nlogn)
-        # space : O(logn)
-        
-        sorted_array = self.quickSort(nums)
-        for i in range(0, len(sorted_array)-1):
-            if sorted_array[i] == sorted_array[i+1]: return True
-        return False
-
-    def quickSort(self, nums: List[int]) -> List[int]:
-        if not nums or len(nums) == 1: return nums
-        
-        pivot = nums[len(nums) // 2]
-        lt, eq, lg = list(), list(), list()
-        for num in nums:
-            if   num == pivot: eq += [num]
-            elif num  > pivot: lg += [num]
-            else: lt += [num]
+        for i in range(len(nums)):
+            num = abs(nums[i]) - 1
+            
+            if nums[num] < 0: ans.append(num + 1)
+            else: nums[num] *= -1
                 
-        return self.quickSort(lt) + eq + self.quickSort(lg)
+        return ans
+```
+
+```Python
+class Solution:
+    def findDuplicates(self, nums: List[int]) -> List[int]:
+        # (base case)
+        if len(nums) == 1: return []
+
+        # ==================================================
+        #  Counter / Hash Table                            =
+        # ==================================================
+        # time  : O(n)
+        # space : O(n)
+        
+        counter = Counter(nums)
+        res = list()
+        for k, v in counter.items():
+            if v == 2: res.append(k)
+        return res
 ```
 
 # Java
@@ -77,18 +53,23 @@ class Solution:
 class Solution {
     /**
      * @time  : O(n)
-     * @space : O(n)
+     * @space : O(1)
      */
     
-    public boolean containsDuplicate(int[] nums) {
-        Set<Integer> set = new HashSet<>(nums.length);
+    public List<Integer> findDuplicates(int[] nums) {
+        /* base case */
+        if(nums.length == 1) return new ArrayList<>();
         
-        for (int x: nums) {
-            if (set.contains(x)) return true;
-            set.add(x);
+        List<Integer> ans = new ArrayList<>();
+
+        for(int num: nums) {
+            int index = Math.abs(num) - 1;
+            
+            if(nums[index] > 0) nums[index] *= -1;
+            else ans.add(Math.abs(num));
         }
         
-        return false;
+        return ans;
     }
 }
 ```
