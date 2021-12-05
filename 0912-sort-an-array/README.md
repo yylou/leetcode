@@ -16,7 +16,7 @@ class Solution:
     
     def mergeSort(self, nums: List[int]) -> List[int]:
         # ==================================================
-        #  Array + Quick Sort                              =
+        #  Array + Merge Sort                              =
         # ==================================================
         # time  : O(nlog(n))
         # space : O(n)
