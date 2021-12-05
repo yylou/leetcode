@@ -5,6 +5,19 @@
 ![result](./result.png)
 ![result-java](./result-java.png)
 
+# Proof of Floyd Cycle Chasing (Tortoise and Hare)
+```
+The distance from the head (inclusive) to the joint (exclusive) is F.
+The distance from the joint (inclusive) to the meet point (exclusive) is a.
+The distance from the meet point (inclusice) to the joint (exclusive) is C-a.
+
+At meet point, support hare has run n cycles.
+2(F + a) = F + nC + a, F + a = nC
+
+We further assign hare to the head and make their speed be the same.
+After F steps, hare is at F and turtle is at (nC + F) mod C = F, we find the intersection point.
+```
+
 # Python
 ```Python3
 class Solution:
