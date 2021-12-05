@@ -3,9 +3,10 @@
 
 # Performance
 ![result](./result.png)
+![result-java](./result-java.png)
 
 # Python
-```Python3
+```Python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         
