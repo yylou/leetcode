@@ -10,6 +10,17 @@ class Solution:
         # time  : O(n)
         # space : O(n)
 
+        """
+        input: [3,2,1,6,0,5]
+
+        stack: [3]          3.left  = None
+        stack: [3,2]        2.left  = None, 3.right = 2
+        stack: [3,2,1]      1.left  = None, 2.right = 1
+        stack: [6]          6.left  = 3
+        stack: [6,0]        0.left  = None, 6.right = 0
+        stack: [6,5]        5.left  = 0,    6.right = 5
+        """
+
         stack = []
         for num in nums:
             node, last = TreeNode(num), None
@@ -28,12 +39,7 @@ class Solution:
 
         return stack[0]
 
-    '''
-    def constructMaximumBinaryTree(self, nums: List[int]) -> TreeNode:
-        # (base case)
-        if not nums: return None
-        if len(nums) == 1: return TreeNode(nums[0])
-
+        """
         # ==================================================
         #  Binary Tree + Recursion                         =
         # ==================================================
@@ -42,12 +48,14 @@ class Solution:
 
         self.nums = nums
         return self.construct(0, len(nums))
+        """
 
     def construct(self, left: int, right: int) -> TreeNode:
         if left >= right: return None
 
         maxIndex = self.findMax(left, right)
-        return TreeNode(self.nums[maxIndex], self.construct(left, maxIndex), self.construct(maxIndex + 1, right))
+        return TreeNode(self.nums[maxIndex],
+                        self.construct(left, maxIndex), self.construct(maxIndex + 1, right))
 
     def findMax(self, left: int, right: int) -> int:
         maxIndex = left
@@ -56,4 +64,3 @@ class Solution:
                 maxIndex = i
 
         return maxIndex
-    '''
