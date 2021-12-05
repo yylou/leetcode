@@ -18,7 +18,7 @@ class Solution:
         # ==================================================
         #  Array + Merge Sort                              =
         # ==================================================
-        # time  : O(nlog(n))
+        # time  : O(nlogn)
         # space : O(n)
         
         def merge(left: List[int], right: List[int]) -> List[int]:
@@ -42,8 +42,8 @@ class Solution:
         # ==================================================
         #  Array + Quick Sort                              =
         # ==================================================
-        # time  : O(nlog(n))
-        # space : O(nlog(n))
+        # time  : O(nlogn)
+        # space : O(logn)
         
         def sort(nums: List[int], left: int, right: int) -> None:
             if right == left or right - left == 1: return
@@ -74,8 +74,8 @@ class Solution:
         # ==================================================
         #  Array + Quick Sort                              =
         # ==================================================
-        # time  : O(nlog(n))
-        # space : O(nlog(n))
+        # time  : O(nlogn)
+        # space : O(logn)
         
         pivot = nums[len(nums) // 2]
         lt, eq, lg = list(), list(), list()
@@ -96,7 +96,7 @@ class Solution {
     }
     
     /**  
-     * @time  : O(nlog(n))
+     * @time  : O(nlogn)
      * @space : O(n)
      */
     public int[] mergeSort(int[] nums) {
@@ -128,8 +128,8 @@ class Solution {
     }
     
     /**  
-     * @time  : O(nlog(n))
-     * @space : O(nlog(n))
+     * @time  : O(nlogn)
+     * @space : O(logn)
      */
     public int[] quickSort(int[] nums) {
         sortQuick(nums, 0, nums.length);
