@@ -5,7 +5,7 @@ class Solution {
     }
     
     /**  
-     * @time  : O(nlog(n))
+     * @time  : O(nlogn)
      * @space : O(n)
      */
     public int[] mergeSort(int[] nums) {
@@ -37,8 +37,8 @@ class Solution {
     }
     
     /**  
-     * @time  : O(nlog(n))
-     * @space : O(nlog(n))
+     * @time  : O(nlogn)
+     * @space : O(logn)
      */
     public int[] quickSort(int[] nums) {
         sortQuick(nums, 0, nums.length);
