@@ -11,52 +11,52 @@ class Solution:
     def sortList(self, head: ListNode) -> ListNode:
         #  (base case)
         if not head or not head.next: return head
-        
+
         # ==================================================
         #  Linked List + Merge Sort           (Iterative)  =
         # ==================================================
         # time  : O(nlog(n))
         # space : O(1)
-        
+
         length = self.getSize(head)
         ret, size = ListNode(0, head), 1
-        
+
         while size < length:
             splitHead, mergeHead = ret.next, ret
-            
+
             while splitHead:
                 left  = splitHead
                 right = self.split(size, left)
-                
                 splitHead = self.split(size, right)
+
                 mergeHead = self.merge(left, right, mergeHead)
-            
+
             size *= 2
-        
+
         return ret.next
-        
+
     def getSize(self, node: ListNode) -> int:
         size, tmp = 0, node
         while tmp: size, tmp = size + 1, tmp.next
         return size
-    
+
     def split(self, size: int, node: ListNode) -> ListNode:
-        pre = None
+        pre, cur = None, node
         for i in range(size):
-            if not node: break
-            pre, node = node, node.next
-        
+            if not cur: break
+            pre, cur = cur, cur.next
+
         #  (break the link)
         if pre: pre.next = None
-        return node
-    
+        return cur
+
     def merge(self, left: ListNode, right: ListNode, head: ListNode) -> ListNode:
         while left and right:
             if left.val <= right.val: head.next, left = left, left.next
             else: head.next, right = right, right.next
-                
+
             head = head.next
-        
+
         head.next = left if left else right
         while head.next: head = head.next
         return head
