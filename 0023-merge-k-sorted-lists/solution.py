@@ -1,7 +1,7 @@
 class Solution:
-    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         # (base case)
-        if len(lists) == 0: return None
+        if not lists: return None
         if len(lists) == 1: return lists[0]
 
         # ==================================================
@@ -13,33 +13,34 @@ class Solution:
         # n is the total number of nodes in two linked lists
         # k is the number of linked lists
 
+        length = len(lists)
         size = 1
-        while size < len(lists):
-            for i in range(0, len(lists) - size, size * 2):
-                lists[i] = self._merge(lists[i], lists[i+size])
+        while size < length:
+            for i in range(0, length, size * 2):
+                if i + size < length: lists[i] = self._merge(lists[i], lists[i + size])
             size *= 2
 
         return lists[0]
 
         """
                                         length = 6
-            [l0, l1, l2, l3, l4, l5]    size = 1, interval = 2, upper = 5
+            [l0, l1, l2, l3, l4, l5]    size = 1, interval = 2
              ^----^  ^----^  ^----^
 
-            [l0,     l2,     l4    ]    size = 2, interval = 4, upper = 4
+            [l0,     l2,     l4    ]    size = 2, interval = 4
              ^--------^
 
-            [l0,             l4    ]    size = 4, interval = 8, upper = 2
+            [l0,             l4    ]    size = 4, interval = 8
              ^----------------^
 
                                         length = 5
-            [l0, l1, l2, l3, l4]        size = 1, interval = 2, upper = 5
+            [l0, l1, l2, l3, l4]        size = 1, interval = 2
              ^----^  ^----^
 
-            [l0,     l2,     l4]        size = 2, interval = 4, upper = 4
+            [l0,     l2,     l4]        size = 2, interval = 4
              ^--------^
 
-            [l0,             l4]        size = 4, interval = 8, upper = 2
+            [l0,             l4]        size = 4, interval = 8
              ^----------------^
         """
 
