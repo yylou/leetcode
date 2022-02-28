@@ -18,9 +18,9 @@ class Solution:
         # time  : O(n)
         # space : O(1)
         
-        curSum = maxSum = nums[0]
+        curSum = maxSum = float('-inf')
         
-        for i in range(1, len(nums)):
+        for i in range(len(nums)):
             curSum = max(nums[i], curSum + nums[i])
             maxSum = max(curSum, maxSum)
 
@@ -30,7 +30,7 @@ class Solution:
 ```Python
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        #: (edge case)
+        # (base case)
         if len(nums) == 1: return nums[0]
         
         # ==================================================
