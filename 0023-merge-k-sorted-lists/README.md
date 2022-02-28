@@ -25,28 +25,21 @@ class Solution:
         size = 1
         while size < len(lists):
             for i in range(0, len(lists) - size, size * 2):
-                lists[i] = self.merge2Lists(lists[i], lists[i+size])
+                lists[i] = self._merge(lists[i], lists[i+size])
             size *= 2
             
         return lists[0]
-        
-    def merge2Lists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        ret = ListNode(0)
-        cur = ret
+
+    def _merge(self, l1, l2):
+        head = cur = ListNode(0)
         
         while l1 and l2:
-            if l1.val < l2.val:
-                cur.next = ListNode(l1.val)
-                cur = cur.next
-                l1 = l1.next
-            else:
-                cur.next = ListNode(l2.val)
-                cur = cur.next
-                l2 = l2.next
-                
+            if l1.val <= l2.val: cur.next, l1 = l1, l1.next
+            else: cur.next, l2 = l2, l2.next
+            cur = cur.next
+        
         cur.next = l1 or l2
-                
-        return ret.next
+        return head.next
 ```
 
 # Java
