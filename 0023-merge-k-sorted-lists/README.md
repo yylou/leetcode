@@ -8,9 +8,9 @@
 # Python
 ```python3
 class Solution:
-    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         # (base case)
-        if len(lists) == 0: return None
+        if not lists: return None
         if len(lists) == 1: return lists[0]
         
         # ==================================================
@@ -18,28 +18,18 @@ class Solution:
         # ==================================================
         # time  : O(nlogk)
         # space : O(1)
-        # 
+        #
         # n is the total number of nodes in two linked lists
         # k is the number of linked lists
         
+        length = len(lists)
         size = 1
-        while size < len(lists):
-            for i in range(0, len(lists) - size, size * 2):
-                lists[i] = self._merge(lists[i], lists[i+size])
+        while size < length:
+            for i in range(0, length, size * 2):
+                if i + size < length: lists[i] = self._merge(lists[i], lists[i + size])
             size *= 2
-            
+        
         return lists[0]
-
-    def _merge(self, l1, l2):
-        head = cur = ListNode(0)
-        
-        while l1 and l2:
-            if l1.val <= l2.val: cur.next, l1 = l1, l1.next
-            else: cur.next, l2 = l2, l2.next
-            cur = cur.next
-        
-        cur.next = l1 or l2
-        return head.next
 ```
 
 # Java
