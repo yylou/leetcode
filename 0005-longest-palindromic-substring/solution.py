@@ -12,11 +12,11 @@ class Solution:
         
         maxLen, maxStr = 0, ''
         for i in range(len(s) - 1):
-            # ODD length (aabbdde -> [a'a'b]bdde, a[a'b'd], ..., aabb[d'd'e])
+            # ODD  length (aabbdde -> ['a']abbdde, a['a']bbdde, ..., aabbdd['e'])
             length, string = self.expand(s, i, i)
             if length >= maxLen: maxLen, maxStr = length, string
                 
-            # EVEN length (aabbdde -> [a'a']bbdde, a[a'b']bdde, ..., aabbd[d'e'])
+            # EVEN length (aabbdde -> ['a'a]bbdde, a['a'b]bdde, ..., aabbd['d'e])
             length, string = self.expand(s, i, i+1)
             if length >= maxLen: maxLen, maxStr = length, string
         
