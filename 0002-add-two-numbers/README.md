@@ -8,38 +8,32 @@
 # Python
 ```Python
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        cur   = ListNode()
-        ret   = cur
-        carry = 0
-        
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+
         # ==================================================
         #  Linked List + Math                              =
         # ==================================================
         # time  : O(max(n, m))
         # space : O(1)
+
+        ret = cur = ListNode(0)
         
+        carry = 0
         while l1 or l2:
-            if l1: 
-                num1 = l1.val
-                l1 = l1.next
-            else: 
-                num1 = 0
-                
-            if l2: 
-                num2 = l2.val
-                l2 = l2.next
-            else: 
-                num2 = 0
+            val1 = l1.val if l1 else 0
+            val2 = l2.val if l2 else 0
             
-            val      = num1 + num2 + carry
-            carry    = val // 10
-            cur.next = ListNode(val % 10)
-            cur      = cur.next
+            total = carry + val1 + val2
+            carry = total // 10
+            total %= 10
+            
+            cur.next = ListNode(total)
+            cur = cur.next
+            
+            l1 = l1.next if l1 else l1
+            l2 = l2.next if l2 else l2
         
-        # check carry to see if need to create extra node
-        if carry != 0: cur.next = ListNode(carry)
-            
+        if carry: cur.next = ListNode(carry)
         return ret.next
 ```
     
