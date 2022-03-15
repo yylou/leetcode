@@ -9,8 +9,6 @@
 ```Python
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        # (base case)
-        if len(s) < 2: return s
         
         # ==================================================
         #  Expand around Corner                            =
@@ -18,25 +16,24 @@ class Solution:
         # time  : O(n^2)
         # space : O(1)
         
-        self.ret = ''
-        self.maxLen = 0
+        # (base case)
+        if not s or len(s) == 1: return s
         
-        for i in range(len(s)):
-            # ODD length (aabbdde -> [a'a'b]bdde, a[a'b'd], ..., aabb[d'd'e])
-            self.expand(s, i, i)
-
-            # EVEN length (aabbdde -> [a'a']bbdde, a[a'b']bdde, ..., aabbd[d'e'])
-            self.expand(s, i, i + 1)
+        maxLen, maxStr = 0, ''
+        for i in range(len(s) - 1):
+            length, string = self.expand(s, i, i)
+            if length >= maxLen: maxLen, maxStr = length, string
+                
+            length, string = self.expand(s, i, i+1)
+            if length >= maxLen: maxLen, maxStr = length, string
+        
+        return maxStr
+        
+    def expand(self, s: str, l: int, r: int) -> str:
+        while l >= 0 and r < len(s) and s[l] == s[r]:
+            l, r = l-1, r+1
             
-        return self.ret
-    
-    def expand(self, s: str, l: int, r: int) -> None:
-        while l >=0 and r < len(s) and s[l] == s[r]:
-            if(r - l + 1) > self.maxLen:
-                self.ret = s[l:r+1]
-                self.maxLen = len(self.ret)
-            l -= 1
-            r += 1
+        return r - l + 1, s[l+1:r]
 ```
 
 ```Python
