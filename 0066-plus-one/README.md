@@ -8,25 +8,30 @@
 ```Python3
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
-        #: (edge case)
-        if len(digits) == 1: return [1, 0] if digits[0] == 9 else [digits[0] + 1]
-        
+                
+        """
         # ==================================================
-        #  Array + Math                                    =
+        #  [Array] Math                                    =
         # ==================================================
         # time  : O(n)
-        # space : O(1) 
+        # space : O(1)
+        """
+        
+        # (base case) Only one digit
+        if len(digits) == 1: return [1, 0] if digits[0] == 9 else [digits[0] + 1]
         
         carry = 1
-        for i in range( len(digits)-1, -1, -1 ):
-            digits[i] += carry
-            carry = digits[i] // 10
+        for i in range(len(digits) - 1, -1, -1):
+            total = digits[i] + carry
             
-            #: if carry == 0, return; otherwise, keep tracking and assign 0 to current element
-            if carry: digits[i] = 0
-            else: return digits
+            carry = total // 10
+            digits[i] = total % 10
             
-        return [1] + digits
+            # No need to further progagate
+            if not carry: return digits
+            
+        if carry: return [1] + digits
+        return digits
 ```
 
 # Java
@@ -34,7 +39,7 @@ class Solution:
 class Solution {
     /**
      * @time  : O(n)
-     * @space : O(n)
+     * @space : O(1)
      */
     public int[] plusOne(int[] digits) {
         int n = digits.length;
