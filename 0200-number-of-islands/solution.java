@@ -1,7 +1,7 @@
 class Solution {
     /**
-     * @time  : O(nm)
-     * @space : O(nm)
+     * @time  : O(mn)
+     * @space : O(mn)
      */
     
     char[][] map;
