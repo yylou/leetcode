@@ -16,7 +16,7 @@ class Solution:
         #  BFS                                             =
         # ==================================================
         # time  : O(mn)
-        # space : O(min(m,n))
+        # space : O(mn)
         
         x = len(grid[0])
         y = len(grid)
