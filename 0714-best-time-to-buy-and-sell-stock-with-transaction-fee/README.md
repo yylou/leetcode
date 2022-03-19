@@ -9,24 +9,27 @@
 ```Python
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
-        # (base case)
-        if len(prices) == 0 or len(prices) == 1: return 0
-
+        
+        """
         # ==================================================
-        #  Array + Dynamic Programming              (FSM)  =
+        #  [Array] DP                                      =
         # ==================================================
         # time  : O(n)
         # space : O(1)
+        """
         
-        hold, noHold = float('-inf'), 0
+        # (base case)
+        if len(prices) == 1: return 0
+        
+        hold, sell = float('-inf'), 0
         
         for price in prices:
-            preHold, preNoHold = hold, noHold
+            preHold, preSell = hold, sell
             
-            hold   = max(preHold,   preNoHold - price)
-            noHold = max(preNoHold, preHold   + price - fee)
+            hold = max(preHold, preSell - price)
+            sell = max(preSell, preHold + price - fee)
             
-        return noHold
+        return sell
 ```
 
 # Java
