@@ -9,14 +9,43 @@
 ```Python3
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        #  (base case)
-        if len(prices) == 1: return 0
         
+        """
         # ==================================================
-        #  Array + Dynamic Programming         (localMin)  =
+        #  [Array] DP                                      =
         # ==================================================
         # time  : O(n)
         # space : O(1)
+        """
+        
+        # (base case)
+        if len(prices) == 1: return 0
+        
+        hold, sell = float('-inf'), 0
+        
+        for price in prices:
+            preHold, preSell = hold, sell
+            
+            hold = max(preHold, 0 - price)
+            sell = max(preSell, preHold + price)
+            
+        return sell
+```
+
+```Python3
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        
+        """
+        # ==================================================
+        #  [Array] DP                          (localMin)  =
+        # ==================================================
+        # time  : O(n)
+        # space : O(1)
+        """
+ 
+        # (base case)
+        if len(prices) == 1: return 0
         
         localMin, maxProfit = float('inf'), float('-inf')
         for i in range(len(prices)):
@@ -31,15 +60,18 @@ class Solution:
 ```Python3
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        #  (base case)
-        if len(prices) == 1: return 0
         
+        """
         # ==================================================
-        #  Array + Dynamic Programming         (localMax)  =
+        #  [Array] DP                          (localMax)  =
         # ==================================================
         # time  : O(n)
         # space : O(1)
-        
+        """
+       
+        # (base case)
+        if len(prices) == 1: return 0
+
         localMax, maxProfit = float('-inf'), float('-inf')
         for i in range(len(prices)-1, -1, -1):
             if prices[i] > localMax: localMax = prices[i]
@@ -48,34 +80,6 @@ class Solution:
             if tmpProfit > maxProfit: maxProfit = tmpProfit
                 
         return maxProfit
-```
-
-```Python3
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        #  (base case)
-        if len(prices) == 1: return 0
-        
-        # ==================================================
-        #  Array + Dynamic Programming              (FSM)  =
-        # ==================================================
-        # time  : O(n)
-        # space : O(1)
-        
-        hold, noHold = float('-inf'), 0
-        
-        for price in prices:
-            preHold, preNoHold = hold, noHold
-            
-            #  HOLD    state - (1) no transaction in HOLD state    (2) BUY at NO HOLD state
-            #  [Note] NO HOLD state has no profit since only allow one transaction
-            hold   = max(preHold,   0         - price)
-            
-            #  NO HOLD state - (1) no transaction in NO HOLD state (2) SELL at HOLD state
-            noHold = max(preNoHold, preHold   + price)
-        
-        #  (HOLD state does not have MAX profit)
-        return noHold
 ```
 
 # Java
