@@ -20,7 +20,7 @@ class Solution:
             preRest = rest
 
             hold = max(preHold, preRest - price)
-            sell = max(preSell, preHold + price)
+            sell = preHold + price
             rest = max(preRest, preSell)
 
         return max(sell, rest)
