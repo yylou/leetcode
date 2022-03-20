@@ -1,23 +1,25 @@
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
-        # (base case)
-        if len(prices) == 0 or len(prices) == 1: return 0
 
+        """
         # ==================================================
-        #  Array + Dynamic Programming              (FSM)  =
+        #  [Array] DP                                      =
         # ==================================================
-        # time  : O(n*k)
+        # time  : O(nk)
         # space : O(k)
-        
-        # '+1' for day 0 initialization
+        """
+
+        # (base case)
+        if len(prices) == 1: return 0
+
         T = k + 1
-        hold, noHold = [float('-inf')] * T, [0] * T
-        
+        hold, sell = [float('-inf')] * T, [0] * T
+
         for price in prices:
             for i in range(1, T):
-                prevHold, prevNoHold = hold[i], noHold[i]
-                
-                hold[i]   = max(prevHold,   noHold[i-1] - price)
-                noHold[i] = max(prevNoHold, prevHold    + price)
-                
-        return noHold[-1]
+                preHold, preSell = hold[i], sell[i]
+
+                hold[i] = max(preHold, sell[i-1] - price)
+                sell[i] = max(preSell, preHold + price)
+
+        return max(sell)
